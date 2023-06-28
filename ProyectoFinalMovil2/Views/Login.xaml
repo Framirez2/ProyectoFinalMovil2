@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinalMovil2.Views.Login">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Image x:Name="loginimg" Margin="30,100,30,10" HorizontalOptions="Center" WidthRequest="100" HeightRequest="200" Source="usuario.png"></Image>
+
+
+            <Entry x:Name="nombres" Placeholder="Usuario" MaxLength="100" Margin="50,0,50,10" />
+
+            <Entry x:Name="apellidos" Placeholder="Contraseña" MaxLength="100" Margin="50,0,50,10"/>
+
+            <Label Text="Olvido su Contraseña?" HorizontalTextAlignment="End" TextColor="Green" FontSize="18" Margin="0,0,50,10"/>
+
+            <Button x:Name="btnlogin" Text="Ingresar" Clicked="btnlogin_Clicked" BackgroundColor="Green" Margin="30,0,30,10" TextColor="White"/>
+            <Button x:Name="btnregistrar" Text="Registrarse" Clicked="btnregistrar_Clicked" BackgroundColor="Green" Margin="30,0,30,10" TextColor="White"/>
+
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinalMovil2.Views.Profile">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image x:Name="userimg" Margin="30,80,30,10" HorizontalOptions="Center" WidthRequest="100" HeightRequest="200" Source="avatar.png"></Image>
+
+            <Label Margin="50,0,50,0">Nombre</Label>
+            <Entry x:Name="nombres" Placeholder="" MaxLength="100" Margin="50,0,50,10" />
+            <Label Margin="50,0,50,0">Descripción</Label>
+            <Entry x:Name="descripcion" Placeholder="" MaxLength="100" Margin="50,0,50,10" />
+            <Label Margin="50,0,50,0">Ubicación</Label>
+            <Entry x:Name="ubicacion" Placeholder="" MaxLength="100" Margin="50,0,50,10" />
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
