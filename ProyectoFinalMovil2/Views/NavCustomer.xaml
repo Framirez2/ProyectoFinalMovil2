@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoFinalMovil2.Views.NavCustomer"
              Title="Menu Clientas"
+             BackgroundColor="#FFFFFF"
+             Background="#FFFFFF"
              >
     <Grid>
         <Grid.RowDefinitions>
