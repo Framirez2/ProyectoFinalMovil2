@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoFinalMovil2.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -6,11 +7,12 @@ namespace ProyectoFinalMovil2
 {
     public partial class App : Application
     {
+        public static MasterDetailPage MasterDet { get; set; }
         public App()
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Views.Login());
+            MainPage = new NavigationPage(new CustomerMenu());
         }
 
         protected override void OnStart()

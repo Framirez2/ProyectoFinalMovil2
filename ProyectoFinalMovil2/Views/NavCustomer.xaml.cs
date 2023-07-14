@@ -9,12 +9,12 @@ using Xamarin.Forms.Xaml;
 
 namespace ProyectoFinalMovil2.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MenuTabs : TabbedPage
-    {
-        public MenuTabs ()
-        {
-            InitializeComponent();
-        }
-    }
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class NavCustomer : ContentPage
+	{
+		public NavCustomer ()
+		{
+			InitializeComponent ();
+		}
+	}
 }
