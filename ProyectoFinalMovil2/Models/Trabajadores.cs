@@ -10,6 +10,7 @@ namespace ProyectoFinalMovil2.Models
         public string Nombres { get; set; }
         public string Correo { get; set; }
         public string Contr { get; set; }
+        public string FotoPerfil { get; set; }
         public string Icono { get; set; }
         public string tipo_User { get; set; }
     }

@@ -18,5 +18,7 @@ namespace ProyectoFinalMovil2.Models
         public string Contrasena { get; set; }
 
         public string ImagenPerfil { get; set; }
+
+        public string Tipo_Usuario { get; set; }
     }
 }

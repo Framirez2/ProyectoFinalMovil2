@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProyectoFinalMovil2.Models
 {
-    class Resenas
+    public class Resenas
     {
         public string Id_Resena { get; set; }
         public string Id_Reservacion { get; set; }
