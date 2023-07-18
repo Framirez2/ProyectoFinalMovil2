@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProyectoFinalMovil2.Models
 {
-    class Categorias
+    public class Categorias
     {
         public string Id_Categoria { get; set; }
         public string Categoria { get; set; }

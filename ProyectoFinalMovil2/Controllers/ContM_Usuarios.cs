@@ -267,7 +267,7 @@ namespace ProyectoFinalMovil2.Controllers
                       // Establecemos las propiedades del objeto Trabajadores que se va a guardar.
                       // Utilizamos los valores pasados en el parámetro 'DatosTra' para establecer Nombres y FotoPerfil.
                       Nombres = DatosTra.Nombres,
-                      FotoPerfil = DatosTra.FotoPerfil
+                      Foto_Perfil = DatosTra.Foto_Perfil
                   });
         }
 
