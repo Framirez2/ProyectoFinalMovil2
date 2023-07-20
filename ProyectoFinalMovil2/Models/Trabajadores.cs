@@ -6,11 +6,12 @@ namespace ProyectoFinalMovil2.Models
 {
     public class Trabajadores
     {
-        public string id_t { get; set; }
+        public string Id_Trabajador { get; set; }
         public string Nombres { get; set; }
         public string Correo { get; set; }
-        public string Contr { get; set; }
-        public string Icono { get; set; }
-        public string tipo_User { get; set; }
+        public string Contra { get; set; }
+        public string Foto_Perfil { get; set; }
+       
+        public string Tipo_User { get; set; }
     }
 }
