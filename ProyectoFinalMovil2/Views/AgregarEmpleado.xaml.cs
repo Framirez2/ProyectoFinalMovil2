@@ -10,17 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace ProyectoFinalMovil2.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ReservacionesFinalizadas : ContentPage
+    public partial class AgregarEmpleado : ContentPage
     {
-        public ReservacionesFinalizadas()
+        public AgregarEmpleado()
         {
             InitializeComponent();
-        }
-
-        private void listReservaciones_ItemTapped(object sender, ItemTappedEventArgs e){
-        private void listReservaciones_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-
         }
     }
 }
