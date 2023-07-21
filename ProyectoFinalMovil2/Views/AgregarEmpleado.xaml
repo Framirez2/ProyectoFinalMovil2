@@ -4,9 +4,27 @@
              x:Class="ProyectoFinalMovil2.Views.AgregarEmpleado">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Image x:Name="imgFoto">
+
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                          NumberOfTapsRequired="1"/>
+                </Image.GestureRecognizers>
+                
+            </Image>
+            <StackLayout>
+                <Entry Placeholder="Nombre"
+                       x:Name="txtNames"/>
+                <Entry Placeholder="Correo Electronico"
+                       x:Name="txtEmail"/>
+                <Entry Placeholder="Contraseña"
+                       x:Name="txtPassword"/>
+                <Entry Placeholder="Repetir Contraseña"
+                       x:Name="txtRepeatPass"/>
+                <Button Text="Agregar Empleado"
+                        x:Name="btnAgr"
+                        Clicked="btnAgr_Clicked"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
