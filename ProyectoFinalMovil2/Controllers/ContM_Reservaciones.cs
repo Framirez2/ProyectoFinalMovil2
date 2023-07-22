@@ -108,7 +108,7 @@ namespace ProyectoFinalMovil2.Controllers
             return Lista2;
         }
 
-        public async Task<List<ReservacionesClientes>> GetListB(ReservacionesClientes Obtener_Horas)
+        public async Task<List<ReservacionesClientes>> GetListB(ReservacionesClientes Obtener_Horas, string NombreEstilista)
         {
             var Datos = (await FirebaseConnection.conexionFirebase
                 .Child("Reservaciones")

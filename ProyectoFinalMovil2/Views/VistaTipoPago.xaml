@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinalMovil2.Views.VistaTipoPago">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Label Text="Seleccione el tipo de Pago:" FontAttributes="Bold" Margin="0,30,0,100"
+               FontSize="Title" HorizontalTextAlignment="Center" TextColor="Black"/>
+
+            <Button 
+                 Margin="60,0,60,10" 
+                 Text="Pagar en Sitio" 
+                 TextColor="White" 
+                 BackgroundColor="#bc246c"
+                 CornerRadius="8"
+                 Clicked="Btn_PagarSitio"/>
+
+            <Button 
+                 Margin="60,7,60,10" 
+                 Text="Pagar Con Tarjeta" 
+                 TextColor="White" 
+                 BackgroundColor="#bc246c"
+                 CornerRadius="8"
+                 Clicked="Btn_PagarTarjeta"/>
+
+            <Label Text="Tarjetas Aceptables:" FontAttributes="Italic" Padding="20"
+               FontSize="Title" HorizontalTextAlignment="Center" TextColor="Black"/>
+
+            <ScrollView>
+                <Frame
+                    BackgroundColor="#f0f4ec">
+                    <StackLayout 
+                        HorizontalOptions="FillAndExpand" 
+                        Orientation="Horizontal">
+                        <Image 
+                            Source="drawable/Atlantida.png" 
+                            Aspect="Fill" 
+                            HeightRequest="70" 
+                            WidthRequest="120"/>
+                        <Image
+                            Source="drawable/Bac.png" 
+                            Aspect="Fill" 
+                            HeightRequest="70" 
+                            WidthRequest="120"
+                            />
+                        <Image
+                            Source="drawable/Banpais.png" 
+                            Aspect="Fill" 
+                            HeightRequest="70" 
+                            WidthRequest="120"
+                            />
+                    </StackLayout>
+                </Frame>
+            </ScrollView>
+            <ScrollView>
+                <Frame
+                    BackgroundColor="#f0f4ec">
+                    <StackLayout 
+                        HorizontalOptions="FillAndExpand" 
+                        Orientation="Horizontal">
+                        <Image 
+                            Source="drawable/Lafise.png" 
+                            Aspect="Fill" 
+                            HeightRequest="70" 
+                            WidthRequest="120"/>
+                        <Image
+                            Source="drawable/Davivienda.jpg" 
+                            Aspect="Fill" 
+                            HeightRequest="70" 
+                            WidthRequest="120"
+                            />
+                        <Image
+                            Source="drawable/Ficohsa.jpg" 
+                            Aspect="Fill" 
+                            HeightRequest="70" 
+                            WidthRequest="120"
+                            />
+                    </StackLayout>
+                </Frame>
+            </ScrollView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -139,7 +139,7 @@
                             <controls:Calendar x:Name="txtFechaReservacion" Padding="10,0,10,0" 
                                                Focused="txtFechaReservacion_Focused" DateClicked="txtFechaReservacion_DateClicked"
                                                StartDay="Monday"
-                                               StartDate="x:Static sys:DateTime.Now"
+                                               
                             SelectedBorderWidth="4" DisabledBorderColor="Black" />
                         </Frame>
                     </StackLayout>
