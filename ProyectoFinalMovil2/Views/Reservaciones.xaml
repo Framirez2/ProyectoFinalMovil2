@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProyectoFinalMovil2.Views.Reservaciones">
+             x:Class="ProyectoFinalMovil2.Views.Reservaciones"
+             xmlns:controls="clr-namespace:XamForms.Controls;assembly=XamForms.Controls.Calendar">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout>
@@ -26,25 +27,37 @@
                             TextColor="Black"
                             FontAttributes="Bold"
                             FontSize="24"/>
-                        <StackLayout
-                            Margin="0, 15, 0, 10">
+                        <StackLayout Margin="0,15,0,10">
+                            <!-- Estilo para la etiqueta de "Descripción del servicio" -->
                             <Label
                                 Text="Descripción del servicio"
                                 TextColor="Gray"
-                                FontSize="16"/>
+                                FontSize="16"
+                                FontAttributes="Bold" />
+
+                            <!-- Estilo para las etiquetas de descripción -->
                             <Label
                                 x:Name="txtDesc1"
                                 TextColor="Gray"
-                                FontSize="15"/>
+                                FontSize="15"
+                                Margin="0, 5, 0, 0"
+                                LineBreakMode="WordWrap" />
+
                             <Label
                                 x:Name="txtDesc2"
                                 TextColor="Gray"
-                                FontSize="15"/>
+                                FontSize="15"
+                                Margin="0, 5, 0, 0"
+                                LineBreakMode="WordWrap" />
+
                             <Label
                                 x:Name="txtDesc3"
                                 TextColor="Gray"
-                                FontSize="15"/>
+                                FontSize="15"
+                                Margin="0, 5, 0, 0"
+                                LineBreakMode="WordWrap" />
                         </StackLayout>
+
                     </StackLayout>
                     <StackLayout
                         Margin="0, 0, 0, 10"
@@ -118,16 +131,16 @@
                             Text="Seleccione la fecha de la reservación"
                             TextColor="Gray"
                             FontSize="16"/>
-                        <Frame
-                            Padding="6"
+                     
+                        <Frame Padding="6"
                             CornerRadius="6"
                             BackgroundColor="White">
-                            <DatePicker
-                                x:Name="txtFechaReservacion"
-                                DateSelected="txtFechaReservacion_DateSelected"
-                                Focused="txtFechaReservacion_Focused"
-                                TextColor="Black"
-                                Format="D"/>
+
+                            <controls:Calendar x:Name="txtFechaReservacion" Padding="10,0,10,0" 
+                                               Focused="txtFechaReservacion_Focused" DateClicked="txtFechaReservacion_DateClicked"
+                                               StartDay="Monday"
+                                               StartDate="x:Static sys:DateTime.Now"
+                            SelectedBorderWidth="4" DisabledBorderColor="Black" />
                         </Frame>
                     </StackLayout>
                     <StackLayout
