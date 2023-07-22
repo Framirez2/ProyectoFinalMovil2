@@ -17,9 +17,13 @@ namespace ProyectoFinalMovil2.Views
             InitializeComponent();
         }
 
+<<<<<<< HEAD
         private void listReservaciones_ItemTapped(object sender, ItemTappedEventArgs e) {
            /* private void listReservaciones_ItemTapped(object sender, ItemTappedEventArgs e)
             {
+=======
+        private void listReservaciones_ItemTapped(object sender, ItemTappedEventArgs e){
+>>>>>>> 5ef5052a43663ba802be669030146870109cf3db
 
             }*/
         }
