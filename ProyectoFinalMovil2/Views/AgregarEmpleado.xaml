@@ -4,14 +4,21 @@
              x:Class="ProyectoFinalMovil2.Views.AgregarEmpleado">
     <ContentPage.Content>
         <StackLayout>
-            <Image x:Name="imgFoto">
+            <StackLayout>
+                <Image x:Name="imgFoto"
+                       Source="avatar.png">
 
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
                                           NumberOfTapsRequired="1"/>
-                </Image.GestureRecognizers>
-                
-            </Image>
+                    </Image.GestureRecognizers>
+
+                </Image>
+                <StackLayout>
+                    <ImageButton/>
+                    <ImageButton/>
+                </StackLayout>
+            </StackLayout>
             <StackLayout>
                 <Entry Placeholder="Nombre"
                        x:Name="txtNames"/>
