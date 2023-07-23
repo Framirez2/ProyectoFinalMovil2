@@ -16,5 +16,21 @@ namespace ProyectoFinalMovil2.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private async void btnpagar_Clicked(object sender, EventArgs e)
+        {
+			String Tarjeta = txttarjeta.Text;
+			String CVV = txtcvv.Text;
+			String Expiracion = txtexpiracion.Text;
+
+			if(Tarjeta == null || CVV == null || Expiracion == null)
+			{
+				await DisplayAlert("Aviso", "Hay campos vacios", "OK");
+			}
+			else
+			{
+                await DisplayAlert("Aviso", "El pago se hizo correctamente", "OK");
+            }
+        }
+    }
 }
