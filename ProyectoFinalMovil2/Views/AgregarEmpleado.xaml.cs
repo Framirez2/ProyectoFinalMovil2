@@ -13,25 +13,33 @@ namespace ProyectoFinalMovil2.Views{
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AgregarEmpleado : ContentPage{
         MediaFile file;
+        private List<string> types;
 
         public AgregarEmpleado(){
             InitializeComponent();
+            fillList();
+            cmbBoxType.ItemsSource = types;
         }
 
         private void btnAgr_Clicked(object sender, EventArgs e){
+            //if (cmbBoxType.SelectedIndex == 0)  DisplayAlert("alerta", "valor: " + cmbBoxType.SelectedItem.ToString(), "Ok");
             if (file != null){
                 if (!string.IsNullOrEmpty(txtNames.Text)){
                     if (!string.IsNullOrEmpty(txtEmail.Text)){
                         if (!string.IsNullOrEmpty(txtPassword.Text)){
                             if (!string.IsNullOrEmpty(txtRepeatPass.Text)){
-                                if(txtPassword.Text == txtRepeatPass.Text){
-                                    if(txtEmail.Text.Contains("@") && txtEmail.Text.Contains(".")){
-
+                                if (cmbBoxType.SelectedIndex != -1) {
+                                    if (txtPassword.Text == txtRepeatPass.Text) {
+                                        if (txtEmail.Text.Contains("@") && txtEmail.Text.Contains(".")){
+                                            DisplayAlert("Alerta","Todo Ok", "OK");
+                                        } else {
+                                            //el email no es correcto
+                                        }
                                     } else {
-                                        //el email no es correcto
+                                        //las contraseñas no son iguales
                                     }
                                 } else {
-                                    //las contraseñas no son iguales
+                                    //si no se selecciono nada en el comboBox
                                 }
                             } else {
                                 //no repitio la contraseña
@@ -114,5 +122,11 @@ namespace ProyectoFinalMovil2.Views{
             if (file == null) { return; }
             else imgFoto.Source = ImageSource.FromStream(() => { return file.GetStream(); });
         }*/
+
+        private void fillList(){
+            types = new List<string>();
+            types.Add("Empleado");
+            types.Add("admin");
+        }
     }
 }

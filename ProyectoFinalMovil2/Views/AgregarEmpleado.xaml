@@ -48,6 +48,8 @@
                 <Entry Placeholder="Repetir Contraseña"
                        x:Name="txtRepeatPass"
                        IsPassword="True"/>
+                <Picker x:Name="cmbBoxType"
+                        Title="Seleccione el rol"/>
                 <Button Text="Agregar Empleado"
                         x:Name="btnAgr"
                         Clicked="btnAgr_Clicked"/>
