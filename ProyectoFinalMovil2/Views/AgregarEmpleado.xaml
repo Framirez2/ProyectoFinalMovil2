@@ -8,15 +8,22 @@
                 <Image x:Name="imgFoto"
                        Source="avatar.png">
 
-                    <Image.GestureRecognizers>
+                    <!--<Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
                                           NumberOfTapsRequired="1"/>
-                    </Image.GestureRecognizers>
+                    </Image.GestureRecognizers>-->
 
                 </Image>
-                <StackLayout>
-                    <ImageButton/>
-                    <ImageButton/>
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="Center">
+                    <Button Text="Capturar Foto"
+                            x:Name="btnTake"
+                            Clicked="btnTake_Clicked"/>
+                    <Button Text="Escoger Foto"
+                            x:Name="btnSelect"
+                            Clicked="btnSelect_Clicked"/>
+                    <!--<ImageButton x:name="btnTake"/>
+                    <ImageButton x:name="btnSelect"/>-->
                 </StackLayout>
             </StackLayout>
             <StackLayout>
