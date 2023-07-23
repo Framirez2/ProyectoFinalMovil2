@@ -6,7 +6,9 @@
         <StackLayout>
             <StackLayout>
                 <Image x:Name="imgFoto"
-                       Source="avatar.png">
+                       Source="avatar.png"
+                       WidthRequest="200"
+                       HeightRequest="200">
 
                     <!--<Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
@@ -16,25 +18,36 @@
                 </Image>
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Center">
-                    <Button Text="Capturar Foto"
+                    <!--<Button Text="Capturar Foto"
                             x:Name="btnTake"
                             Clicked="btnTake_Clicked"/>
                     <Button Text="Escoger Foto"
                             x:Name="btnSelect"
-                            Clicked="btnSelect_Clicked"/>
-                    <!--<ImageButton x:name="btnTake"/>
-                    <ImageButton x:name="btnSelect"/>-->
+                            Clicked="btnSelect_Clicked"/>-->
+                    <ImageButton x:Name="btnTake"
+                                 Source="shoot.png"
+                                 Clicked="btnTake_Clicked"
+                                 WidthRequest="100"
+                                 HeightRequest="100"/>
+                    <ImageButton x:Name="btnSelect"
+                                 Source="select.png"
+                                 Clicked="btnSelect_Clicked"
+                                 WidthRequest="100"
+                                 HeightRequest="100"/>
                 </StackLayout>
             </StackLayout>
             <StackLayout>
                 <Entry Placeholder="Nombre"
                        x:Name="txtNames"/>
                 <Entry Placeholder="Correo Electronico"
-                       x:Name="txtEmail"/>
+                       x:Name="txtEmail"
+                       Keyboard="Email"/>
                 <Entry Placeholder="Contraseña"
-                       x:Name="txtPassword"/>
+                       x:Name="txtPassword"
+                       IsPassword="True"/>
                 <Entry Placeholder="Repetir Contraseña"
-                       x:Name="txtRepeatPass"/>
+                       x:Name="txtRepeatPass"
+                       IsPassword="True"/>
                 <Button Text="Agregar Empleado"
                         x:Name="btnAgr"
                         Clicked="btnAgr_Clicked"/>

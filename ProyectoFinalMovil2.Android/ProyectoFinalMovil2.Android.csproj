@@ -121,11 +121,6 @@
     <AndroidResource Include="Resources\drawable\usuario.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResourceAnalysisConfig Include="Resources\xml\file_paths.xml">
-      <SubType>Designer</SubType>
-    </AndroidResourceAnalysisConfig>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\manicure.jpeg" />
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +131,15 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\acrilicas.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\xml\file_paths.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\shoot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\select.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

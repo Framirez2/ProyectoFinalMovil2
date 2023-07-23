@@ -1,5 +1,6 @@
 ﻿using ProyectoFinalMovil2.Views;
 using System;
+using System.Runtime.InteropServices;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,7 +13,9 @@ namespace ProyectoFinalMovil2
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new CustomerMenu());
+            //MainPage = new NavigationPage(new CustomerMenu());
+
+            MainPage = new NavigationPage(new AgregarEmpleado());
         }
 
         protected override void OnStart()
