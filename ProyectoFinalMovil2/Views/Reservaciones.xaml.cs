@@ -270,8 +270,9 @@ namespace ProyectoFinalMovil2.Views
             // Verificar si el horario de reservación (HoraReservacion) está vacío o nulo.
             if (string.IsNullOrEmpty(HoraReservacion))
             {
+                await DisplayAlert("Aviso", "Falta Hora Reservacion", "OK");
                 // Si el horario de reservación está vacío o nulo, redirigir al usuario a la vista de pagos (VistaPagos) y salir del método.
-                Application.Current.MainPage = new NavigationPage(new VistaPagos());
+                //Application.Current.MainPage = new NavigationPage(new VistaPagos());
                 return;
             }
 

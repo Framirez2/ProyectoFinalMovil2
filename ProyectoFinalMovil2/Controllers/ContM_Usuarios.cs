@@ -20,29 +20,6 @@ namespace ProyectoFinalMovil2.Controllers
         string Rutafoto;
         string IdUsuario_Cliente;
 
-
-        /*public async Task<List<Usuarios>> VerUsuarios()
-        {
-            var data = await FirebaseConnection.conexionFirebase
-                .Child("Usuarios")
-                .OrderByKey()
-                .OnceAsync<Usuarios>();
-
-            foreach (var pa in data)
-            {
-                Usuarios parametros = new Usuarios();
-                parametros.Id_User = pa.Key;
-                parametros.Nombres = pa.Object.Nombres;
-                parametros.Apellidos = pa.Object.Apellidos;
-                parametros.Contrasena = pa.Object.Contrasena;
-                parametros.ImagenPerfil = pa.Object.ImagenPerfil;
-                parametros.Correo = pa.Object.Correo;
-                parametros.Id_User_Cliente = pa.Object.Id_User_Cliente;
-                Usuarios.Add(parametros);
-            }
-            return Usuarios;
-        }*/
-
         public async Task<List<Usuarios>> VerUsuarios()
         {
             var data = await FirebaseConnection.conexionFirebase
