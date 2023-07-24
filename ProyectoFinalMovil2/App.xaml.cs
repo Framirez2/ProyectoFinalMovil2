@@ -5,13 +5,14 @@ namespace ProyectoFinalMovil2
 {
     public partial class App : Application
     {
+        [System.Obsolete]
         public static MasterDetailPage MasterDet { get; set; }
         public App()
         {
             InitializeComponent();
 
 
-            MainPage = new NavigationPage(new LoginPruebas());
+            //MainPage = new NavigationPage(new LoginPruebas());
 
             //MainPage = new NavigationPage(new CustomerMenu());
 

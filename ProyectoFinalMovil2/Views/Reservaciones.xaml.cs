@@ -181,7 +181,7 @@ namespace ProyectoFinalMovil2.Views
             string Hour;
             ContM_Reservaciones Funcion = new ContM_Reservaciones();
             ReservacionesClientes GetHours = new ReservacionesClientes();
-            GetHours.Fecha_Reservacion = Convert.ToString(txtFechaReservacion);
+            GetHours.Fecha_Reservacion = Convert.ToString(TxtFechaReservacion);
             GetHours.Nombre_Estilisita = NombreEstilista;
             var HoraBase = await Funcion.GetListB(GetHours, NombreEstilista);
 
