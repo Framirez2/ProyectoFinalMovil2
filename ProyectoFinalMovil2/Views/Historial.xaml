@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             x:Class="ProyectoFinalMovil2.Views.Historial"
+             Title="HISTORIAL RESERVACIONES">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="lstGeneral"
+          ItemTapped="lstGeneral_SelectionChanged"
+          SeparatorVisibility="None"
+          BackgroundColor="#F7F7F7"
+          HasUnevenRows="True">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <SwipeView>
+                                <!-- Resto del código del SwipeView se mantiene igual -->
+
+                                <!-- Modificamos el Grid dentro del ViewCell -->
+                                <Grid Padding="10"
+                          Margin="10,5"
+                          BackgroundColor="White">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Etiquetas para Nombre y Valor de cada dato -->
+                                    <Label Grid.Row="0"
+                               Grid.Column="0"
+                               Text="Nombre:"
+                               FontSize="16"
+                               TextColor="#333333"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start"
+                               Margin="5" />
+
+                                    <Label Grid.Row="0"
+                               Grid.Column="1"
+                               Grid.ColumnSpan="3"
+                               Text="{Binding Nombre_Usuario}"
+                               FontSize="16"
+                               TextColor="#333333"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start"
+                               Margin="5" />
+
+                                    <Label Grid.Row="1"
+                               Grid.Column="0"
+                               Text="Hora:"
+                               FontSize="16"
+                               TextColor="#333333"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start"
+                               Margin="5" />
+
+                                    <Label Grid.Row="1"
+                               Grid.Column="1"
+                               Text="{Binding Hora_Reservacion}"
+                               FontSize="16"
+                               TextColor="#333333"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start"
+                               Margin="5" />
+
+                                    <Label Grid.Row="1"
+                               Grid.Column="2"
+                               Text="Fecha:"
+                               FontSize="16"
+                               TextColor="#333333"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start"
+                               Margin="5" />
+
+                                    <Label Grid.Row="1"
+                               Grid.Column="3"
+                               Text="{Binding Fecha_Reservacion}"
+                               FontSize="16"
+                               TextColor="#333333"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start"
+                               Margin="5" />
+
+                                    <Label Grid.Row="2"
+                               Grid.Column="0"
+                               Text="Estilista:"
+                               FontSize="16"
+                               TextColor="#333333"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start"
+                               Margin="5" />
+
+                                    <Label Grid.Row="2"
+                               Grid.Column="1"
+                               Text="{Binding Nombre_Estilisita}"
+                               FontSize="16"
+                               TextColor="#333333"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start"
+                               Margin="5" />
+
+                                    <Label Grid.Row="2"
+                               Grid.Column="2"
+                               Text="Estado:"
+                               FontSize="16"
+                               TextColor="#333333"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start"
+                               Margin="5" />
+
+                                    <Label Grid.Row="2"
+                               Grid.Column="3"
+                               Text="{Binding Estado}"
+                               FontSize="16"
+                               TextColor="#333333"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start"
+                               Margin="5" />
+                                </Grid>
+                            </SwipeView>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

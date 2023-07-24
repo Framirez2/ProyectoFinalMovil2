@@ -19,8 +19,8 @@
             <ColumnDefinition Width=".5*"/>
         </Grid.ColumnDefinitions>
 
-        <Button Text="INICIO" FontSize="20" Grid.Column="1" Grid.Row="0"/>
-        <Button Text="INICIO" FontSize="20" Grid.Column="1" Grid.Row="1"/>
+        <Button Text="INICIO" ImageSource="home.png" Clicked="Button_Inicio" FontSize="20" Grid.Column="1" Grid.Row="0"/>
+        <Button Text="HISTORIAL" ImageSource="history.png" Clicked="Button_Historial" FontSize="20" Grid.Column="1" Grid.Row="1"/>
         <Button Text="INICIO" FontSize="20" Grid.Column="1" Grid.Row="2"/>
         <Button Text="INICIO" FontSize="20" Grid.Column="1" Grid.Row="3"/>
         

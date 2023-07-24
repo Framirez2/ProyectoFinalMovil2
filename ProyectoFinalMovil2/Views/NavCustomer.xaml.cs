@@ -16,5 +16,15 @@ namespace ProyectoFinalMovil2.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private async void Button_Inicio(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CategoriesServices());
+        }
+
+        private async void Button_Historial(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Historial());
+        }
+    }
 }

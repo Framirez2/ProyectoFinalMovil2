@@ -11,8 +11,6 @@ namespace ProyectoFinalMovil2.Models
 
         public string Nombres { get; set; }
 
-        public string Apellidos { get; set; }
-
         public string Correo { get; set; }
 
         public string Contrasena { get; set; }

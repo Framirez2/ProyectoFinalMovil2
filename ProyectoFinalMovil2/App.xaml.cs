@@ -12,7 +12,7 @@ namespace ProyectoFinalMovil2
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new CustomerMenu());
+            MainPage = new NavigationPage(new LoginPruebas());
         }
 
         protected override void OnStart()

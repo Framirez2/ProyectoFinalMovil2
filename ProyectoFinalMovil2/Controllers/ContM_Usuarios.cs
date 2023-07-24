@@ -23,7 +23,7 @@ namespace ProyectoFinalMovil2.Controllers
         public async Task<List<Usuarios>> VerUsuarios()
         {
             var data = await FirebaseConnection.conexionFirebase
-                .Child("Usuarios")
+                .Child("UsuariosClientes")
                 .OrderByKey()
                 .OnceAsync<Usuarios>();
 
@@ -31,7 +31,6 @@ namespace ProyectoFinalMovil2.Controllers
             {
                 Id_User = pa.Key,
                 Nombres = pa.Object.Nombres,
-                Apellidos = pa.Object.Apellidos,
                 Contrasena = pa.Object.Contrasena,
                 ImagenPerfil = pa.Object.ImagenPerfil,
                 Correo = pa.Object.Correo,
@@ -64,7 +63,7 @@ namespace ProyectoFinalMovil2.Controllers
         public async Task<string> InsertarUsuario(Usuarios parametros)
         {
             var data = await FirebaseConnection.conexionFirebase
-                .Child("Usuarios")
+                .Child("UsuariosClientes")
                 .PostAsync(parametros);
 
             return data.Object?.Id_User; // Suponiendo que la propiedad Id_User contiene el ID del usuario
@@ -85,7 +84,7 @@ namespace ProyectoFinalMovil2.Controllers
         {
             var storage = new FirebaseStorage("mov2nailbarfirebase.appspot.com");
 
-            var imagenPath = $"Usuarios/{Idusuarios}.png";
+            var imagenPath = $"UsuariosClientes/{Idusuarios}.png";
             var dataAlmacenamiento = await storage
                 .Child(imagenPath)
                 .PutAsync(ImagenStream);
@@ -129,7 +128,6 @@ namespace ProyectoFinalMovil2.Controllers
                     Id_User_Cliente = parametros.Id_User_Cliente,
                     Id_User = parametros.Id_User,
                     Nombres = parametros.Nombres,
-                    Apellidos = parametros.Apellidos,
                     Contrasena = parametros.Contrasena,
                     ImagenPerfil = parametros.ImagenPerfil,
                     Correo = parametros.Correo,
@@ -137,7 +135,7 @@ namespace ProyectoFinalMovil2.Controllers
                 };
 
                 await FirebaseConnection.conexionFirebase
-                    .Child("Usuarios")
+                    .Child("UsuariosClientes")
                     .Child(obtenerData.Key)
                     .PutAsync(usuarioActualizado);
             }
@@ -170,7 +168,7 @@ namespace ProyectoFinalMovil2.Controllers
 
                 // Eliminar el usuario de la base de datos de Firebase
                 await FirebaseConnection.conexionFirebase
-                    .Child("Usuarios")
+                    .Child("UsuariosClientes")
                     .Child(Cliente_Id)
                     .DeleteAsync();
 
@@ -228,7 +226,7 @@ namespace ProyectoFinalMovil2.Controllers
         {
             var storage = new FirebaseStorage("mov2nailbarfirebase.appspot.com");
 
-            var imagenPath = $"Usuarios/{Nombre}";
+            var imagenPath = $"UsuariosClientes/{Nombre}";
             await storage
                 .Child(imagenPath)
                 .DeleteAsync();
@@ -265,7 +263,7 @@ namespace ProyectoFinalMovil2.Controllers
         public async Task<List<Usuarios>> GetDataUser(Usuarios Param)
         {
             var data = (await FirebaseConnection.conexionFirebase
-                .Child("Usuarios")
+                .Child("UsuariosClientes")
                 .OrderByKey()
                 .OnceAsync<Usuarios>()).Where(a => a.Object.Id_User == Param.Id_User);
             foreach (var pa in data)
@@ -284,7 +282,7 @@ namespace ProyectoFinalMovil2.Controllers
         public async Task<List<Usuarios>> GetDataMail(Usuarios Param)
         {
             var data = (await FirebaseConnection.conexionFirebase
-                .Child("Usuarios")
+                .Child("UsuariosClientes")
                 .OrderByKey()
                 .OnceAsync<Usuarios>()).Where(a => a.Object.Id_User == Param.Id_User);
             foreach (var pa in data)
@@ -299,7 +297,7 @@ namespace ProyectoFinalMovil2.Controllers
         public async Task<List<Usuarios>> GetDataMail1(Usuarios Param)
         {
             var data = (await FirebaseConnection.conexionFirebase
-                .Child("Usuarios")
+                .Child("UsuariosClientes")
                 .OrderByKey()
                 .OnceAsync<Usuarios>()).Where(a => a.Object.Correo == Param.Correo);
             foreach (var pa in data)
@@ -314,7 +312,7 @@ namespace ProyectoFinalMovil2.Controllers
         public async Task<List<Usuarios>> GetDataType(Usuarios Param)
         {
             var data = (await FirebaseConnection.conexionFirebase
-                .Child("Usuarios")
+                .Child("UsuariosClientes")
                 .OrderByKey()
                 .OnceAsync<Usuarios>()).Where(a => a.Object.Id_User_Cliente == Param.Id_User_Cliente);
             foreach (var rdr in data)
@@ -329,7 +327,7 @@ namespace ProyectoFinalMovil2.Controllers
         public async Task<List<Usuarios>> GetDataProfile(Usuarios Param)
         {
             var data = (await FirebaseConnection.conexionFirebase
-                .Child("Usuarios")
+                .Child("UsuariosClientes")
                 .OrderByKey()
                 .OnceAsync<Usuarios>()).Where(a => a.Object.Id_User == Param.Id_User);
             foreach (var pa in data)
@@ -337,7 +335,6 @@ namespace ProyectoFinalMovil2.Controllers
                 Param.Id_User = pa.Object.Id_User;
                 Param.Id_User_Cliente = pa.Object.Id_User_Cliente;
                 Param.Nombres = pa.Object.Nombres;
-                Param.Apellidos = pa.Object.Apellidos;
                 Param.Contrasena = pa.Object.Contrasena;
                 Param.ImagenPerfil = pa.Object.ImagenPerfil;
                 Param.Correo = pa.Object.Correo;
@@ -389,7 +386,7 @@ namespace ProyectoFinalMovil2.Controllers
         public async Task<List<Usuarios>> GetAdmin(Usuarios Param)
         {
             var data = (await FirebaseConnection.conexionFirebase
-                .Child("Usuarios")
+                .Child("UsuariosClientes")
                 .OrderByKey()
                 .OnceAsync<Usuarios>()).Where(a => a.Object.Id_User == Param.Id_User);
 
