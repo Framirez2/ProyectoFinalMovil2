@@ -139,7 +139,7 @@
     <AndroidResource Include="Resources\drawable\acrilicas.jpeg" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
+
     <AndroidResource Include="Resources\drawable\home.png" />
   </ItemGroup>
   <ItemGroup>
@@ -158,7 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\select.png" />
->>>>>>> def12d30b885034fb4bcffbe6be4ed30cf4a28da
+
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
