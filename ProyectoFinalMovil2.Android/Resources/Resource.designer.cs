@@ -17462,6 +17462,7 @@ namespace ProyectoFinalMovil2.Droid
 			public const int notify_panel_notification_icon_bg = 2131165351;
 			
 			// aapt resource value: 0x7F0700A8
+<<<<<<< HEAD
 			public const int pedicure = 2131165352;
 			
 			// aapt resource value: 0x7F0700A9
@@ -17484,6 +17485,24 @@ namespace ProyectoFinalMovil2.Droid
 			
 			// aapt resource value: 0x7F0700AF
 			public const int usuario = 2131165359;
+=======
+			public const int select = 2131165352;
+			
+			// aapt resource value: 0x7F0700A9
+			public const int shoot = 2131165353;
+			
+			// aapt resource value: 0x7F0700AA
+			public const int test_custom_background = 2131165354;
+			
+			// aapt resource value: 0x7F0700AB
+			public const int tooltip_frame_dark = 2131165355;
+			
+			// aapt resource value: 0x7F0700AC
+			public const int tooltip_frame_light = 2131165356;
+			
+			// aapt resource value: 0x7F0700AD
+			public const int usuario = 2131165357;
+>>>>>>> def12d30b885034fb4bcffbe6be4ed30cf4a28da
 			
 			static Drawable()
 			{
@@ -30555,25 +30574,28 @@ namespace ProyectoFinalMovil2.Droid
 		{
 			
 			// aapt resource value: 0x7F110000
-			public const int image_share_filepaths = 2131820544;
+			public const int file_paths = 2131820544;
 			
 			// aapt resource value: 0x7F110001
-			public const int standalone_badge = 2131820545;
+			public const int image_share_filepaths = 2131820545;
 			
 			// aapt resource value: 0x7F110002
-			public const int standalone_badge_gravity_bottom_end = 2131820546;
+			public const int standalone_badge = 2131820546;
 			
 			// aapt resource value: 0x7F110003
-			public const int standalone_badge_gravity_bottom_start = 2131820547;
+			public const int standalone_badge_gravity_bottom_end = 2131820547;
 			
 			// aapt resource value: 0x7F110004
-			public const int standalone_badge_gravity_top_start = 2131820548;
+			public const int standalone_badge_gravity_bottom_start = 2131820548;
 			
 			// aapt resource value: 0x7F110005
-			public const int standalone_badge_offset = 2131820549;
+			public const int standalone_badge_gravity_top_start = 2131820549;
 			
 			// aapt resource value: 0x7F110006
-			public const int xamarin_essentials_fileprovider_file_paths = 2131820550;
+			public const int standalone_badge_offset = 2131820550;
+			
+			// aapt resource value: 0x7F110007
+			public const int xamarin_essentials_fileprovider_file_paths = 2131820551;
 			
 			static Xml()
 			{
