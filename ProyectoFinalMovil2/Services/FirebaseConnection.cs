@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Firebase.Database;
+﻿using Firebase.Database;
 
 namespace ProyectoFinalMovil2.Services
 {

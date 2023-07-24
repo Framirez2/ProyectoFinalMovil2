@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ProyectoFinalMovil2.Models
+﻿namespace ProyectoFinalMovil2.Models
 {
     public class Resenas
     {

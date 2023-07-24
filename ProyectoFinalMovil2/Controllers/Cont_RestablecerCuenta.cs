@@ -1,8 +1,6 @@
 ﻿using Firebase.Auth;
 using ProyectoFinalMovil2.Services;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ProyectoFinalMovil2.Controllers

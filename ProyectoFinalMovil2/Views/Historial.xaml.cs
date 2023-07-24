@@ -15,10 +15,10 @@ namespace ProyectoFinalMovil2.Views
     public partial class Historial : ContentPage
     {
         Usuarios DatosUser = new Usuarios();
-        string Id_User= "JPX43ekxdUOdJDC9cW3K50NNBcX2";
-        string Nombre_Estilista= "Ana";
-        string Fecha= "23/7/2023";
-        string Tipo_User= "Cliente";
+        string Id_User = "JPX43ekxdUOdJDC9cW3K50NNBcX2";
+        string Nombre_Estilista = "Ana";
+        string Fecha = "23/7/2023";
+        string Tipo_User = "Cliente";
         public Historial()
         {
             InitializeComponent();
@@ -42,9 +42,9 @@ namespace ProyectoFinalMovil2.Views
 
                 await validarTipoUser();
             }
-            catch(Exception)
+            catch (Exception)
             {
-                await DisplayAlert("Aviso", "La sesion ha expirado","OK");
+                await DisplayAlert("Aviso", "La sesion ha expirado", "OK");
             }
         }
 
@@ -109,59 +109,59 @@ namespace ProyectoFinalMovil2.Views
         }
 
         private async Task validarTipoUser()
-         {
-             ContM_Usuarios funcion = new ContM_Usuarios();
-             Usuarios parametro = new Usuarios();
-             parametro.Id_User = Id_User;
-             var Datos = await funcion.GetAdmin(parametro);
+        {
+            ContM_Usuarios funcion = new ContM_Usuarios();
+            Usuarios parametro = new Usuarios();
+            parametro.Id_User = Id_User;
+            var Datos = await funcion.GetAdmin(parametro);
 
-             foreach (var a in Datos)
-             {
-                 Tipo_User = a.Tipo_Usuario;
-                 Nombre_Estilista = a.Nombres;
-             }
+            foreach (var a in Datos)
+            {
+                Tipo_User = a.Tipo_Usuario;
+                Nombre_Estilista = a.Nombres;
+            }
 
-             Fecha = DateTime.Now.ToString("d/M/yyyy");
+            Fecha = DateTime.Now.ToString("d/M/yyyy");
 
-             if (Tipo_User == "Cliente")
-             {
-                 ContM_Reservaciones Consulta = new ContM_Reservaciones();
-                 ReservacionesClientes Param3 = new ReservacionesClientes();
-                 Param3.Id_Cliente = Id_User;
-                 lstGeneral.ItemsSource = await Consulta.GetDatReserva(Param3);
+            if (Tipo_User == "Cliente")
+            {
+                ContM_Reservaciones Consulta = new ContM_Reservaciones();
+                ReservacionesClientes Param3 = new ReservacionesClientes();
+                Param3.Id_Cliente = Id_User;
+                lstGeneral.ItemsSource = await Consulta.GetDatReserva(Param3);
 
-                 ContM_Reservaciones Consulta2 = new ContM_Reservaciones();
-                 ReservacionesClientes Param2 = new ReservacionesClientes();
-                 Param2.Id_Cliente = Id_User;
-                 Param2.Fecha_Reservacion = Fecha;
-             }
-             else if (Tipo_User == "admin")
-             {
-                 string FechaA = DateTime.Now.ToString("d/M/yyyy");
+                ContM_Reservaciones Consulta2 = new ContM_Reservaciones();
+                ReservacionesClientes Param2 = new ReservacionesClientes();
+                Param2.Id_Cliente = Id_User;
+                Param2.Fecha_Reservacion = Fecha;
+            }
+            else if (Tipo_User == "admin")
+            {
+                string FechaA = DateTime.Now.ToString("d/M/yyyy");
 
-                 ContM_Reservaciones Consulta = new ContM_Reservaciones();
-                 ContM_Reservaciones Consulta2 = new ContM_Reservaciones();
-                 ReservacionesClientes Param1 = new ReservacionesClientes();
-                 Param1.Fecha_Reservacion = FechaA;
+                ContM_Reservaciones Consulta = new ContM_Reservaciones();
+                ContM_Reservaciones Consulta2 = new ContM_Reservaciones();
+                ReservacionesClientes Param1 = new ReservacionesClientes();
+                Param1.Fecha_Reservacion = FechaA;
 
-                 lstGeneral.ItemsSource = await Consulta.ObtenerReservaciones(Param1);
-             }
-             else if (Tipo_User == "Empleado")
-             {
-                 string Fech = DateTime.Now.ToString("d/M/yyyy");
+                lstGeneral.ItemsSource = await Consulta.ObtenerReservaciones(Param1);
+            }
+            else if (Tipo_User == "Empleado")
+            {
+                string Fech = DateTime.Now.ToString("d/M/yyyy");
 
-                 ContM_Reservaciones Consulta = new ContM_Reservaciones();
-                 ContM_Reservaciones Consulta2 = new ContM_Reservaciones();
-                 ReservacionesClientes Param1 = new ReservacionesClientes();
-                 Param1.Fecha_Reservacion = Fech;
-                 Param1.Estado = "Pendiente";
-                 Param1.Nombre_Estilisita = Nombre_Estilista;
+                ContM_Reservaciones Consulta = new ContM_Reservaciones();
+                ContM_Reservaciones Consulta2 = new ContM_Reservaciones();
+                ReservacionesClientes Param1 = new ReservacionesClientes();
+                Param1.Fecha_Reservacion = Fech;
+                Param1.Estado = "Pendiente";
+                Param1.Nombre_Estilisita = Nombre_Estilista;
 
-                 lstGeneral.ItemsSource = await Consulta.GetDataGeneEstilista(Param1);
-             }
-         }
+                lstGeneral.ItemsSource = await Consulta.GetDataGeneEstilista(Param1);
+            }
+        }
 
-        
+
 
         /* private async Task validarTipoUser()
          {

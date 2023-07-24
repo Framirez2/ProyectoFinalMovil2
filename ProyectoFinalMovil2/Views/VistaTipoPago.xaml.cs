@@ -1,21 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace ProyectoFinalMovil2.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class VistaTipoPago : ContentPage
-	{
-		public VistaTipoPago ()
-		{
-			InitializeComponent ();
-		}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class VistaTipoPago : ContentPage
+    {
+        public VistaTipoPago()
+        {
+            InitializeComponent();
+        }
 
         private async void Btn_PagarSitio(object sender, EventArgs e)
         {

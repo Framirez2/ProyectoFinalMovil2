@@ -2,8 +2,6 @@
 using Newtonsoft.Json;
 using ProyectoFinalMovil2.Services;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 
@@ -50,7 +48,7 @@ namespace ProyectoFinalMovil2.Controllers
             var serializartoken = JsonConvert.SerializeObject(auth);
             Preferences.Set("MyFirebaseRefreshToken", serializartoken);
             Preferences.Set("MyToken", gettoken);
-           // string message = "";
+            // string message = "";
             //bool send = false;
 
             if (content.User.IsEmailVerified == false)

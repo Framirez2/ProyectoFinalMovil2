@@ -1,11 +1,8 @@
 ﻿using Firebase.Database.Query;
 using ProyectoFinalMovil2.Models;
 using ProyectoFinalMovil2.Services;
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ProyectoFinalMovil2.Controllers

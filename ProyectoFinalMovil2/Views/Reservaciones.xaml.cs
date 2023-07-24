@@ -4,10 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.ConstrainedExecution;
-using System.Security.Principal;
-using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -31,7 +27,7 @@ namespace ProyectoFinalMovil2.Views
 
         public Reservaciones(string idUsuario, int serviceIndex, string reservacion, Usuarios data, string precio, string[] descripcion)
         {
-            
+
             InitializeComponent();
             new Calendar
             {
@@ -130,7 +126,7 @@ namespace ProyectoFinalMovil2.Views
                 var itemSelected = (Trabajadores)e.CurrentSelection.FirstOrDefault();
                 // Obtener el nombre del estilista seleccionado y almacenarlo en la variable "NombreEstilista".
                 NombreEstilista = itemSelected.Nombres;
-                await DisplayAlert("Aviso","Estilista seleccionado","OK");
+                await DisplayAlert("Aviso", "Estilista seleccionado", "OK");
 
                 // Verificar si la variable "FechaReservacion" tiene un valor válido (no es nula ni vacía).
                 if (FechaReservacion != "" && FechaReservacion != null)
@@ -138,7 +134,7 @@ namespace ProyectoFinalMovil2.Views
                     await GetDataUser();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.Print(ex.Message);
             }
@@ -179,7 +175,7 @@ namespace ProyectoFinalMovil2.Views
             // Contar la cantidad de reservaciones del estilista para la fecha especificada y almacenar el resultado en la variable "ContadorEstilista".
             foreach (var item in D3)
             {
-                ContadorEstilista =ContadorEstilista + 1;
+                ContadorEstilista = ContadorEstilista + 1;
             }
 
             string Hour;
@@ -189,7 +185,7 @@ namespace ProyectoFinalMovil2.Views
             GetHours.Nombre_Estilisita = NombreEstilista;
             var HoraBase = await Funcion.GetListB(GetHours, NombreEstilista);
 
-            foreach(var item in HoraBase)
+            foreach (var item in HoraBase)
             {
                 Hour = item.Hora_Reservacion;
             }
@@ -204,14 +200,14 @@ namespace ProyectoFinalMovil2.Views
             // Verificar si se ha seleccionado un estilista válido (NombreEstilista no es igual a "-").
             if (!NombreEstilista.Equals("-"))
                 if (!NombreEstilista.Equals("-"))
-            {
-                await GetDataUser();
-                await HorariosEstilista();
-            }
-            else
-            {
-                await DisplayAlert("Aviso", "Por favor, elige un estilista para ver los horarios disponibles.", "OK");
-            }
+                {
+                    await GetDataUser();
+                    await HorariosEstilista();
+                }
+                else
+                {
+                    await DisplayAlert("Aviso", "Por favor, elige un estilista para ver los horarios disponibles.", "OK");
+                }
         }
 
         // Método HorariosEstilista: Este método se encarga de mostrar los horarios disponibles del estilista en la fecha seleccionada.
@@ -310,9 +306,9 @@ namespace ProyectoFinalMovil2.Views
 
         private async void txtFechaReservacion_Focused(object sender, FocusEventArgs e)
         {
-            if(FechaReservacion == null)
+            if (FechaReservacion == null)
             {
-                if(NombreEstilista != "-")
+                if (NombreEstilista != "-")
                 {
                     FechaReservacion = DateTime.Now.ToString("d/M/yyyy");
                     await HorariosEstilista();

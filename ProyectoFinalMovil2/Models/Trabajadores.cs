@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ProyectoFinalMovil2.Models
+﻿namespace ProyectoFinalMovil2.Models
 {
     public class Trabajadores
     {
@@ -11,7 +7,7 @@ namespace ProyectoFinalMovil2.Models
         public string Correo { get; set; }
         public string Contra { get; set; }
         public string Foto_Perfil { get; set; }
-       
+
         public string Tipo_User { get; set; }
     }
 }

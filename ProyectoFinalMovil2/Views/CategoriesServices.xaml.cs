@@ -1,29 +1,28 @@
 ﻿using Firebase.Auth;
+using Newtonsoft.Json;
+using ProyectoFinalMovil2.Controllers;
 using ProyectoFinalMovil2.Models;
-using System;
 using ProyectoFinalMovil2.Services;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Firebase.Database.Streaming;
-using Newtonsoft.Json;
-using Xamarin.Essentials;
-using ProyectoFinalMovil2.Controllers;
-using System.Collections.Generic;
 
 namespace ProyectoFinalMovil2.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CategoriesServices : ContentPage
-	{
-        
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class CategoriesServices : ContentPage
+    {
+
         Usuarios Datos_Usuario = new Usuarios();
         string Id_Usuario;
         private FirebaseAuthProvider Autenticacion;
-        public CategoriesServices ()
-		{
-			InitializeComponent ();
-		}
+        public CategoriesServices()
+        {
+            InitializeComponent();
+        }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {

@@ -1,9 +1,6 @@
 ﻿using ProyectoFinalMovil2.Controllers;
 using ProyectoFinalMovil2.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -24,23 +21,23 @@ namespace ProyectoFinalMovil2.Views
         private async void Button_Clicked(object sender, EventArgs e)
         {
             await ValidarDatos();
-           /* if (!string.IsNullOrEmpty(Correo.Text))
-            {
-                if (!string.IsNullOrEmpty(Contra.Text))
-                {
-                    //UserDialogs.Instance.ShowLoading("Validando Usuario...");
+            /* if (!string.IsNullOrEmpty(Correo.Text))
+             {
+                 if (!string.IsNullOrEmpty(Contra.Text))
+                 {
+                     //UserDialogs.Instance.ShowLoading("Validando Usuario...");
 
-                    await ValidarDatos();
-                }
-                else
-                {
-                    //await App.Current.MainPage.Navigation.PushPopupAsync(new JMDialog("Advertencia", "Debe ingresar su contraseña.", JMDialog.Warning), true);
-                }
-            }
-            else
-            {
-                //await App.Current.MainPage.Navigation.PushPopupAsync(new JMDialog("Advertencia", "Debe ingresar su correo electrónico.", JMDialog.Warning), true);
-            }*/
+                     await ValidarDatos();
+                 }
+                 else
+                 {
+                     //await App.Current.MainPage.Navigation.PushPopupAsync(new JMDialog("Advertencia", "Debe ingresar su contraseña.", JMDialog.Warning), true);
+                 }
+             }
+             else
+             {
+                 //await App.Current.MainPage.Navigation.PushPopupAsync(new JMDialog("Advertencia", "Debe ingresar su correo electrónico.", JMDialog.Warning), true);
+             }*/
         }
 
         private async Task ValidarDatos()
@@ -75,7 +72,7 @@ namespace ProyectoFinalMovil2.Views
                     var funcion = new ContM_CrearCuenta();
                     await funcion.ValidarCuenta(Correo.Text, Contra.Text);
 
-                   // Application.Current.MainPage = new NavigationPage(new ContenedorEmpleado());
+                    // Application.Current.MainPage = new NavigationPage(new ContenedorEmpleado());
                 }
                 //UserDialogs.Instance.HideLoading();
             }
