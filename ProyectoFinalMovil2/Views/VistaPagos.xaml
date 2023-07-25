@@ -89,13 +89,24 @@
                             BackgroundColor="#FF52A2"/>
                 </StackLayout>
             </Frame>
-            <Frame>
-                <Image Source="visa.png"/>
-                
-            </Frame>
-            <Frame>
-                <Image Source="mastercard.png"/>
-            </Frame>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Frame BackgroundColor="#FFFFFF"
+           CornerRadius="10"
+           Padding="10"
+           Margin="10"
+           HasShadow="True">
+                    <Image Source="visa.png" HeightRequest="50" WidthRequest="100" Aspect="AspectFit"/>
+                </Frame>
+
+                <Frame BackgroundColor="#FFFFFF"
+           CornerRadius="10"
+           Padding="10"
+           Margin="10"
+           HasShadow="True">
+                    <Image Source="mastercard.png" HeightRequest="50" WidthRequest="100" Aspect="AspectFit"/>
+                </Frame>
+            </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
