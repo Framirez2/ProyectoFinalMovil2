@@ -38,7 +38,7 @@ namespace ProyectoFinalMovil2.Views
                     new NavCustomer1FlyoutMenuItem { Id = 2, Title = "HISTORIAL", IconSource="history.png",  TargetType=typeof(Historial)},
                     new NavCustomer1FlyoutMenuItem { Id = 3, Title = "DASHBOARD", IconSource="layout.png", },
                     new NavCustomer1FlyoutMenuItem { Id = 4, Title = "MAPA", IconSource="googlemaps.png" },
-                    new NavCustomer1FlyoutMenuItem { Id = 4, Title = "PERFIL", IconSource="girl.png" },
+                    new NavCustomer1FlyoutMenuItem { Id = 4, Title = "PERFIL", IconSource="girl.png", TargetType=typeof(Profile)},
                 });
             }
 

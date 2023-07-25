@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProyectoFinalMovil2.Views.Profile">
+             x:Class="ProyectoFinalMovil2.Views.Registro">
     <RelativeLayout VerticalOptions="Center">
         <Grid VerticalOptions="FillAndExpand">
-            <Image x:Name="main_background" Margin="-70,0,0,0" Source="fondoperfil.png"   IsVisible="true" HeightRequest="690"  WidthRequest="500" HorizontalOptions="Center">
+            <Image x:Name="main_background" Margin="-70,0,0,0" Source="registro1.png"   IsVisible="true" HeightRequest="690"  WidthRequest="500" HorizontalOptions="Center">
 
             </Image>
 
@@ -12,6 +12,7 @@
         <StackLayout VerticalOptions="Center">
 
 
+            <!-- imagen de perfil -->
 
 
             <!-- boton seleccioanar foto  -->
@@ -20,11 +21,11 @@
                    
                      HeightRequest="50"
                      WidthRequest="50"
-                     BackgroundColor="Transparent" x:Name="btnsele" Margin="50,0,30,0"    />
+                     BackgroundColor="Transparent" x:Name="btnsele" Margin="50,200,30,10"    />
 
 
 
-            <Label  Grid.Column="1" Text="Cambiar Foto" HorizontalOptions="Center" TextColor="Black" />
+            <Label  Grid.Column="1" Text="Seleccionar Foto" HorizontalOptions="Center" TextColor="Black" />
 
             <!-- campo para nombres -->
             <Grid Margin="0">
@@ -41,7 +42,7 @@
                 </Frame>
 
                 <!-- Entry -->
-                <Entry x:Name="nombres" Grid.Column="1" Placeholder="Nombre Completo" />
+                <Entry x:Name="txtnombres" Grid.Column="1" Placeholder="Nombre Completo" Keyboard="Chat" />
             </Grid>
 
 
@@ -62,8 +63,30 @@
                 </Frame>
 
                 <!-- Entry -->
-                <Entry x:Name="email" Grid.Column="1" Placeholder="Email" />
+                <Entry x:Name="txtemail" Grid.Column="1" Placeholder="Email"   Keyboard="Email"/>
             </Grid>
+
+
+            <!-- campo para contraseña -->
+
+            <Grid Margin="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- Columna para la imagen -->
+                    <ColumnDefinition Width="*"/>
+                    <!-- Columna para el Entry (resto del espacio disponible) -->
+                </Grid.ColumnDefinitions>
+
+                <!-- Frame con imagen -->
+                <Frame CornerRadius="30" BackgroundColor="#D29BFD" Grid.Column="0"  BorderColor="black" HasShadow="True"  Padding="10">
+                    <Image Source="contra.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"/>
+                </Frame>
+
+                <!-- Entry -->
+                <Entry IsPassword="True" x:Name="txtcontra" Grid.Column="1" Placeholder="Contraseña"  />
+            </Grid>
+
+
 
 
 
@@ -74,58 +97,9 @@
                      HeightRequest="50"
                      WidthRequest="50"
                      BackgroundColor="Transparent" x:Name="btnok"  />
-            <Label  Grid.Column="1" Text="Actualizar Datos" HorizontalOptions="Center" TextColor="Black" />
-
-            <!-- campo para contraseña -->
-
-            <Grid Margin="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <!-- Columna para la imagen -->
-                    <ColumnDefinition Width="*"/>
-                    <!-- Columna para el Entry (resto del espacio disponible) -->
-                </Grid.ColumnDefinitions>
-
-                <!-- Frame con imagen -->
-                <Frame CornerRadius="30" BackgroundColor="#D29BFD" Grid.Column="0"  BorderColor="black" HasShadow="True"  Padding="10">
-                    <Image Source="contra.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"/>
-                </Frame>
-
-                <!-- Entry -->
-                <Entry IsPassword="True" x:Name="contra" Grid.Column="1" Placeholder="Contraseña"  />
-            </Grid>
-            <!-- campo para contraseña -->
-
-            <Grid Margin="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <!-- Columna para la imagen -->
-                    <ColumnDefinition Width="*"/>
-                    <!-- Columna para el Entry (resto del espacio disponible) -->
-                </Grid.ColumnDefinitions>
-
-                <!-- Frame con imagen -->
-                <Frame CornerRadius="30" BackgroundColor="#D29BFD" Grid.Column="0"  BorderColor="black" HasShadow="True"  Padding="10">
-                    <Image Source="contra.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"/>
-                </Frame>
-
-                <!-- Entry -->
-                <Entry IsPassword="True" x:Name="contranue" Grid.Column="1" Placeholder="Repetir nueva contraseña"  />
-            </Grid>
+            <Label  Grid.Column="1" Text="Crear Cuenta" HorizontalOptions="Center" TextColor="Black"  />
 
 
-
-            <!-- Boton OK -->
-            <ImageButton Source="controlar.png"
-                   
-                     HeightRequest="50"
-                     WidthRequest="50"
-                     BackgroundColor="Transparent" x:Name="btnactu"  />
-            <Label  Grid.Column="1" Text="Actualizar Contraseña" HorizontalOptions="Center" TextColor="Black" />
-
-            <Label  Grid.Column="1" Text="Opciones de Cuenta" HorizontalOptions="Center" TextColor="Aquamarine" />
-            <Button Text="Cerrar Sesión"  BackgroundColor="Violet"></Button>
-            <Button Text="Eliminar  Cuenta "  BackgroundColor="Violet"></Button>
         </StackLayout>
     </RelativeLayout>
 </ContentPage>
