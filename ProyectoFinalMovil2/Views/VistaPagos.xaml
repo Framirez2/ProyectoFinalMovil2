@@ -12,7 +12,7 @@
                    Discover="discover.png"
                    JCB="jcb.png"
                    MasterCard="mastercard.png"
-                   Visa="visa.jpg"
+                   Visa="visa.png"
                    NotRecognized="nocard.png"/>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -44,7 +44,14 @@
                         </Entry.Behaviors>
                     </Entry>
 
-                    <Image Source="{Binding CardNumber, Converter={StaticResource CardConverter}}"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="{Binding CardNumber, Converter={StaticResource CardConverter}}" HeightRequest="30" VerticalOptions="CenterAndExpand"/>
+                        <Image Grid.Column="1" Source="{Binding CardNumber, Converter={StaticResource CardConverter}}" HeightRequest="30" VerticalOptions="CenterAndExpand"/>
+                    </Grid>
 
                     <Label Text="* Vigencia"
                            FontAttributes="Bold"
@@ -81,6 +88,13 @@
                             TextColor="White"
                             BackgroundColor="#FF52A2"/>
                 </StackLayout>
+            </Frame>
+            <Frame>
+                <Image Source="visa.png"/>
+                
+            </Frame>
+            <Frame>
+                <Image Source="mastercard.png"/>
             </Frame>
         </StackLayout>
     </ContentPage.Content>
