@@ -1,0 +1,90 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinalMovil2.Views.Dashboard">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontFamily" Value="HelveticaNeue-Medium" />
+            <!-- Cambiar la fuente -->
+        </Style>
+        <Style TargetType="Frame">
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="BackgroundColor" Value="#F6F6F6" />
+            <!-- Cambiar el color de fondo -->
+            <Setter Property="HasShadow" Value="False" />
+            <!-- Quitamos la sombra -->
+        </Style>
+        <Style TargetType="CollectionView" ApplyToDerivedTypes="True">
+            <Setter Property="VerticalScrollBarVisibility" Value="Always" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+        <Style TargetType="Grid">
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="Margin" Value="0,5" />
+        </Style>
+        <Style TargetType="StackLayout">
+            <Setter Property="Margin" Value="10,0,0,10" />
+            <Setter Property="Spacing" Value="5" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#bc246c" Padding="10">
+            <Label Text="Dashboard" HorizontalTextAlignment="Center" Margin="0,40,0,20" TextColor="White" FontSize="28" FontAttributes="Bold" FontFamily="HelveticaNeue-Bold" />
+
+            <Label x:Name="encabezado1" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="20" FontAttributes="Bold" FontFamily="HelveticaNeue-Medium" />
+
+            <CollectionView x:Name="lstReserUser" Margin="0,10">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Frame Grid.Row="0" BackgroundColor="#FFFFFF" Padding="10">
+                                    <StackLayout>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Nombre_Usuario}" TextColor="#bc246c" FontSize="18" Padding="1" FontAttributes="Bold" />
+
+                                            <Label Grid.Row="1" Grid.Column="0" Text="Hora de reservación:" TextColor="#666666" />
+
+                                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding Hora_Reservacion}" TextColor="#333333" FontAttributes="Bold" />
+
+                                            <Label Grid.Row="2" Grid.Column="0" Text="Nombre del estilista:" TextColor="#666666" />
+
+                                            <Label Grid.Row="2" Grid.Column="1" Text="{Binding Nombre_Estilisita}" TextColor="#333333" />
+
+                                            <Label Grid.Row="3" Grid.Column="0" Text="Tipo de servicio:" TextColor="#666666" />
+
+                                            <Label Grid.Row="3" Grid.Column="1" Text="{Binding Tipo_Reservacion}" TextColor="#333333" FontAttributes="Bold" />
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+

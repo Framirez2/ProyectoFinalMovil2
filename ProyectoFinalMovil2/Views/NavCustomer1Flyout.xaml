@@ -30,10 +30,12 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="10"/>
             </Grid.RowDefinitions>
+            
             <Label Grid.Column="1"
                    Grid.Row="2"
                    Text="NailBar"
                    Style="{StaticResource TitleLabelStyle}" />
+            
         </Grid>
 
         <ListView x:Name="MenuItemsListView"
@@ -58,6 +60,7 @@
                                        Text="{Binding Title}"
                                        Style="{StaticResource MenuItemLabelStyle}" 
                                        VerticalOptions="CenterAndExpand" />
+                                
                             </Grid>
                         </StackLayout>
                     </ViewCell>

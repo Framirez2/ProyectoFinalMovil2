@@ -1,13 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoFinalMovil2.Views.Historial"
-             Title="HISTORIAL RESERVACIONES">
+             Title="HISTORIAL RESERVACIONES"
+             BackgroundColor="#F2F2F2">
 
     <ContentPage.Content>
         <CollectionView x:Name="lstGeneral"
                         SelectionMode="Single"
-                        SelectionChanged="lstGeneral_SelectionChanged">
+                        SelectionChanged="lstGeneral_SelectionChanged"
+                        BackgroundColor="#F2F2F2">
 
             <CollectionView.Header>
                 <StackLayout Padding="20" BackgroundColor="#bc246c">
@@ -24,10 +25,11 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame BackgroundColor="#FFFFFF"
+                    <Frame BackgroundColor="White"
                            Padding="10"
                            CornerRadius="8"
-                           Margin="5,0,5,10">
+                           Margin="5,0,5,10"
+                           HasShadow="True">
 
                         <Grid>
                             <Grid.RowDefinitions>
@@ -79,11 +81,13 @@
                                          Grid.Column="1"
                                          Grid.RowSpan="2"
                                          Padding="10"
-                                         BackgroundColor="#ffb8ec"
-                                         >
+                                         BackgroundColor="#FF52A2"
+                                         
+                                         VerticalOptions="Center"
+                                         HorizontalOptions="Center">
                                 <Label Text="{Binding Estado}"
                                        FontSize="15"
-                                       TextColor="Black"
+                                       TextColor="White"
                                        FontAttributes="Bold"
                                        VerticalOptions="Center"
                                        HorizontalOptions="Center" />
