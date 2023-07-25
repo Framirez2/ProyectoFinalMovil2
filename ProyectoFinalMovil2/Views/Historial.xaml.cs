@@ -4,6 +4,7 @@ using ProyectoFinalMovil2.Controllers;
 using ProyectoFinalMovil2.Models;
 using ProyectoFinalMovil2.Services;
 using System;
+using System.Data.Common;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -158,6 +159,31 @@ namespace ProyectoFinalMovil2.Views
                 Param1.Nombre_Estilisita = Nombre_Estilista;
 
                 lstGeneral.ItemsSource = await Consulta.GetDataGeneEstilista(Param1);
+            }
+        }
+
+        private async void SwipeItemEliminar_Clicked(object sender, EventArgs e)
+        {
+            // Mostrar una alerta con la opción de confirmación para eliminar el campo
+            var resp = await DisplayAlert("Aviso", "Desea eliminar el campo?", "Si", "No");
+            if (resp)
+            {
+                // Obtener el SwipeItem (elemento deslizable) que desencadenó el evento
+                SwipeItem item = sender as SwipeItem;
+                var Id = item.CommandParameter.ToString();
+                if (Id != null)
+                {
+                    ContM_Reservaciones fun = new ContM_Reservaciones();
+
+                    await fun.deleteSite(Id);
+
+                    
+                }
+                else await DisplayAlert("Error", "error", "ok");
+            }
+            else
+            {
+                await DisplayAlert("Error", "Ha ocurrido un error eliminando el sitio", "Ok");
             }
         }
 

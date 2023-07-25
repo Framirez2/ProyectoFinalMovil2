@@ -177,11 +177,12 @@ namespace ProyectoFinalMovil2.Views
             {
                 ContadorEstilista = ContadorEstilista + 1;
             }
+          
 
             string Hour;
             ContM_Reservaciones Funcion = new ContM_Reservaciones();
             ReservacionesClientes GetHours = new ReservacionesClientes();
-            GetHours.Fecha_Reservacion = Convert.ToString(TxtFechaReservacion);
+            GetHours.Fecha_Reservacion = Convert.ToString(txtFechaReservacion);
             GetHours.Nombre_Estilisita = NombreEstilista;
             var HoraBase = await Funcion.GetListB(GetHours, NombreEstilista);
 
@@ -191,9 +192,9 @@ namespace ProyectoFinalMovil2.Views
             }
         }
 
-        // Método txtFechaReservacion_DateClicked:
+        
         // Este método se ejecuta cuando se selecciona una fecha en el calendario de reservaciones (txtFechaReservacion).
-        private async void txtFechaReservacion_DateClicked(object sender, DateChangedEventArgs e)
+        private async void txtFechaReservacion_DateSelected(object sender, DateChangedEventArgs e)
         {
             FechaReservacion = String.Concat(e.NewDate.ToString(), "/", e.NewDate.Month.ToString(), "/", e.NewDate.Year.ToString());
 
@@ -209,6 +210,7 @@ namespace ProyectoFinalMovil2.Views
                     await DisplayAlert("Aviso", "Por favor, elige un estilista para ver los horarios disponibles.", "OK");
                 }
         }
+
 
         // Método HorariosEstilista: Este método se encarga de mostrar los horarios disponibles del estilista en la fecha seleccionada.
         private async Task HorariosEstilista()

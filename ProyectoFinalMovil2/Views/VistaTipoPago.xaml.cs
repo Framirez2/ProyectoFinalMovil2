@@ -16,7 +16,7 @@ namespace ProyectoFinalMovil2.Views
         private async void Btn_PagarSitio(object sender, EventArgs e)
         {
             await DisplayAlert("Aviso", "Gracias por su reservacion.", "OK");
-            Application.Current.MainPage = new NavigationPage(new NavCustomer());
+            Application.Current.MainPage = new NavigationPage(new NavCustomer1());
         }
 
         private void Btn_PagarTarjeta(object sender, EventArgs e)

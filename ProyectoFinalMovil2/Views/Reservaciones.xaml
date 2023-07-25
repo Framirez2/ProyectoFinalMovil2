@@ -136,11 +136,12 @@
                             CornerRadius="6"
                             BackgroundColor="White">
 
-                            <controls:Calendar x:Name="txtFechaReservacion" Padding="10,0,10,0" 
-                                               Focused="txtFechaReservacion_Focused" DateClicked="txtFechaReservacion_DateClicked"
-                                               StartDay="Monday"
-                                               
-                            SelectedBorderWidth="4" DisabledBorderColor="Black" />
+                            <DatePicker
+                                x:Name="txtFechaReservacion"
+                                DateSelected="txtFechaReservacion_DateSelected"
+                                Focused="txtFechaReservacion_Focused"
+                                TextColor="Black"
+                                Format="D"/>
                         </Frame>
                     </StackLayout>
                     <StackLayout

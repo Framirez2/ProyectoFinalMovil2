@@ -1,6 +1,7 @@
 ﻿using Firebase.Database.Query;
 using ProyectoFinalMovil2.Models;
 using ProyectoFinalMovil2.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -247,6 +248,14 @@ namespace ProyectoFinalMovil2.Controllers
                 .Child("Reservaciones")
                 .OnceAsync<ReservacionesClientes>()).Where((a) => a.Key == Param.Id_Reservaciones).FirstOrDefault();
             await FirebaseConnection.conexionFirebase.Child("Reservaciones").Child(data.Key).DeleteAsync();
+        }
+
+        public async Task deleteSite(string Id)
+        {
+            int id = Convert.ToInt32(Id);
+            var toDelete = (await FirebaseConnection.conexionFirebase.Child("Reservaciones").OnceAsync<ReservacionesClientes>()).FirstOrDefault
+                (a => a.Object.Id_Reservaciones == Id);
+            await FirebaseConnection.conexionFirebase.Child("Reservaciones").Child(toDelete.Key).DeleteAsync();
         }
 
 
