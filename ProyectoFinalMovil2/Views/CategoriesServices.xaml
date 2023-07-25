@@ -2,145 +2,60 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoFinalMovil2.Views.CategoriesServices"
-             BackgroundColor="#F2F2F2"
-             Background="#FFFFFF">
+             BackgroundColor="#F2F2F2">
 
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="10" Spacing="10">
                 <!---Servicio de Manicure-->
-                <Frame
-                    Padding="0"
-                    Margin="0"
-                    BackgroundColor="#FFFFFF"
-                    HasShadow="False"
-                    CornerRadius="10">
-                    <StackLayout Spacing="10">
-                        <Image
-                            Source="drawable/manicure.jpeg"
-                            Aspect="AspectFill"
-                            HeightRequest="200"
-                            BackgroundColor="#F2F2F2" />
-                        <StackLayout Spacing="5" Padding="10">
-                            <Label
-                                Text="Manicure"
-                                FontSize="20"
-                                FontAttributes="Bold"
-                                TextColor="#333333" />
-                            <Label
-                                Text="Limpieza y corte de uñas de las manos"
-                                FontSize="16"
-                                TextColor="#666666" />
-                            <Button
-                                Text="Reservar"
-                                TextColor="#FFFFFF"
-                                BackgroundColor="#FF52A2"
-                                CornerRadius="8"
-                                Clicked="Button_Clicked" />
+                <Frame CornerRadius="15" HasShadow="True" BackgroundColor="#FFFFFF">
+                    <StackLayout Spacing="0">
+                        <Image Source="drawable/manicure.jpeg" Aspect="AspectFill" HeightRequest="200" BackgroundColor="#F2F2F2" />
+                        <StackLayout Spacing="10" Padding="15">
+                            <Label Text="Manicure" FontSize="22" FontAttributes="Bold" TextColor="#333333" />
+                            <Label Text="Limpieza y corte de uñas de las manos" FontSize="16" TextColor="#666666" />
+                            <Button Text="Reservar" TextColor="#FFFFFF" BackgroundColor="#FF52A2" CornerRadius="20" Clicked="Button_Clicked" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
 
-                <!---Servicio de pedicure-->
-                <Frame
-                    Padding="0"
-                    Margin="0"
-                    BackgroundColor="#FFFFFF"
-                    HasShadow="False"
-                    CornerRadius="10">
-                    <StackLayout Spacing="10">
-                        <Image
-                            Source="drawable/pedicure.jpeg"
-                            Aspect="AspectFill"
-                            HeightRequest="200"
-                            BackgroundColor="#F2F2F2" />
-                        <StackLayout Spacing="5" Padding="10">
-                            <Label
-                                Text="Pedicure"
-                                FontSize="20"
-                                FontAttributes="Bold"
-                                TextColor="#333333" />
-                            <Label
-                                Text="Limpieza y corte de uñas de los pies"
-                                FontSize="16"
-                                TextColor="#666666" />
-                            <Button
-                                Text="Reservar"
-                                TextColor="#FFFFFF"
-                                BackgroundColor="#FF52A2"
-                                CornerRadius="8"
-                                Clicked="Button_Clicked_1" />
+                <!---Servicio de Pedicure-->
+                <Frame CornerRadius="15" HasShadow="True" BackgroundColor="#FFFFFF">
+                    <StackLayout Spacing="0">
+                        <Image Source="drawable/pedicure.jpeg" Aspect="AspectFill" HeightRequest="200" BackgroundColor="#F2F2F2" />
+                        <StackLayout Spacing="10" Padding="15">
+                            <Label Text="Pedicure" FontSize="22" FontAttributes="Bold" TextColor="#333333" />
+                            <Label Text="Limpieza y corte de uñas de los pies" FontSize="16" TextColor="#666666" />
+                            <Button Text="Reservar" TextColor="#FFFFFF" BackgroundColor="#FF52A2" CornerRadius="20" Clicked="Button_Clicked_1" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
 
-                <!---Servicio de Retoquemanos-->
-                <Frame
-                    Padding="0"
-                    Margin="0"
-                    BackgroundColor="#FFFFFF"
-                    HasShadow="False"
-                    CornerRadius="10">
-                    <StackLayout Spacing="10">
-                        <Image
-                            Source="drawable/retoquemanospies.jpeg"
-                            Aspect="AspectFill"
-                            HeightRequest="200"
-                            BackgroundColor="#F2F2F2" />
-                        <StackLayout Spacing="5" Padding="10">
-                            <Label
-                                Text="Retoque Acrílico"
-                                FontSize="20"
-                                FontAttributes="Bold"
-                                TextColor="#333333" />
-                            <Label
-                                Text="Retoque acrílico de manos y pies"
-                                FontSize="16"
-                                TextColor="#666666" />
-                            <Button
-                                Text="Reservar"
-                                TextColor="#FFFFFF"
-                                BackgroundColor="#FF52A2"
-                                CornerRadius="8"
-                                Clicked="Button_Clicked_2" />
+                <!---Servicio de Retoque de Manos y Pies-->
+                <Frame CornerRadius="15" HasShadow="True" BackgroundColor="#FFFFFF">
+                    <StackLayout Spacing="0">
+                        <Image Source="drawable/retoquemanospies.jpeg" Aspect="AspectFill" HeightRequest="200" BackgroundColor="#F2F2F2" />
+                        <StackLayout Spacing="10" Padding="15">
+                            <Label Text="Retoque Acrílico" FontSize="22" FontAttributes="Bold" TextColor="#333333" />
+                            <Label Text="Retoque acrílico de manos y pies" FontSize="16" TextColor="#666666" />
+                            <Button Text="Reservar" TextColor="#FFFFFF" BackgroundColor="#FF52A2" CornerRadius="20" Clicked="Button_Clicked_2" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
 
-                <!---Servicio de Unas Acrilicas-->
-                <Frame
-                    Padding="0"
-                    Margin="0"
-                    BackgroundColor="#FFFFFF"
-                    HasShadow="False"
-                    CornerRadius="10">
-                    <StackLayout Spacing="10">
-                        <Image
-                            Source="drawable/acrilicas.jpg"
-                            Aspect="AspectFill"
-                            HeightRequest="200"
-                            BackgroundColor="#F2F2F2" />
-                        <StackLayout Spacing="5" Padding="10">
-                            <Label
-                                Text="Colocación y pintado de uñas acrílicas"
-                                FontSize="20"
-                                FontAttributes="Bold"
-                                TextColor="#333333" />
-                            <Label
-                                Text="Colocación y pintado de uñas acrílicas en manos y pies"
-                                FontSize="16"
-                                TextColor="#666666" />
-                            <Button
-                                Text="Reservar"
-                                TextColor="#FFFFFF"
-                                BackgroundColor="#FF52A2"
-                                CornerRadius="8"
-                                Clicked="Button_Clicked_3" />
+                <!---Servicio de Uñas Acrílicas-->
+                <Frame CornerRadius="15" HasShadow="True" BackgroundColor="#FFFFFF">
+                    <StackLayout Spacing="0">
+                        <Image Source="drawable/acrilicas.jpg" Aspect="AspectFill" HeightRequest="200" BackgroundColor="#F2F2F2" />
+                        <StackLayout Spacing="10" Padding="15">
+                            <Label Text="Colocación y Pintado de Uñas Acrílicas" FontSize="22" FontAttributes="Bold" TextColor="#333333" />
+                            <Label Text="Colocación y pintado de uñas acrílicas en manos y pies" FontSize="16" TextColor="#666666" />
+                            <Button Text="Reservar" TextColor="#FFFFFF" BackgroundColor="#FF52A2" CornerRadius="20" Clicked="Button_Clicked_3" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
-
 </ContentPage>
+

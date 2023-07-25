@@ -26386,25 +26386,28 @@ namespace ProyectoFinalMovil2.Droid
 			public const int roundedbgdark = 2131165369;
 			
 			// aapt resource value: 0x7F0700BA
-			public const int select = 2131165370;
+			public const int salon_unas_logo = 2131165370;
 			
 			// aapt resource value: 0x7F0700BB
-			public const int shoot = 2131165371;
+			public const int select = 2131165371;
 			
 			// aapt resource value: 0x7F0700BC
-			public const int star = 2131165372;
+			public const int shoot = 2131165372;
 			
 			// aapt resource value: 0x7F0700BD
-			public const int test_custom_background = 2131165373;
+			public const int star = 2131165373;
 			
 			// aapt resource value: 0x7F0700BE
-			public const int tooltip_frame_dark = 2131165374;
+			public const int test_custom_background = 2131165374;
 			
 			// aapt resource value: 0x7F0700BF
-			public const int tooltip_frame_light = 2131165375;
+			public const int tooltip_frame_dark = 2131165375;
 			
 			// aapt resource value: 0x7F0700C0
-			public const int usuario = 2131165376;
+			public const int tooltip_frame_light = 2131165376;
+			
+			// aapt resource value: 0x7F0700C1
+			public const int usuario = 2131165377;
 			
 			static Drawable()
 			{

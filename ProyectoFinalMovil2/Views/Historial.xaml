@@ -1,159 +1,97 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             
              x:Class="ProyectoFinalMovil2.Views.Historial"
              Title="HISTORIAL RESERVACIONES">
+
     <ContentPage.Content>
-        <StackLayout>
-            <ListView x:Name="lstGeneral"
-          ItemTapped="lstGeneral_SelectionChanged"
-          SeparatorVisibility="None"
-          BackgroundColor="#F7F7F7"
-          HasUnevenRows="True">
+        <CollectionView x:Name="lstGeneral"
+                        SelectionMode="Single"
+                        SelectionChanged="lstGeneral_SelectionChanged">
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
+            <CollectionView.Header>
+                <StackLayout Padding="20" BackgroundColor="#bc246c">
+                    <Label Text="Historial de Reservaciones"
+                           FontSize="30"
+                           TextColor="White"
+                           FontAttributes="Bold" />
+                </StackLayout>
+            </CollectionView.Header>
 
-                            <SwipeView>
-                                <!-- Resto del código del SwipeView se mantiene igual -->
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="1" />
+            </CollectionView.ItemsLayout>
 
-                                <!-- Modificamos el Grid dentro del SwipeView -->
-                                <SwipeView.Content>
-                                    <Grid Padding="10"
-                              Margin="10,5"
-                              BackgroundColor="White">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
-                                        </Grid.RowDefinitions>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="#FFFFFF"
+                           Padding="10"
+                           CornerRadius="8"
+                           Margin="5,0,5,10">
 
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto" />
-                                            <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="Auto" />
-                                            <ColumnDefinition Width="*" />
-                                        </Grid.ColumnDefinitions>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
 
-                                        <!-- Etiquetas para Nombre y Valor de cada dato -->
-                                        <Label Grid.Row="0"
-                                   Grid.Column="0"
-                                   Text="Nombre:"
-                                   FontSize="16"
-                                   TextColor="#333333"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Start"
-                                   Margin="5" />
-
-                                        <Label Grid.Row="0"
-                                   Grid.Column="1"
-                                   Grid.ColumnSpan="3"
+                            <Label Grid.Row="0"
                                    Text="{Binding Nombre_Usuario}"
-                                   FontSize="16"
-                                   TextColor="#333333"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Start"
-                                   Margin="5" />
+                                   FontSize="20"
+                                   TextColor="#bc246c"
+                                   FontAttributes="Bold"
+                                   VerticalOptions="Start" />
 
-                                        <Label Grid.Row="1"
-                                   Grid.Column="0"
-                                   Text="Hora:"
-                                   FontSize="16"
-                                   TextColor="#333333"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Start"
-                                   Margin="5" />
+                            <StackLayout Grid.Row="1"
+                                         Orientation="Horizontal"
+                                         Grid.Column="0">
+                                <Label Text="Hora:"
+                                       FontSize="16"
+                                       TextColor="#666666"
+                                       VerticalOptions="Center" />
+                                <Label Text="{Binding Hora_Reservacion}"
+                                       FontSize="16"
+                                       TextColor="#333333"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center" />
+                            </StackLayout>
 
-                                        <Label Grid.Row="1"
-                                   Grid.Column="1"
-                                   Text="{Binding Hora_Reservacion}"
-                                   FontSize="16"
-                                   TextColor="#333333"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Start"
-                                   Margin="5" />
+                            <StackLayout Grid.Row="2"
+                                         Orientation="Horizontal"
+                                         Grid.Column="0">
+                                <Label Text="Fecha:"
+                                       FontSize="16"
+                                       TextColor="#666666"
+                                       VerticalOptions="Center" />
+                                <Label Text="{Binding Fecha_Reservacion}"
+                                       FontSize="16"
+                                       TextColor="#333333"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center" />
+                            </StackLayout>
 
-                                        <Label Grid.Row="1"
-                                   Grid.Column="2"
-                                   Text="Fecha:"
-                                   FontSize="16"
-                                   TextColor="#333333"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Start"
-                                   Margin="5" />
-
-                                        <Label Grid.Row="1"
-                                   Grid.Column="3"
-                                   Text="{Binding Fecha_Reservacion}"
-                                   FontSize="16"
-                                   TextColor="#333333"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Start"
-                                   Margin="5" />
-
-                                        <Label Grid.Row="2"
-                                   Grid.Column="0"
-                                   Text="Estilista:"
-                                   FontSize="16"
-                                   TextColor="#333333"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Start"
-                                   Margin="5" />
-
-                                        <Label Grid.Row="2"
-                                   Grid.Column="1"
-                                   Text="{Binding Nombre_Estilisita}"
-                                   FontSize="16"
-                                   TextColor="#333333"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Start"
-                                   Margin="5" />
-
-                                        <Label Grid.Row="2"
-                                   Grid.Column="2"
-                                   Text="Estado:"
-                                   FontSize="16"
-                                   TextColor="#333333"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Start"
-                                   Margin="5" />
-
-                                        <Label Grid.Row="2"
-                                   Grid.Column="3"
-                                   Text="{Binding Estado}"
-                                   FontSize="16"
-                                   TextColor="#333333"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Start"
-                                   Margin="5" />
-                                    </Grid>
-                                </SwipeView.Content>
-
-                                <SwipeView.LeftItems>
-                                    <SwipeItems>
-                                        <SwipeItem Text="Editar"
-                                       BackgroundColor="#01A3FF"
-                                       IconImageSource="edit.png" />
-                                    </SwipeItems>
-                                </SwipeView.LeftItems>
-
-                                <SwipeView.RightItems>
-                                    <SwipeItems>
-                                        <SwipeItem Text="Eliminar"
-                                       BackgroundColor="#FF4500"
-                                       IconImageSource="delete.png" Clicked="SwipeItemEliminar_Clicked"/>
-                                    </SwipeItems>
-                                </SwipeView.RightItems>
-                            </SwipeView>
-
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-
-        </StackLayout>
+                            <StackLayout Grid.Row="1"
+                                         Grid.Column="1"
+                                         Grid.RowSpan="2"
+                                         Padding="10"
+                                         BackgroundColor="#ffb8ec"
+                                         >
+                                <Label Text="{Binding Estado}"
+                                       FontSize="15"
+                                       TextColor="Black"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center" />
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </ContentPage.Content>
 </ContentPage>

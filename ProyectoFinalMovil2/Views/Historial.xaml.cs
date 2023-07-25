@@ -16,10 +16,10 @@ namespace ProyectoFinalMovil2.Views
     public partial class Historial : ContentPage
     {
         Usuarios DatosUser = new Usuarios();
-        string Id_User = "JPX43ekxdUOdJDC9cW3K50NNBcX2";
-        string Nombre_Estilista = "Ana";
-        string Fecha = "23/7/2023";
-        string Tipo_User = "Cliente";
+        string Id_User;
+        string Nombre_Estilista;
+        string Fecha;
+        string Tipo_User;
         public Historial()
         {
             InitializeComponent();

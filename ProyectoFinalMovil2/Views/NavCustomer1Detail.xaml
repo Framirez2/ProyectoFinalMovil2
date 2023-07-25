@@ -2,8 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoFinalMovil2.Views.NavCustomer1Detail"
-             Title="BIENVENIDA">
-  <StackLayout Padding="10">
-    <Label Text="This is a detail page. To get the 'triple' line icon on each platform add a icon to each platform and update the 'Flyout' page with an Icon that references it."/>
-  </StackLayout>
+             Title="¡Bienvenido al Salón de Uñas!"
+             BackgroundColor="#F7F7F7">
+
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="20">
+        <Image Source="salon_unas_logo.jpeg" HeightRequest="200" WidthRequest="200" Aspect="AspectFit" />
+
+        <Label Text="¡Bienvenido al Salón de Uñas!" FontSize="24" FontAttributes="Bold" TextColor="#333333" HorizontalTextAlignment="Center" Margin="0,20,0,10" />
+        <Label Text="Estamos felices de recibirte en nuestro salón de uñas. Nuestro equipo de profesionales está listo para ofrecerte los mejores servicios y tratamientos para tus uñas. Queremos que tengas una experiencia relajante y placentera con nosotros." FontSize="16" TextColor="#666666" HorizontalTextAlignment="Center" />
+
+        <Button Text="Explorar Servicios" Clicked="Button_Clicked" BackgroundColor="#bc1463" TextColor="White" CornerRadius="10" Margin="0,40,0,0" />
+    </StackLayout>
+
 </ContentPage>
