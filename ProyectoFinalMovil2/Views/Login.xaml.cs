@@ -82,7 +82,7 @@ namespace ProyectoFinalMovil2.Views
                     var funcion = new ContM_CrearCuenta();
                     await funcion.ValidarCuenta(Correo.Text, Contra.Text);
 
-                    // Application.Current.MainPage = new NavigationPage(new ContenedorEmpleado());
+                    Application.Current.MainPage = new NavigationPage(new FlyoutEmple1());
                 }
                 //UserDialogs.Instance.HideLoading();
             }
