@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoFinalMovil2.Views.AgregarEmpleado">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout x:Name="frm">
             <StackLayout>
                 <Image x:Name="imgFoto"
                        Source="avatar.png"
@@ -36,7 +36,7 @@
                                  HeightRequest="100"/>
                 </StackLayout>
             </StackLayout>
-            <StackLayout>
+            <StackLayout x:Name="frmTexts">
                 <Entry Placeholder="Nombre"
                        x:Name="txtNames"/>
                 <Entry Placeholder="Correo Electronico"

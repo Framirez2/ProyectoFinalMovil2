@@ -65,7 +65,7 @@ namespace ProyectoFinalMovil2.Controllers
                 .Child("UsuariosClientes")
                 .PostAsync(parametros);
 
-            return data.Object?.Id_User; // Suponiendo que la propiedad Id_User contiene el ID del usuario
+            return data.Key; // Suponiendo que la propiedad Id_User contiene el ID del usuario
         }
 
 
@@ -117,7 +117,7 @@ namespace ProyectoFinalMovil2.Controllers
         public async Task EditarFotoPerfil(Usuarios parametros)
         {
             var obtenerData = (await FirebaseConnection.conexionFirebase
-                .Child("Usuarios")
+                .Child("UsuariosClientes")
                 .OnceAsync<Usuarios>()).FirstOrDefault(a => a.Key == parametros.Id_User_Cliente);
 
             if (obtenerData != null)
