@@ -1,4 +1,5 @@
 ﻿using ProyectoFinalMovil2.Views;
+using System.Runtime.InteropServices;
 using Xamarin.Forms;
 
 namespace ProyectoFinalMovil2
@@ -17,6 +18,8 @@ namespace ProyectoFinalMovil2
             //MainPage = new NavigationPage(new CustomerMenu());
 
             //MainPage = new NavigationPage(new AgregarEmpleado());
+
+            //MainPage = new NavigationPage(new ReservacionesFinalizadas());
 
         }
 

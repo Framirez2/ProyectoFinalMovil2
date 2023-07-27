@@ -14,13 +14,8 @@ namespace ProyectoFinalMovil2.Views
 
         private void listReservaciones_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            /* private void listReservaciones_ItemTapped(object sender, ItemTappedEventArgs e)
-             {
-
-         private void listReservaciones_ItemTapped(object sender, ItemTappedEventArgs e){
-
-
-             }*/
+            /* ver reservaciones cuyo estado no sea "finalizada" 
+             */
         }
     }
 }
