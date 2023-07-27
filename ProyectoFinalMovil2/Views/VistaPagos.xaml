@@ -12,7 +12,7 @@
                    Discover="discover.png"
                    JCB="jcb.png"
                    MasterCard="mastercard.png"
-                   Visa="visa.jpg"
+                   Visa="visa.png"
                    NotRecognized="nocard.png"/>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -44,7 +44,14 @@
                         </Entry.Behaviors>
                     </Entry>
 
-                    <Image Source="{Binding CardNumber, Converter={StaticResource CardConverter}}"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="{Binding CardNumber, Converter={StaticResource CardConverter}}" HeightRequest="30" VerticalOptions="CenterAndExpand"/>
+                        <Image Grid.Column="1" Source="{Binding CardNumber, Converter={StaticResource CardConverter}}" HeightRequest="30" VerticalOptions="CenterAndExpand"/>
+                    </Grid>
 
                     <Label Text="* Vigencia"
                            FontAttributes="Bold"
@@ -82,6 +89,24 @@
                             BackgroundColor="#FF52A2"/>
                 </StackLayout>
             </Frame>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Frame BackgroundColor="#FFFFFF"
+           CornerRadius="10"
+           Padding="10"
+           Margin="10"
+           HasShadow="True">
+                    <Image Source="visa.png" HeightRequest="50" WidthRequest="100" Aspect="AspectFit"/>
+                </Frame>
+
+                <Frame BackgroundColor="#FFFFFF"
+           CornerRadius="10"
+           Padding="10"
+           Margin="10"
+           HasShadow="True">
+                    <Image Source="mastercard.png" HeightRequest="50" WidthRequest="100" Aspect="AspectFit"/>
+                </Frame>
+            </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

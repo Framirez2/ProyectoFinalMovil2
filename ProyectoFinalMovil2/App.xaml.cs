@@ -12,11 +12,11 @@ namespace ProyectoFinalMovil2
             InitializeComponent();
 
 
-            //MainPage = new NavigationPage(new LoginPruebas());
+            MainPage = new NavigationPage(new Login());
 
             //MainPage = new NavigationPage(new CustomerMenu());
 
-            MainPage = new NavigationPage(new AgregarEmpleado());
+            //MainPage = new NavigationPage(new AgregarEmpleado());
 
         }
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using XamForms.Controls;
+
 
 namespace ProyectoFinalMovil2.Views
 {
@@ -29,14 +29,7 @@ namespace ProyectoFinalMovil2.Views
         {
 
             InitializeComponent();
-            new Calendar
-            {
-                BorderColor = Color.Gray,
-                BorderWidth = 3,
-                BackgroundColor = Color.Gray,
-                StartDay = DayOfWeek.Sunday,
-                StartDate = DateTime.Now
-            };
+          
 
             // Mostrar la lista de estilistas disponibles.
             MostrarEstilistas();

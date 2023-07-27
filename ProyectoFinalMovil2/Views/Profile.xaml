@@ -2,17 +2,130 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoFinalMovil2.Views.Profile">
-    <ContentPage.Content>
-        <StackLayout>
-            <Image x:Name="userimg" Margin="30,80,30,10" HorizontalOptions="Center" WidthRequest="100" HeightRequest="200" Source="avatar.png"></Image>
+    <RelativeLayout VerticalOptions="Center">
+        <Grid VerticalOptions="FillAndExpand">
+            <Image x:Name="main_background" Margin="-70,0,0,0" Source="fondoperfil.png"   IsVisible="true" HeightRequest="690"  WidthRequest="500" HorizontalOptions="Center">
 
-            <Label Margin="50,0,50,0">Nombre</Label>
-            <Entry x:Name="nombres" Placeholder="" MaxLength="100" Margin="50,0,50,10" />
-            <Label Margin="50,0,50,0">Descripción</Label>
-            <Entry x:Name="descripcion" Placeholder="" MaxLength="100" Margin="50,0,50,10" />
-            <Label Margin="50,0,50,0">Ubicación</Label>
-            <Entry x:Name="ubicacion" Placeholder="" MaxLength="100" Margin="50,0,50,10" />
-            
+            </Image>
+
+        </Grid>
+        <StackLayout VerticalOptions="Center">
+
+
+
+
+            <!-- boton seleccioanar foto  -->
+
+            <ImageButton  Source="profile.jpg"
+                   
+                     HeightRequest="50"
+                     WidthRequest="50"
+                     BackgroundColor="Transparent" x:Name="btnsele" Margin="50,0,30,0"    />
+
+
+
+            <Label  Grid.Column="1" Text="Cambiar Foto" HorizontalOptions="Center" TextColor="Black" />
+
+            <!-- campo para nombres -->
+            <Grid Margin="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- Columna para la imagen -->
+                    <ColumnDefinition Width="*"/>
+                    <!-- Columna para el Entry (resto del espacio disponible) -->
+                </Grid.ColumnDefinitions>
+
+                <!-- Frame con imagen -->
+                <Frame CornerRadius="30" BackgroundColor="#D29BFD" Grid.Column="0"  BorderColor="black" HasShadow="True"  Padding="10">
+                    <Image Source="nombres.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"/>
+                </Frame>
+
+                <!-- Entry -->
+                <Entry x:Name="nombres" Grid.Column="1" Placeholder="Nombre Completo" />
+            </Grid>
+
+
+
+            <!-- campo para email-->
+
+            <Grid Margin="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- Columna para la imagen -->
+                    <ColumnDefinition Width="*"/>
+                    <!-- Columna para el Entry (resto del espacio disponible) -->
+                </Grid.ColumnDefinitions>
+
+                <!-- Frame con imagen -->
+                <Frame CornerRadius="30" BackgroundColor="#D29BFD" Grid.Column="0"  BorderColor="black" HasShadow="True"  Padding="10">
+                    <Image Source="email.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"/>
+                </Frame>
+
+                <!-- Entry -->
+                <Entry x:Name="email" Grid.Column="1" Placeholder="Email" />
+            </Grid>
+
+
+
+
+            <!-- Boton OK -->
+            <ImageButton Source="controlar.png"
+                   
+                     HeightRequest="50"
+                     WidthRequest="50"
+                     BackgroundColor="Transparent" x:Name="btnok"  />
+            <Label  Grid.Column="1" Text="Actualizar Datos" HorizontalOptions="Center" TextColor="Black" />
+
+            <!-- campo para contraseña -->
+
+            <Grid Margin="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- Columna para la imagen -->
+                    <ColumnDefinition Width="*"/>
+                    <!-- Columna para el Entry (resto del espacio disponible) -->
+                </Grid.ColumnDefinitions>
+
+                <!-- Frame con imagen -->
+                <Frame CornerRadius="30" BackgroundColor="#D29BFD" Grid.Column="0"  BorderColor="black" HasShadow="True"  Padding="10">
+                    <Image Source="contra.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"/>
+                </Frame>
+
+                <!-- Entry -->
+                <Entry IsPassword="True" x:Name="contra" Grid.Column="1" Placeholder="Contraseña"  />
+            </Grid>
+            <!-- campo para contraseña -->
+
+            <Grid Margin="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- Columna para la imagen -->
+                    <ColumnDefinition Width="*"/>
+                    <!-- Columna para el Entry (resto del espacio disponible) -->
+                </Grid.ColumnDefinitions>
+
+                <!-- Frame con imagen -->
+                <Frame CornerRadius="30" BackgroundColor="#D29BFD" Grid.Column="0"  BorderColor="black" HasShadow="True"  Padding="10">
+                    <Image Source="contra.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"/>
+                </Frame>
+
+                <!-- Entry -->
+                <Entry IsPassword="True" x:Name="contranue" Grid.Column="1" Placeholder="Repetir nueva contraseña"  />
+            </Grid>
+
+
+
+            <!-- Boton OK -->
+            <ImageButton Source="controlar.png"
+                   
+                     HeightRequest="50"
+                     WidthRequest="50"
+                     BackgroundColor="Transparent" x:Name="btnactu"  />
+            <Label  Grid.Column="1" Text="Actualizar Contraseña" HorizontalOptions="Center" TextColor="Black" />
+
+            <Label  Grid.Column="1" Text="Opciones de Cuenta" HorizontalOptions="Center" TextColor="Aquamarine" />
+            <Button Text="Cerrar Sesión"  BackgroundColor="Violet"></Button>
+            <Button Text="Eliminar  Cuenta "  BackgroundColor="Violet"></Button>
         </StackLayout>
-    </ContentPage.Content>
+    </RelativeLayout>
 </ContentPage>

@@ -3,6 +3,8 @@ using Newtonsoft.Json;
 using ProyectoFinalMovil2.Controllers;
 using ProyectoFinalMovil2.Models;
 using ProyectoFinalMovil2.Services;
+using Rating;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Data.Common;
 using System.Threading.Tasks;
@@ -10,38 +12,50 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+
 namespace ProyectoFinalMovil2.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Historial : ContentPage
     {
-        Usuarios DatosUser = new Usuarios();
-        string Id_User = "JPX43ekxdUOdJDC9cW3K50NNBcX2";
-        string Nombre_Estilista = "Ana";
-        string Fecha = "23/7/2023";
-        string Tipo_User = "Cliente";
+        
+        
         public Historial()
         {
             InitializeComponent();
-            GetIdUser();
-            validarTipoUser();
+            _ = GetIdUser();
+            _ = ValidarTipoUser();
+            
         }
+
+        string Id_User;
+        string Nombre_Estilista;
+        string Fecha;
+        string Tipo_User;
 
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            await validarTipoUser();
+            await ValidarTipoUser();
         }
 
+        // Este método se encarga de obtener el ID del usuario actualmente autenticado.
         private async Task GetIdUser()
         {
             try
             {
+                // Creamos una instancia de la clase FirebaseAuthProvider y le proporcionamos la clave API de Firebase.
                 var AutentProv = new FirebaseAuthProvider(new FirebaseConfig(FirebaseConnection.Clave_APIweb));
+
+                // Recuperamos el ID del usuario almacenado previamente en las preferencias de la aplicación.
+                // Este ID es obtenido del token de autenticación de Firebase que se guardó durante el inicio de sesión.
+                // Lo deserializamos para obtener el objeto FirebaseAuth, que contiene la información del usuario.
                 var Save_Id = JsonConvert.DeserializeObject<FirebaseAuth>(Preferences.Get("MyFirebaseRefreshToken", ""));
+
+                // Extraemos el ID del usuario localmente autenticado y lo almacenamos en la variable Id_User.
                 Id_User = Save_Id.User.LocalId;
 
-                await validarTipoUser();
+                await ValidarTipoUser();
             }
             catch (Exception)
             {
@@ -49,16 +63,18 @@ namespace ProyectoFinalMovil2.Views
             }
         }
 
+        // Este método se ejecuta cuando se selecciona un elemento en la colección de reservaciones.
         private async void lstGeneral_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ReservacionesClientes itemSelect = new ReservacionesClientes();
+            // Verificamos si la selección actual es nula o está vacía.
+            // Si es así, no realizamos ninguna acción y salimos del método.
+            if (e.CurrentSelection == null || e.CurrentSelection.Count == 0)
+                return;
+            // Obtenemos el objeto ReservacionesClientes seleccionado de la colección.
+            ReservacionesClientes itemSelect = e.CurrentSelection[0] as ReservacionesClientes;
             ContM_Reservaciones consulta = new ContM_Reservaciones();
 
-            if (e.CurrentSelection != null && e.CurrentSelection.Count > 0)
-            {
-                itemSelect = e.CurrentSelection[0] as ReservacionesClientes;
-            }
-
+            // Verificamos el tipo de usuario actual (Empleado o Cliente).
             if (Tipo_User == "Empleado")
             {
                 string selection = await DisplayActionSheet("Seleccione una opción", null, null, "Eliminar", "Dar de alta");
@@ -67,16 +83,10 @@ namespace ProyectoFinalMovil2.Views
                 {
                     itemSelect.Estado = "Finalizada";
                     await consulta.EstablecerEstado(itemSelect);
-                    await validarTipoUser();
                 }
                 else if (selection == "Eliminar")
                 {
-                    ContM_Reservaciones funcion = new ContM_Reservaciones();
-                    ReservacionesClientes parametros = new ReservacionesClientes();
-                    parametros.Id_Reservaciones = itemSelect.Id_Reservaciones;
-                    await funcion.DeleteReservacion(parametros);
-                    await DisplayAlert("Aviso", "Reservacion eliminada", "OK");
-                    await validarTipoUser();
+                    await EliminarReservacion(itemSelect);
                 }
             }
             else if (Tipo_User == "Cliente")
@@ -87,8 +97,7 @@ namespace ProyectoFinalMovil2.Views
 
                     if (selection == "Calificar")
                     {
-                        //await PopupNavigation.Instance.PushAsync(new Calificar(itemSelect));
-                        await validarTipoUser();
+                        await PopupNavigation.Instance.PushAsync(new Rating(itemSelect));
                     }
                 }
                 else if (itemSelect.Estado == "Pendiente")
@@ -97,106 +106,42 @@ namespace ProyectoFinalMovil2.Views
 
                     if (selection == "Eliminar")
                     {
-
-                        ContM_Reservaciones funcion = new ContM_Reservaciones();
-                        ReservacionesClientes parametros = new ReservacionesClientes();
-                        parametros.Id_Reservaciones = itemSelect.Id_Reservaciones;
-                        await funcion.DeleteReservacion(parametros);
-                        await DisplayAlert("Aviso", "La reservacion se ha eliminado", "OK");
-                        await validarTipoUser();
+                        await EliminarReservacion(itemSelect);
                     }
                 }
             }
+
+            await ValidarTipoUser();
         }
 
-        private async Task validarTipoUser()
+        private async Task EliminarReservacion(ReservacionesClientes reservacion)
         {
-            ContM_Usuarios funcion = new ContM_Usuarios();
-            Usuarios parametro = new Usuarios();
-            parametro.Id_User = Id_User;
-            var Datos = await funcion.GetAdmin(parametro);
-
-            foreach (var a in Datos)
-            {
-                Tipo_User = a.Tipo_Usuario;
-                Nombre_Estilista = a.Nombres;
-            }
-
-            Fecha = DateTime.Now.ToString("d/M/yyyy");
-
-            if (Tipo_User == "Cliente")
-            {
-                ContM_Reservaciones Consulta = new ContM_Reservaciones();
-                ReservacionesClientes Param3 = new ReservacionesClientes();
-                Param3.Id_Cliente = Id_User;
-                lstGeneral.ItemsSource = await Consulta.GetDatReserva(Param3);
-
-                ContM_Reservaciones Consulta2 = new ContM_Reservaciones();
-                ReservacionesClientes Param2 = new ReservacionesClientes();
-                Param2.Id_Cliente = Id_User;
-                Param2.Fecha_Reservacion = Fecha;
-            }
-            else if (Tipo_User == "admin")
-            {
-                string FechaA = DateTime.Now.ToString("d/M/yyyy");
-
-                ContM_Reservaciones Consulta = new ContM_Reservaciones();
-                ContM_Reservaciones Consulta2 = new ContM_Reservaciones();
-                ReservacionesClientes Param1 = new ReservacionesClientes();
-                Param1.Fecha_Reservacion = FechaA;
-
-                lstGeneral.ItemsSource = await Consulta.ObtenerReservaciones(Param1);
-            }
-            else if (Tipo_User == "Empleado")
-            {
-                string Fech = DateTime.Now.ToString("d/M/yyyy");
-
-                ContM_Reservaciones Consulta = new ContM_Reservaciones();
-                ContM_Reservaciones Consulta2 = new ContM_Reservaciones();
-                ReservacionesClientes Param1 = new ReservacionesClientes();
-                Param1.Fecha_Reservacion = Fech;
-                Param1.Estado = "Pendiente";
-                Param1.Nombre_Estilisita = Nombre_Estilista;
-
-                lstGeneral.ItemsSource = await Consulta.GetDataGeneEstilista(Param1);
-            }
+            ContM_Reservaciones funcion = new ContM_Reservaciones();
+            ReservacionesClientes parametros = new ReservacionesClientes();
+            parametros.Id_Reservaciones = reservacion.Id_Reservaciones;
+            await funcion.DeleteReservacion(parametros);
+            await DisplayAlert("Aviso", "Reservacion eliminada", "OK");
         }
 
-        private async void SwipeItemEliminar_Clicked(object sender, EventArgs e)
+
+        private void btn_Rating_Clicked(object sender, EventArgs e)
         {
-            // Mostrar una alerta con la opción de confirmación para eliminar el campo
-            var resp = await DisplayAlert("Aviso", "Desea eliminar el campo?", "Si", "No");
-            if (resp)
-            {
-                // Obtener el SwipeItem (elemento deslizable) que desencadenó el evento
-                SwipeItem item = sender as SwipeItem;
-                var Id = item.CommandParameter.ToString();
-                if (Id != null)
-                {
-                    ContM_Reservaciones fun = new ContM_Reservaciones();
-
-                    await fun.deleteSite(Id);
-
-                    
-                }
-                else await DisplayAlert("Error", "error", "ok");
-            }
-            else
-            {
-                await DisplayAlert("Error", "Ha ocurrido un error eliminando el sitio", "Ok");
-            }
+            //int selectedRating = rating.SelectedStarValue;
+            
         }
 
 
-
-        /* private async Task validarTipoUser()
-         {
+        // Este método se encarga de validar el tipo de usuario y cargar los datos correspondientes en la colección lstGeneral.
+        private async Task ValidarTipoUser()
+        {
+            // Creamos una instancia de ContM_Usuarios para obtener los datos del usuario actual.
              ContM_Usuarios funcion = new ContM_Usuarios();
              Usuarios parametro = new Usuarios();
              parametro.Id_User = Id_User;
              var Datos = await funcion.GetAdmin(parametro);
 
-             foreach (var a in Datos)
+            // Iteramos a través de los datos obtenidos para obtener el Tipo de Usuario y el Nombre del Estilista.
+            foreach (var a in Datos)
              {
                  Tipo_User = a.Tipo_Usuario;
                  Nombre_Estilista = a.Nombres;
@@ -204,16 +149,20 @@ namespace ProyectoFinalMovil2.Views
 
              Fecha = DateTime.Now.ToString("d/M/yyyy");
 
+            // Creamos una instancia de ContM_Reservaciones para obtener los datos de las reservaciones según el tipo de usuario.
              ContM_Reservaciones consulta = new ContM_Reservaciones();
              ReservacionesClientes param = new ReservacionesClientes();
 
-             switch (Tipo_User)
+            // Según el Tipo de Usuario, cargamos los datos en la colección lstGeneral.
+            switch (Tipo_User)
              {
                  case "Cliente":
-                     param.Id_Cliente = Id_User;
+                    // Para los clientes, obtenemos las reservaciones del cliente actual para la fecha actual.
+                    param.Id_Cliente = Id_User;
                      lstGeneral.ItemsSource = await consulta.GetDatReserva(param);
 
-                     param = new ReservacionesClientes
+                    // También obtenemos las reservaciones pendientes del cliente actual.
+                    param = new ReservacionesClientes
                      {
                          Id_Cliente = Id_User,
                          Fecha_Reservacion = Fecha
@@ -221,11 +170,13 @@ namespace ProyectoFinalMovil2.Views
                      lstGeneral.ItemsSource = await consulta.GetDatReserva(param);
                      break;
                  case "admin":
-                     param.Fecha_Reservacion = Fecha;
+                    // Para los usuarios administradores, obtenemos todas las reservaciones para la fecha actual.
+                    param.Fecha_Reservacion = Fecha;
                      lstGeneral.ItemsSource = await consulta.ObtenerReservaciones(param);
                      break;
                  case "Empleado":
-                     param.Fecha_Reservacion = Fecha;
+                    // Para los empleados, obtenemos las reservaciones pendientes para la fecha actual y el nombre del estilista actual.
+                    param.Fecha_Reservacion = Fecha;
                      param.Estado = "Pendiente";
                      param.Nombre_Estilisita = Nombre_Estilista;
                      lstGeneral.ItemsSource = await consulta.GetDataGeneEstilista(param);
@@ -234,7 +185,7 @@ namespace ProyectoFinalMovil2.Views
                      // Manejo de caso no esperado (opcional)
                      break;
              }
-         }*/
+         }
 
 
     }

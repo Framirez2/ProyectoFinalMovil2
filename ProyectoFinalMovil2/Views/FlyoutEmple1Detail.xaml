@@ -1,0 +1,13 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoFinalMovil2.Views.FlyoutEmple1Detail"
+             Title="INICIO">
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="20">
+        <Image Source="salon_unas_logo.jpeg" HeightRequest="200" WidthRequest="200" Aspect="AspectFit" />
+
+        <Label Text="¡Bienvenida al Salón de Uñas!" FontSize="24" FontAttributes="Bold" TextColor="#333333" HorizontalTextAlignment="Center" Margin="0,20,0,10" />
+        <Label Text="Estamos encantados de tenerte en nuestro equipo. Como empleada de nuestro salón de uñas, desempeñas un papel fundamental para brindar un excelente servicio a nuestros clientes. Trabajaremos juntas para ofrecer los mejores tratamientos y asegurarnos de que nuestros clientes tengan una experiencia increíble." FontSize="16" TextColor="#666666" HorizontalTextAlignment="Center" />
+
+        <Button Text="Comenzar" Clicked="Button_Clicked" BackgroundColor="#bc1463" TextColor="White" CornerRadius="10" Margin="0,40,0,0" />
+    </StackLayout>
+</ContentPage>

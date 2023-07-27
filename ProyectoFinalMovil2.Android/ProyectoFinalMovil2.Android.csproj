@@ -68,7 +68,7 @@
       <Version>13.0.3</Version>
     </PackageReference>
     <PackageReference Include="Plugin.FirebasePushNotification">
-      <Version>3.4.35</Version>
+      <Version>3.4.25</Version>
     </PackageReference>
     <PackageReference Include="Plugin.StoreReview">
       <Version>6.0.0</Version>
@@ -78,11 +78,17 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.7" />
+    <PackageReference Include="Xamarin.Forms.PancakeView">
+      <Version>2.3.0.759</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.GooglePlayServices.Base">
+      <Version>118.0.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Rating">
+      <Version>1.0.0.2</Version>
+    </PackageReference>
     <PackageReference Include="XamarinFastEntry.Behaviors">
       <Version>1.1.1</Version>
-    </PackageReference>
-    <PackageReference Include="XamForms.Controls.Calendar">
-      <Version>1.1.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -168,6 +174,39 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\girl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\contra.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Registro1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\profile.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\nombres.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\fondoperfil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\controlar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\salon_unas_logo.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\visa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\mastercard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\logout.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
