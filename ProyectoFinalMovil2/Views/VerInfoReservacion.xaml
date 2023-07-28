@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ProyectoFinalMovil2.Views.VerInfoReservacion"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    Size="300,300">
+
+    <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"
+                     Margin="0, 15, 0, 20">
+            <Label Text="Informacion de la reservacion"/>
+        </StackLayout>
+        <StackLayout HorizontalOptions="CenterAndExpand">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Cliente: " WidthRequest="60"/>
+                <Label x:Name="lblUsrName"/>
+            </StackLayout>
+            <Line BackgroundColor="Black" HeightRequest="1"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Empleado: " WidthRequest="60"/>
+                <Label x:Name="lblEstName"/>
+            </StackLayout>
+            <Line BackgroundColor="Black" HeightRequest="1"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Hora: " WidthRequest="60"/>
+                <Label x:Name="lblReservHour"/>
+            </StackLayout>
+            <Line BackgroundColor="Black" HeightRequest="1"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Fecha: " WidthRequest="60"/>
+                <Label x:Name="lblReservDate"/>
+            </StackLayout>
+            <Line BackgroundColor="Black" HeightRequest="1"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Tipo: " WidthRequest="60"/>
+                <Label x:Name="lblReservType"/>
+            </StackLayout>
+            <Line BackgroundColor="Black" HeightRequest="1"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Precio: " WidthRequest="60"/>
+                <Label x:Name="lblReservPrice"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Margin="50, 20, 50, 0">
+            <Button Text="Cerrar"
+                    x:Name="btnClose"
+                    Clicked="btnClose_Clicked"
+                    CornerRadius="10"/>
+        </StackLayout>
+    </StackLayout>
+</xct:Popup>

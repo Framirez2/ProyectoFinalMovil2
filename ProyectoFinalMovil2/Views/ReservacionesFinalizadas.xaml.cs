@@ -3,6 +3,7 @@ using ProyectoFinalMovil2.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -33,6 +34,13 @@ namespace ProyectoFinalMovil2.Views
 
         private void listReservaciones_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            if (e.Item == null) return;
+            var reserv = e.Item as ReservacionesClientes;
+            Navigation.ShowPopup(new VerInfoReservacion(reserv)
+            {
+                IsLightDismissEnabled = false
+            });
+            ((ListView)sender).SelectedItem = null;
             /*Cargar solo las reservaciones que tengan estado finalizadas
              */
         }
