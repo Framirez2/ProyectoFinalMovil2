@@ -21,7 +21,7 @@
 
                 <!-- Seleccione una estilista -->
                 <Label Text="Seleccione una estilista" TextColor="#666666" FontSize="18" FontAttributes="Bold" />
-                <CollectionView x:Name="txtListaEstilista" HeightRequest="180" SelectionMode="Single" SelectionChanged="txtListaEstilista_SelectionChanged">
+                <CollectionView x:Name="txtListaEstilista" HeightRequest="180" SelectionMode="Single" SelectionChanged="ListaEstilista_SelectionChanged">
                     <CollectionView.EmptyView>
                         <ActivityIndicator IsRunning="True" VerticalOptions="CenterAndExpand" Color="#B9296B"/>
                     </CollectionView.EmptyView>

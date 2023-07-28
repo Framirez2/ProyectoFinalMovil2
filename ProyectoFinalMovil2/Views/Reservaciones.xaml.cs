@@ -111,7 +111,7 @@ namespace ProyectoFinalMovil2.Views
         }
 
         //Este método se ejecuta cuando se selecciona un elemento en la lista de estilistas.
-        private async void txtListaEstilista_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void ListaEstilista_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
@@ -312,6 +312,7 @@ namespace ProyectoFinalMovil2.Views
             }
         }
 
+        //funcion para mostrar a las estilistas
         private async Task MostrarEstilistas()
         {
             var funcion = new ContM_Categorias();

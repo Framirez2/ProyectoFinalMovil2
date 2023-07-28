@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="ProyectoFinalMovil2.Views.MapaSalon">
+    <ContentPage.Content>
+        <StackLayout Spacing="10" Padding="20" VerticalOptions="CenterAndExpand">
+            <maps:Map HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand" x:Name="mapa" IsShowingUser="True" WidthRequest="200" HeightRequest="400"/>
+
+            <Label Text="¡Bienvenidos a nuestro Salón!"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="#BC246C"
+                   HorizontalOptions="Center" />
+
+            <Label Text="Disfruta de nuestros servicios de belleza y bienestar"
+                   FontSize="18"
+                   TextColor="#333333"
+                   HorizontalOptions="Center" />
+
+            <Label Text="Dirección: 123 Calle Principal, Ciudad, País"
+                   FontSize="16"
+                   TextColor="#333333"
+                   HorizontalOptions="Center" />
+
+            <Button CornerRadius="20" Text="VISITANOS" x:Name="btnNavegar" Clicked="btnNavegar_Clicked" TextColor="White" BackgroundColor="#BC246C" HeightRequest="50" HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
