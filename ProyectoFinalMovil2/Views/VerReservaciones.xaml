@@ -4,16 +4,38 @@
              x:Class="ProyectoFinalMovil2.Views.VerReservaciones">
     <ContentPage.Content>
         <StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center"
+                         Margin="0, 20, 0, 20">
+                <Label Text=" Reservaciones Hechas"/>
+            </StackLayout>
             <ListView x:Name="listReservaciones"
-                      
+                      ItemsSource="{Binding ReservacionesClientes}"
                       HasUnevenRows="True"
                       SelectionMode="Single"
                       ItemTapped="listReservaciones_ItemTapped"
+                      Margin="10,0,0,0"
                       >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Nombre_Usuario}"
+                                       WidthRequest="80"
+                                       HeightRequest="40"/>
+                                <Label Text="{Binding Nombre_Estilisita}"
+                                       WidthRequest="80"
+                                       HeightRequest="40"/>
+                                <Label Text="{Binding Tipo_Reservacion}"
+                                       WidthRequest="80"
+                                       HeightRequest="40"/>
+                                <Label Text="{Binding Fecha_Reservacion}"
+                                       WidthRequest="80"
+                                       HeightRequest="40"/>
+                                <Label Text="{Binding Hora_Reservacion}"
+                                       WidthRequest="80"
+                                       HeightRequest="40"/>
+                            </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

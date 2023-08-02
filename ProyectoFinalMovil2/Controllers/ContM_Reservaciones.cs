@@ -86,6 +86,32 @@ namespace ProyectoFinalMovil2.Controllers
             return Reservaciones;
         }
 
+        public async Task<List<ReservacionesClientes>> ObtenerReservacionesSinFinalizar()
+        {
+            List<ReservacionesClientes> listReservaciones = new List<ReservacionesClientes> ();
+
+            var datos = (await FirebaseConnection.conexionFirebase.Child("Reservaciones")
+                .OrderByKey()
+                .OnceAsync<ReservacionesClientes>()).Where(a => a.Object.Estado == "EnEspera");
+
+            foreach (var pd in datos)
+            {
+                ReservacionesClientes pila = new ReservacionesClientes();
+                pila.Id_Reservaciones = pd.Key;
+                pila.Nombre_Estilisita = pd.Object.Nombre_Estilisita;
+                pila.Nombre_Usuario = pd.Object.Nombre_Usuario;
+                pila.Fecha_Reservacion = pd.Object.Fecha_Reservacion;
+                pila.Hora_Reservacion = pd.Object.Hora_Reservacion;
+                pila.Estado = pd.Object.Estado;
+                pila.Precio = pd.Object.Precio;
+                pila.Tipo_Reservacion = pd.Object.Tipo_Reservacion;
+                pila.Calificacion = pd.Object.Calificacion;
+
+                Reservaciones.Add(pila);
+            }
+            return Reservaciones;   
+        }
+
         public async Task<List<ReservacionesClientes>> ObtenerReservaciones(ReservacionesClientes Param)
         {
             List<ReservacionesClientes> ListReservaciones = new List<ReservacionesClientes>();
