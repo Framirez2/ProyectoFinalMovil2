@@ -212,6 +212,14 @@ namespace ProyectoFinalMovil2.Controllers
             }
         }
 
+        public async Task<bool> RecuperarContrasena(string correo)
+        {
+            var authProvider = new FirebaseAuthProvider(new FirebaseConfig(FirebaseConnection.Clave_APIweb));
+
+            await authProvider.SendPasswordResetEmailAsync(correo);
+
+            return true;
+        }
 
         /* public async Task EliminarFotoPerfil(string Nombre)
          {

@@ -13,7 +13,7 @@ namespace ProyectoFinalMovil2.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Recuperar : ContentPage
 	{
-		Cont_RestablecerCuenta _RestablecerCuenta=new Cont_RestablecerCuenta();
+        private readonly ContM_Usuarios _RestablecerCuenta = new ContM_Usuarios();
 		public Recuperar ()
 		{
 			InitializeComponent ();
@@ -24,26 +24,28 @@ namespace ProyectoFinalMovil2.Views
             try
             {
 
-            }catch (Exception ex)
-            {
-                await DisplayAlert(null, ex.Message, "Aceptar");
-            }
+                if (string.IsNullOrEmpty(correo))
+                {
+                    await DisplayAlert(null, "Porfavor ingrese su correo", "Aceptar");
+                    return;
+                }
 
-            if (string.IsNullOrEmpty(correo))
+                bool seEnvio = await _RestablecerCuenta.RecuperarContrasena(correo);
+                if (seEnvio)
+                {
+                    await DisplayAlert(null, "Revise su correo electronico", "Ok");
+                }
+                else
+                {
+                    await DisplayAlert("Error", "Correo no valido o no se pudo enviar el correo", "Aceptar");
+                }
+            }catch(Firebase.Auth.FirebaseAuthException ex)
             {
-                await DisplayAlert(null, "Porfavor ingrese su correo","Aceptar");
-                return;
-            }
+                await DisplayAlert("Error", "Correo no valido o inexistente", "Aceptar");
+            }catch(Exception ex)
+            {
+                await DisplayAlert("Error", ex.Message, "Aceptar");
 
-            bool seEnvio = await _RestablecerCuenta.RestablecerClvae(correo);
-            if (seEnvio)
-            {
-                await DisplayAlert(null, "Revise su correo electronico", "Ok");
-                await Navigation.PopModalAsync();
-            }
-            else
-            {
-                await DisplayAlert("Error", "Correo no valido o no se pudo enviar el correo", "Aceptar");
             }
         }
     }
