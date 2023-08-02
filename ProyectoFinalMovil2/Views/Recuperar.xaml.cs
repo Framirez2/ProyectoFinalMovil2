@@ -20,6 +20,10 @@ namespace ProyectoFinalMovil2.Views
 		}
         private async void btnRecuperar_Clicked(object sender, EventArgs e)
         {
+            await RecuperarContra();
+        }
+		private async Task RecuperarContra()
+		{
             string correo = txtCorreo.Text;
 
             //Validar la conexion a internet
