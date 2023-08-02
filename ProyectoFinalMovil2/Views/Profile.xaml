@@ -73,7 +73,7 @@
                    
                      HeightRequest="50"
                      WidthRequest="50"
-                     BackgroundColor="Transparent" x:Name="btnok"  />
+                     BackgroundColor="Transparent" x:Name="btnok" Clicked="btnActualizar_Clicked" />
             <Label  Grid.Column="1" Text="Actualizar Datos" HorizontalOptions="Center" TextColor="Black" />
 
             <!-- campo para contraseña -->
@@ -120,7 +120,7 @@
                    
                      HeightRequest="50"
                      WidthRequest="50"
-                     BackgroundColor="Transparent" x:Name="btnactu"  />
+                     BackgroundColor="Transparent" x:Name="btnactu"  Clicked="btnActualizarpass_Clicked"/>
             <Label  Grid.Column="1" Text="Actualizar Contraseña" HorizontalOptions="Center" TextColor="Black" />
 
             <Label  Grid.Column="1" Text="Opciones de Cuenta" HorizontalOptions="Center" TextColor="Aquamarine" />

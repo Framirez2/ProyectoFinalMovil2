@@ -12,7 +12,7 @@ using System.Linq;
 using System.Reactive;
 using System.Text;
 using System.Threading.Tasks;
-using ProyectoFinalMovil2.Servicios;
+using ProyectoFinalMovil2.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ProyectoFinalMovil2.Components;
