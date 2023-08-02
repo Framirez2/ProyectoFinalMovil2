@@ -17,10 +17,6 @@ namespace ProyectoFinalMovil2
 
             //MainPage = new NavigationPage(new CustomerMenu());
 
-            //MainPage = new NavigationPage(new AgregarEmpleado());
-
-            //MainPage = new NavigationPage(new ReservacionesFinalizadas());
-
         }
 
         protected override void OnStart()

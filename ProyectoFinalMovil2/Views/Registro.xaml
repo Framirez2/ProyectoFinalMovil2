@@ -21,7 +21,7 @@
                    
                      HeightRequest="50"
                      WidthRequest="50"
-                     BackgroundColor="Transparent" x:Name="btnsele" Margin="50,200,30,10"    />
+                     BackgroundColor="Transparent" x:Name="btnsele" Margin="50,200,30,10"  Clicked="btnagregarimagen_Clicked"  />
 
 
 
@@ -96,8 +96,8 @@
                    
                      HeightRequest="50"
                      WidthRequest="50"
-                     BackgroundColor="Transparent" x:Name="btnok"  />
-            <Label  Grid.Column="1" Text="Crear Cuenta" HorizontalOptions="Center" TextColor="Black"  />
+                     BackgroundColor="Transparent" x:Name="btnok"  Clicked="btnCrearcuenta_Clicked"/>
+            <Label  Grid.Column="1" Text="Crear Cuenta" HorizontalOptions="Center" TextColor="Black" />
 
 
         </StackLayout>

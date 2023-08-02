@@ -10,14 +10,14 @@ using Xamarin.Forms.Xaml;
 
 namespace ProyectoFinalMovil2.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Recuperar : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class Recuperar : ContentPage
+    {
         private readonly ContM_Usuarios _RestablecerCuenta = new ContM_Usuarios();
-		public Recuperar ()
-		{
-			InitializeComponent ();
-		}
+        public Recuperar()
+        {
+            InitializeComponent();
+        }
         private async void btnRecuperar_Clicked(object sender, EventArgs e)
         {
             await RecuperarContra();
@@ -44,23 +44,23 @@ namespace ProyectoFinalMovil2.Views
                         return;
                     }
 
-                    bool seEnvio = await _RestablecerCuenta.RecuperarContrasena(correo);
-                    if (seEnvio)
-                    {
-                        await DisplayAlert(null, "Revise su correo electronico", "Ok");
-                    }
-                    else
-                    {
-                        await DisplayAlert("Error", "Correo no valido o no se pudo enviar el correo", "Aceptar");
-                    }
-                }
-                catch (Firebase.Auth.FirebaseAuthException ex)
+                bool seEnvio = await _RestablecerCuenta.RecuperarContrasena(correo);
+                if (seEnvio)
                 {
-                    await DisplayAlert("Error", "Correo no valido o inexistente", "Aceptar");
+                    await DisplayAlert(null, "Revise su correo electronico", "Ok");
                 }
-                catch (Exception ex)
+                else
                 {
-                    await DisplayAlert("Error", ex.Message, "Aceptar");
+                    await DisplayAlert("Error", "Correo no valido o no se pudo enviar el correo", "Aceptar");
+                }
+            }
+            catch (Firebase.Auth.FirebaseAuthException ex)
+            {
+                await DisplayAlert("Error", "Correo no valido o inexistente", "Aceptar");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", ex.Message, "Aceptar");
 
                 }
             }

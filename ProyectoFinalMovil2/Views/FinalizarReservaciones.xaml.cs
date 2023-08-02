@@ -15,7 +15,10 @@ namespace ProyectoFinalMovil2.Views
 
         private void btnFinalizarRes_Clicked(object sender, EventArgs e)
         {
-
+            /*DateTime cTime = DateTime.Now;
+            string formattedDate = cTime.ToString("dd/MM/yyyy");
+            string formattedDate = cTime.ToString("HH:mm:ss");
+            DisplayAlert("Fecha", formattedDate, "OK");*/
         }
 
         private async void listReservaciones_ItemTapped(object sender, ItemTappedEventArgs e)
