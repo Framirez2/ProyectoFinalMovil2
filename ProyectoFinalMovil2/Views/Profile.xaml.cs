@@ -169,6 +169,11 @@ namespace ProyectoFinalMovil2.Views
         }
         private async Task EditPass()
         {
+            if (string.IsNullOrEmpty(contra.Text) || string.IsNullOrEmpty(contranue.Text))
+            {
+                await DisplayAlert(null, "Error: campos vacios", "Aceptar");
+                return;
+            }
 
             if (contra.Text == contranue.Text)
             {
