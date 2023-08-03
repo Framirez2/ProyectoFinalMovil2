@@ -124,8 +124,8 @@
             <Label  Grid.Column="1" Text="Actualizar Contraseña" HorizontalOptions="Center" TextColor="Black" />
 
             <Label  Grid.Column="1" Text="Opciones de Cuenta" HorizontalOptions="Center" TextColor="Aquamarine" />
-            <Button Text="Cerrar Sesión"  BackgroundColor="Violet"></Button>
-            <Button Text="Eliminar  Cuenta "  BackgroundColor="Violet"></Button>
+            <Button Text="Cerrar Sesión"  BackgroundColor="Violet" Clicked="btncerrar_Clicked"></Button>
+            <Button Text="Eliminar Cuenta"  BackgroundColor="Violet"></Button>
         </StackLayout>
     </RelativeLayout>
 </ContentPage>

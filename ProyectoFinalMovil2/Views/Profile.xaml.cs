@@ -170,18 +170,24 @@ namespace ProyectoFinalMovil2.Views
         private async Task EditPass()
         {
 
-         /*       ContM_Usuarios funcion = new ContM_Usuarios();
-                Usuarios parametros = new Usuarios();
-
-                parametros.Id_User_Cliente = IdUsuariosClientes;
-                parametros.Id_User = Iduserlogin;     
-                parametros.Contrasena = pass;
-                parametros.Tipo_Usuario = tipoUser;
-
-                await funcion.CambiarContrasena(parametros.Contrasena);
-                await ObtenerDatoReservacion();
-
-            await DisplayAlert("Advertencia", "Contraseña Acualizada", "OK");*/
+            if (contra.Text == contranue.Text)
+            {
+                if (contra.Text.Length >= 6)
+                {
+                    ContM_Usuarios funcion = new ContM_Usuarios();
+                    await funcion.CambiarContrasena(contranue.Text);
+                    await ObtenerDatoReservacion();
+                    await DisplayAlert("Advertencia", "Contraseña Acualizada", "OK");
+                }
+                else
+                {
+                    await DisplayAlert("Advertencia", "La contraseña debe ser mayor de 6 caracteres", "OK");
+                }
+            }
+            else
+            {
+                await DisplayAlert("Advertencia", "Contraseñas no coinciden", "OK");
+            }
 
         }
 
