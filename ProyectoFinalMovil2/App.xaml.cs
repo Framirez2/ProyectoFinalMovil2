@@ -17,6 +17,8 @@ namespace ProyectoFinalMovil2
 
             //MainPage = new NavigationPage(new CustomerMenu());
 
+            //MainPage = new NavigationPage(new NavCustomer1());
+
         }
 
         protected override void OnStart()

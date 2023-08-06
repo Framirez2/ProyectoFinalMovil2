@@ -83,7 +83,7 @@ namespace ProyectoFinalMovil2.Views
                         var funcion = new ContM_CrearCuenta();
                         await funcion.ValidarCuenta(Correo.Text, Contra.Text);
 
-                        //Application.Current.MainPage = new NavigationPage(new ContenedorAdmin());
+                        Application.Current.MainPage = new NavigationPage(new NavAdmin());
                     }
                     else if (Tipo_User == "Empleado")
                     {
