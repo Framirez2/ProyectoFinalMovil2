@@ -34,9 +34,10 @@ namespace ProyectoFinalMovil2.Views
                 MenuItems = new ObservableCollection<NavAdminFlyOutMenuItem>(new[]
                 {
                     new NavAdminFlyOutMenuItem{Id = 0, Title="Home", IconSource="home.png", TargetType=typeof(NavAdminDetail)},
-                    new NavAdminFlyOutMenuItem{Id = 1, Title="Ver Reservaciones", IconSource="ver.png", TargetType=typeof(VerReservaciones)},
-                    new NavAdminFlyOutMenuItem{Id = 2, Title="Ver Reservaciones Finalizadas",IconSource="fin.png", TargetType=typeof(ReservacionesFinalizadas)},
-                    new NavAdminFlyOutMenuItem{Id = 3, Title="Perfil", IconSource="girl.png", TargetType=typeof(Profile)},
+                    new NavAdminFlyOutMenuItem{Id = 1, Title="Agregar Usuario", IconSource="ma.png", TargetType=typeof(AgregarEmpleado)},
+                    new NavAdminFlyOutMenuItem{Id = 2, Title="Ver Reservaciones", IconSource="ver.png", TargetType=typeof(VerReservaciones)},
+                    new NavAdminFlyOutMenuItem{Id = 3, Title="Ver Reservaciones Finalizadas",IconSource="fin.png", TargetType=typeof(ReservacionesFinalizadas)},
+                    new NavAdminFlyOutMenuItem{Id = 4, Title="Perfil", IconSource="girl.png", TargetType=typeof(Profile)},
                 });
             }
 

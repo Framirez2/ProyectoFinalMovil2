@@ -1,4 +1,5 @@
-﻿using ProyectoFinalMovil2.Views;
+﻿using Plugin.FirebasePushNotification;
+using ProyectoFinalMovil2.Views;
 using System.Runtime.InteropServices;
 using Xamarin.Forms;
 

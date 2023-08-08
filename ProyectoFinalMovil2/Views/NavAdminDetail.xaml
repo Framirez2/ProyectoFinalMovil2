@@ -11,6 +11,6 @@
         <Label Text="¡Bienvenido!" FontSize="24" FontAttributes="Bold" TextColor="#333333" HorizontalTextAlignment="Center" Margin="0,20,0,10" />
         <Label Text="Este es el panel para administradores" FontSize="16" TextColor="#666666" HorizontalTextAlignment="Center" />
 
-        <Button Text="Explorar Servicios" Clicked="Button_Clicked" BackgroundColor="#bc1463" TextColor="White" CornerRadius="10" Margin="0,40,0,0" />
+        <!--<Button Text="Explorar Servicios" Clicked="Button_Clicked" BackgroundColor="#bc1463" TextColor="White" CornerRadius="10" Margin="0,40,0,0" />-->
     </StackLayout>
 </ContentPage>

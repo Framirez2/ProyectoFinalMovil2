@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "923600930099",
+    "firebase_url": "https://mov2nailbarfirebase-default-rtdb.firebaseio.com",
+    "project_id": "mov2nailbarfirebase",
+    "storage_bucket": "mov2nailbarfirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:923600930099:android:4f988417d5d599e68d6a46",
+        "android_client_info": {
+          "package_name": "com.companyname.proyectofinalmovil2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "923600930099-eh42nfr8lvfgbchqd86ord65aj28d6qt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-kb--g29Oonqq3VtAc5Kaa41bUCq8Xi8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "923600930099-eh42nfr8lvfgbchqd86ord65aj28d6qt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

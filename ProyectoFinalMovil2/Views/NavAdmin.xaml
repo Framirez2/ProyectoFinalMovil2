@@ -4,7 +4,7 @@
              x:Class="ProyectoFinalMovil2.Views.NavAdmin"
              xmlns:pages="clr-namespace:ProyectoFinalMovil2.Views">
     <FlyoutPage.Flyout>
-        <pages:NavCustomer1Flyout x:Name="FlyoutPage" />
+        <pages:NavAdminFlyOut x:Name="FlyoutPage" />
     </FlyoutPage.Flyout>
     <FlyoutPage.Detail>
         <NavigationPage>
