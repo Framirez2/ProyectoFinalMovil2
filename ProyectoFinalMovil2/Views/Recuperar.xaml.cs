@@ -18,6 +18,15 @@ namespace ProyectoFinalMovil2.Views
         {
             InitializeComponent();
         }
+        private async void btnAtras_Clicked(object sender, EventArgs e)
+        {
+            await atras();
+        }
+
+        private async Task atras()
+        {
+            await Navigation.PopAsync();
+        }
         private async void btnRecuperar_Clicked(object sender, EventArgs e)
         {
             await RecuperarContra();
