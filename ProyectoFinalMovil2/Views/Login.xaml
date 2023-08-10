@@ -50,9 +50,45 @@
                     <Entry IsPassword="True" x:Name="Contra" Grid.Column="1" Placeholder="Contraseña" />
                 </Grid>
 
-                <Button x:Name="recuperar" Text="Recuperar Contraseña" Clicked="btnrecuperar_Clicked" BackgroundColor="Violet" ></Button>
-                <Button x:Name="inicio"  Text="Iniciar Sesión" BackgroundColor="Violet" Clicked="btnlogin_Clicked"></Button>
-                <Button x:Name="crear" Text="Crear Cuenta"  Clicked="btnregistrar_Clicked" BackgroundColor="Violet"></Button>
+                <StackLayout VerticalOptions="Center"
+             HorizontalOptions="Center"
+             Spacing="20">
+
+                    <Button x:Name="recuperar"
+            Text="Recuperar Contraseña"
+            Clicked="btnrecuperar_Clicked"
+            BackgroundColor="#6A0DAD"
+            TextColor="White"
+            BorderColor="#6A0DAD"
+            BorderWidth="1"
+            BorderRadius="10"
+            HeightRequest="40"
+            WidthRequest="200"/>
+
+                    <Button x:Name="inicio"
+            Text="Iniciar Sesión"
+            Clicked="btnlogin_Clicked"
+            BackgroundColor="#6A0DAD"
+            TextColor="White"
+            BorderColor="#6A0DAD"
+            BorderWidth="1"
+            BorderRadius="10"
+            HeightRequest="40"
+            WidthRequest="200"/>
+
+                    <Button x:Name="crear"
+            Text="Crear Cuenta"
+            Clicked="btnregistrar_Clicked"
+            BackgroundColor="#6A0DAD"
+            TextColor="White"
+            BorderColor="#6A0DAD"
+            BorderWidth="1"
+            BorderRadius="10"
+            HeightRequest="40"
+            WidthRequest="200"/>
+
+                </StackLayout>
+
             </StackLayout>
         </RelativeLayout>
     </ContentPage.Content>

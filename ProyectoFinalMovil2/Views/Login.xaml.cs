@@ -23,24 +23,23 @@ namespace ProyectoFinalMovil2.Views
         private async void btnlogin_Clicked(object sender, EventArgs e)
         {
             await ValidarDatos();
-           /* if (!string.IsNullOrEmpty(Correo.Text))
+           if (!string.IsNullOrEmpty(Correo.Text))
              {
                  if (!string.IsNullOrEmpty(Contra.Text))
                  {
-
-                     //UserDialogs.Instance.ShowLoading("Validando Usuario...");
 
                      await ValidarDatos();
                  }
                  else
                  {
-                     await App.Current.MainPage.Navigation.PopAsync(new JMDialog("Advertencia", "Debe ingresar su contraseña.", JMDialog.Warning), true);
+                    await DisplayAlert("Aviso", "Debe ingresar su contraseña.", "OK");
                  }
              }
              else
              {
-                 await App.Current.MainPage.Navigation.PushPopupAsync(new JMDialog("Advertencia", "Debe ingresar su correo electrónico.", JMDialog.Warning), true);
-             }*/
+                    await DisplayAlert("Aviso", "Debe ingresar su correo.", "OK");
+
+             }
 
            
         }
@@ -96,9 +95,8 @@ namespace ProyectoFinalMovil2.Views
                 }
                 catch (Exception e)
                 {
-                    await DisplayAlert("Error", "Error: " + e, "OK");
-                    //UserDialogs.Instance.HideLoading();
-                    //await App.Current.MainPage.Navigation.PushPopupAsync(new JMDialog("Aviso", "El correo electrónico o la contraseña son incorrectos.", JMDialog.Danger), true);
+                    //await DisplayAlert("Error", "Error: " + e, "OK");
+                    await DisplayAlert("Aviso", "El correo electrónico o la contraseña son incorrectos.", "OK");
                     //await Navigation.PushAsync(new Login());
                 }
             }
