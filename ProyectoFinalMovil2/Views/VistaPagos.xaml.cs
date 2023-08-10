@@ -26,6 +26,8 @@ namespace ProyectoFinalMovil2.Views
             else
             {
                 await DisplayAlert("Aviso", "El pago se hizo correctamente", "OK");
+                Application.Current.MainPage = new NavigationPage(new NavCustomer1());
+
             }
         }
     }
