@@ -84,7 +84,8 @@ namespace ProyectoFinalMovil2.Views
 
         private void btnCerrarSesion_Clicked(object sender, EventArgs e)
         {
-
+            Preferences.Remove("MyFirebaseRefreshToken");
+            Application.Current.MainPage = new NavigationPage(new Login());
         }
     }
 }
