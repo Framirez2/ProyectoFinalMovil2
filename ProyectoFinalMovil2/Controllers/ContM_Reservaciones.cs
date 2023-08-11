@@ -92,7 +92,7 @@ namespace ProyectoFinalMovil2.Controllers
 
             var datos = (await FirebaseConnection.conexionFirebase.Child("Reservaciones")
                 .OrderByKey()
-                .OnceAsync<ReservacionesClientes>()).Where(a => a.Object.Estado == "EnEspera");
+                .OnceAsync<ReservacionesClientes>()).Where(a => a.Object.Estado == "Pendiente");
 
             foreach (var pd in datos)
             {

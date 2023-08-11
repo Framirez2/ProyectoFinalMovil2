@@ -12,6 +12,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ProyectoFinalMovil2.Controllers;
 using ProyectoFinalMovil2.Services;
+using Rg.Plugins.Popup.Extensions;
 
 namespace ProyectoFinalMovil2.Views
 {
@@ -45,10 +46,15 @@ namespace ProyectoFinalMovil2.Views
 
         private async void btnActualizar_Clicked(object sender, EventArgs e)
         {
+            // Verificar si los campos están vacíos
+            if (string.IsNullOrWhiteSpace(nombres.Text) || string.IsNullOrWhiteSpace(email.Text))
+            {
+                await DisplayAlert("Error", "Por favor, complete todos los campos obligatorios.", "OK");
+                return; // Salir del evento si los campos están vacíos
+            }
 
             if (estado == "lleno" || nombre != nombres.Text)
             {
-
                 ContM_Usuarios funcion2 = new ContM_Usuarios();
                 Usuarios parametros = new Usuarios();
                 parametros.Id_User_Cliente = IdUsuariosClientes;
@@ -58,21 +64,55 @@ namespace ProyectoFinalMovil2.Views
                     tipoUser = fila.Tipo_Usuario;
                 }
 
-                await EditUser();
+                await EditarFoto();
             }
             else
             {
-                await DisplayAlert("Aviso", "No se encontro cambios", "Ok");
+                await DisplayAlert("Aviso", "No se encontraron cambios", "Ok");
             }
-
         }
+
+
         private async void btnActualizarpass_Clicked(object sender, EventArgs e)
         {
-
-
-
             await EditPass();
+        }
 
+        private async Task EditarFoto()
+        {
+            if (tipoUser == "Empleado")
+            {
+                ContM_Usuarios funcion = new ContM_Usuarios();
+                Usuarios parametros = new Usuarios();
+
+                parametros.Id_User_Cliente = IdUsuariosClientes;
+                parametros.Id_User = Iduserlogin;
+                parametros.Contrasena = pass;
+                parametros.Nombres = nombres.Text;
+                parametros.ImagenPerfil = rutafoto;
+                parametros.Correo = email.Text;
+                parametros.Tipo_Usuario = tipoUser;
+
+                await funcion.EditarFotoPerfil(parametros);
+                await ObtenerDatoReservacion();
+            }
+            else
+            {
+                ContM_Usuarios funcion = new ContM_Usuarios();
+                Usuarios parametros = new Usuarios();
+
+                parametros.Id_User_Cliente = IdUsuariosClientes;
+                parametros.Id_User = Iduserlogin;
+                parametros.Contrasena = pass;
+                parametros.Nombres = nombres.Text;
+                parametros.ImagenPerfil = rutafoto;
+                parametros.Correo = email.Text;
+                parametros.Tipo_Usuario = tipoUser;
+
+                await funcion.EditarFotoPerfil(parametros);
+                await ObtenerDatoReservacion();
+            }
+            await DisplayAlert("Aviso", "Los datos se han actualizado satisfactoriamente.", "OK");
         }
 
         private async void btnagregarimagen_Clicked(object sender, EventArgs e)
@@ -286,5 +326,57 @@ namespace ProyectoFinalMovil2.Views
             Application.Current.MainPage = new NavigationPage(new Login());
         }
 
+        private async void btnFoto_Clicked(object sender, EventArgs e)
+        {
+            await CrossMedia.Current.Initialize();
+            try
+            {
+                file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions()
+                {
+                    PhotoSize = PhotoSize.Medium
+                });
+                if (file == null)
+                {
+                    return;
+                }
+                else
+                {
+                    btnsele.Source = ImageSource.FromStream(() =>
+                    {
+                        var rutaImagen = file.GetStream();
+                        return rutaImagen;
+                    });
+                    await SubirImagenesStore();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
+
+        private async void btnDeleteAcount_Clicked(object sender, EventArgs e)
+        {
+            bool borrar = await DisplayAlert("Aviso", "¿Desea eliminar su cuenta permanentemente?", "Aceptar", "Cancelar");
+            if (borrar)
+            {
+                //UserDialogs.Instance.ShowLoading("Procesando Solicitud...");
+                ContM_Usuarios funcion = new ContM_Usuarios();
+                bool response = await funcion.EliminarUsuario(IdUsuariosClientes);
+
+                if (response)
+                {
+                    await DisplayAlert("Satisfactorio", "Su cuenta se a eliminado satisfactoriamente.", "OK");
+                    Preferences.Remove("MyFirebaseRefreshToken");
+                    Preferences.Remove("MyToken");
+                    Application.Current.MainPage = new NavigationPage(new Login());
+                }
+                else
+                {
+                    await DisplayAlert("Aviso", "A ocurrido un error al borrar su cuenta.", "OK");
+                }
+                //UserDialogs.Instance.HideLoading();
+            }
+        }
     }
 }

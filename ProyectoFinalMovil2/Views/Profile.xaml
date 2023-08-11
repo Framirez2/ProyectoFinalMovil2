@@ -12,16 +12,12 @@
         <StackLayout VerticalOptions="Center">
 
 
+            <Image Source="profile.jpg"
+                     HeightRequest="80"
+                     WidthRequest="60"
+                     BackgroundColor="Transparent" x:Name="btnsele" Margin="50,10,30,0"/>
 
-
-            <!-- boton seleccioanar foto  -->
-
-            <ImageButton  Source="profile.jpg"
-                   
-                     HeightRequest="50"
-                     WidthRequest="50"
-                     BackgroundColor="Transparent" x:Name="btnsele" Margin="50,0,30,0"    />
-
+            <Button x:Name="btnFoto" ImageSource="gallery" Clicked="btnFoto_Clicked"/>
 
 
             <Label  Grid.Column="1" Text="Cambiar Foto" HorizontalOptions="Center" TextColor="Black" />
@@ -37,7 +33,7 @@
 
                 <!-- Frame con imagen -->
                 <Frame CornerRadius="30" BackgroundColor="#D29BFD" Grid.Column="0"  BorderColor="black" HasShadow="True"  Padding="10">
-                    <Image Source="nombres.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"/>
+                    <Image Source="nombres.png" Aspect="AspectFit" HeightRequest="25" WidthRequest="25"/>
                 </Frame>
 
                 <!-- Entry -->
@@ -58,7 +54,7 @@
 
                 <!-- Frame con imagen -->
                 <Frame CornerRadius="30" BackgroundColor="#D29BFD" Grid.Column="0"  BorderColor="black" HasShadow="True"  Padding="10">
-                    <Image Source="email.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"/>
+                    <Image Source="email.png" Aspect="AspectFit" HeightRequest="25" WidthRequest="25"/>
                 </Frame>
 
                 <!-- Entry -->
@@ -88,7 +84,7 @@
 
                 <!-- Frame con imagen -->
                 <Frame CornerRadius="30" BackgroundColor="#D29BFD" Grid.Column="0"  BorderColor="black" HasShadow="True"  Padding="10">
-                    <Image Source="contra.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"/>
+                    <Image Source="contra.png" Aspect="AspectFit" HeightRequest="25" WidthRequest="25"/>
                 </Frame>
 
                 <!-- Entry -->
@@ -106,7 +102,7 @@
 
                 <!-- Frame con imagen -->
                 <Frame CornerRadius="30" BackgroundColor="#D29BFD" Grid.Column="0"  BorderColor="black" HasShadow="True"  Padding="10">
-                    <Image Source="contra.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"/>
+                    <Image Source="contra.png" Aspect="AspectFit" HeightRequest="25" WidthRequest="25"/>
                 </Frame>
 
                 <!-- Entry -->
@@ -123,9 +119,22 @@
                      BackgroundColor="Transparent" x:Name="btnactu"  Clicked="btnActualizarpass_Clicked"/>
             <Label  Grid.Column="1" Text="Actualizar Contraseña" HorizontalOptions="Center" TextColor="Black" />
 
-            <Label  Grid.Column="1" Text="Opciones de Cuenta" HorizontalOptions="Center" TextColor="Aquamarine" />
-            <Button Text="Cerrar Sesión"  BackgroundColor="Violet" Clicked="btncerrar_Clicked"></Button>
-            <Button Text="Eliminar Cuenta"  BackgroundColor="Violet"></Button>
+            <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Text="Opciones de Cuenta" HorizontalOptions="Center" TextColor="Aquamarine" FontSize="20" Margin="0,0,0,20" />
+
+                <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="10">
+                    <Button Text="Cerrar Sesión" BackgroundColor="Violet" TextColor="White" CornerRadius="10" Clicked="btncerrar_Clicked" />
+                    <Button Text="Eliminar Cuenta" x:Name="btnDeleteAcount" Clicked="btnDeleteAcount_Clicked" BackgroundColor="Violet" TextColor="White" CornerRadius="10" />
+                    <!-- Agrega más botones aquí según tus necesidades -->
+                </StackLayout>
+            </Grid>
+
+
         </StackLayout>
     </RelativeLayout>
 </ContentPage>
