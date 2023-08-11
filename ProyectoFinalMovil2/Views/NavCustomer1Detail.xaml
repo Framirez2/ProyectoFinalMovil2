@@ -7,7 +7,7 @@
 
     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="20">
 
-      
+        <Button FontSize="12" FontAttributes="Bold" Text="Cerras Sesion" x:Name="btnCerrarSesion" Clicked="btnCerrarSesion_Clicked" HorizontalOptions="Start"/>
 
         <Frame BorderColor="#2196F3"
        CornerRadius="5"
@@ -15,7 +15,7 @@
        HasShadow="True">
             <Image  Source="profile.jpg"
  
-                HeightRequest="200"
+                HeightRequest="150"
                 WidthRequest="100"
                 BackgroundColor="Transparent" x:Name="btnsele" Margin="50,0,30,0"    />
         </Frame>

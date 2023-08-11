@@ -81,5 +81,10 @@ namespace ProyectoFinalMovil2.Views
             Application.Current.MainPage = new NavigationPage(new Profile());
 
         }
+
+        private void btnCerrarSesion_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

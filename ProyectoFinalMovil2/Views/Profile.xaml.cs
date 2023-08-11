@@ -69,10 +69,10 @@ namespace ProyectoFinalMovil2.Views
         private async void btnActualizarpass_Clicked(object sender, EventArgs e)
         {
 
-           
 
-                await EditPass();
-            
+
+            await EditPass();
+
         }
 
         private async void btnagregarimagen_Clicked(object sender, EventArgs e)

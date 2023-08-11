@@ -3,11 +3,28 @@
              x:Class="ProyectoFinalMovil2.Views.FlyoutEmple1Detail"
              Title="INICIO">
     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="20">
-        <Image Source="salon_unas_logo.jpeg" HeightRequest="200" WidthRequest="200" Aspect="AspectFit" />
+
+        <Button FontSize="12" FontAttributes="Bold" Text="Cerras Sesion" x:Name="btnCerrarSesion" Clicked="btnCerrarSesion_Clicked" HorizontalOptions="Start"/>
+
+        <Frame BorderColor="#2196F3"
+            CornerRadius="5"
+            Padding="5"
+            HasShadow="True">
+                        <Image  Source="profile.jpg"
+ 
+                     HeightRequest="150"
+                     WidthRequest="100"
+         BackgroundColor="Transparent" x:Name="btnsele" Margin="50,0,30,0"    />
+        </Frame>
 
         <Label Text="¡Bienvenida al Salón de Uñas!" FontSize="24" FontAttributes="Bold" TextColor="#333333" HorizontalTextAlignment="Center" Margin="0,20,0,10" />
+
+        <Label x:Name="nombres" FontSize="22" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="Purple"/>
+
+        <Button Text="Editar Perfil" x:Name="btnEditPerfil" Clicked="btnEditPerfil_Clicked" TextColor="Blue" FontAttributes="Bold"/>
+
+
         <Label Text="Estamos encantados de tenerte en nuestro equipo. Como empleada de nuestro salón de uñas, desempeñas un papel fundamental para brindar un excelente servicio a nuestros clientes. Trabajaremos juntas para ofrecer los mejores tratamientos y asegurarnos de que nuestros clientes tengan una experiencia increíble." FontSize="16" TextColor="#666666" HorizontalTextAlignment="Center" />
 
-        <Button Text="Comenzar" Clicked="Button_Clicked" BackgroundColor="#bc1463" TextColor="White" CornerRadius="10" Margin="0,40,0,0" />
     </StackLayout>
 </ContentPage>
