@@ -2,16 +2,34 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoFinalMovil2.Views.NavCustomer1Detail"
-             Title="¡Bienvenido al Salón de Uñas!"
+             Title="¡Bienvenida al Salón de Uñas!"
              BackgroundColor="#F7F7F7">
 
     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="20">
-        <Image Source="salon_unas_logo.jpeg" HeightRequest="200" WidthRequest="200" Aspect="AspectFit" />
 
-        <Label Text="¡Bienvenido al Salón de Uñas!" FontSize="24" FontAttributes="Bold" TextColor="#333333" HorizontalTextAlignment="Center" Margin="0,20,0,10" />
-        <Label Text="Estamos felices de recibirte en nuestro salón de uñas. Nuestro equipo de profesionales está listo para ofrecerte los mejores servicios y tratamientos para tus uñas. Queremos que tengas una experiencia relajante y placentera con nosotros." FontSize="16" TextColor="#666666" HorizontalTextAlignment="Center" />
+      
 
-        <Button Text="Explorar Servicios" Clicked="Button_Clicked" BackgroundColor="#bc1463" TextColor="White" CornerRadius="10" Margin="0,40,0,0" />
+        <Frame BorderColor="#2196F3"
+       CornerRadius="5"
+       Padding="5"
+       HasShadow="True">
+            <Image  Source="profile.jpg"
+ 
+                HeightRequest="200"
+                WidthRequest="100"
+                BackgroundColor="Transparent" x:Name="btnsele" Margin="50,0,30,0"    />
+        </Frame>
+
+        <Label Text="¡Bienvenida al Salón de Uñas!" FontSize="24" FontAttributes="Bold" TextColor="#333333" HorizontalTextAlignment="Center" Margin="0,20,0,10" />
+        
+        <Label x:Name="nombres" FontSize="22" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="Purple"/>
+
+        <Button Text="Editar Perfil" x:Name="btnEditPerfil" Clicked="btnEditPerfil_Clicked" TextColor="Blue" FontAttributes="Bold"/>
+        
+
+        <Label  Text="Estamos felices de recibirte en nuestro salón de uñas. Nuestro equipo de profesionales está listo para ofrecerte los mejores servicios y tratamientos para tus uñas. Queremos que tengas una experiencia relajante y placentera con nosotros." FontSize="14" TextColor="#666666" HorizontalTextAlignment="Center" />
+
+        <Image Source="salon_unas_logo.jpeg" HeightRequest="180" WidthRequest="200" Aspect="AspectFit" />
     </StackLayout>
 
 </ContentPage>
