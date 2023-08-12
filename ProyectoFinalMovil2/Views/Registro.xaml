@@ -1,105 +1,82 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:ProyectoFinalMovil2.Custom"
              x:Class="ProyectoFinalMovil2.Views.Registro">
-    <RelativeLayout VerticalOptions="Center">
-        <Grid VerticalOptions="FillAndExpand">
-            <Image x:Name="main_background" Margin="-70,0,0,0" Source="registro1.png"   IsVisible="true" HeightRequest="690"  WidthRequest="500" HorizontalOptions="Center">
+    
+       <StackLayout BackgroundColor="#e6e6e6">
+        <Grid>
+            <StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
+                <Frame HeightRequest="150" BackgroundColor="HotPink" Padding="0" Margin="0">
+                    <Image Source="https://images.pexels.com/photos/939836/pexels-photo-939836.jpeg" Aspect="AspectFill" Margin="0"/>
+                </Frame>
+            </StackLayout>
+            <StackLayout Padding="0" Margin="10,100,10,0" HorizontalOptions="FillAndExpand">
+                <Frame  BackgroundColor="White" HeightRequest="600" HasShadow="True" Padding="0" Margin="0">
 
-            </Image>
+                    <StackLayout>
 
+
+                        <StackLayout Margin="10">
+                            <Label Text="REGISTRARSE" FontSize="25" TextColor="Purple" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Margin="10">
+                            <ImageButton  Source="Registro.png"
+                   
+                                 HeightRequest="180"
+                                 WidthRequest="50"
+                                 BackgroundColor="Transparent" x:Name="btnsele"  Clicked="btnagregarimagen_Clicked"  />
+                            <Label  Grid.Column="1" FontSize="18" Text="SELECCIONA FOTO GALERIA" HorizontalOptions="Center" TextColor="Purple" FontAttributes="Bold"/>
+                        </StackLayout>
+
+                        <StackLayout Padding="0" Margin="15,10">
+
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="nombres.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <local:MyCustomEntry x:Name="txtnombres" Placeholder="Nombre Completo" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="email.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <local:MyCustomEntry x:Name="txtemail" Placeholder="Correo" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <local:MyCustomEntry x:Name="txtcontra"  Placeholder="Contraseña" IsPassword="True" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                </StackLayout>
+                            </Frame>
+
+                            <StackLayout  Orientation="Vertical" Margin="15">
+                                <ImageButton Source="controlar.png"
+                   
+                                     HeightRequest="50"
+                                     WidthRequest="50"
+                                     BackgroundColor="Transparent" x:Name="btnok"  Clicked="btnCrearcuenta_Clicked"/>
+                                                <Label  Grid.Column="1" FontSize="18" Text="Crear Cuenta" HorizontalOptions="Center" TextColor="Purple" FontAttributes="Bold" />
+                            </StackLayout>
+
+                           
+                        </StackLayout>
+
+
+                    </StackLayout>
+
+                </Frame>
+            </StackLayout>
         </Grid>
-        <StackLayout VerticalOptions="Center">
-
-
-            <!-- imagen de perfil -->
-
-
-            <!-- boton seleccioanar foto  -->
-
-            <ImageButton  Source="profile.jpg"
-                   
-                     HeightRequest="50"
-                     WidthRequest="50"
-                     BackgroundColor="Transparent" x:Name="btnsele" Margin="50,200,30,10"  Clicked="btnagregarimagen_Clicked"  />
-
-
-
-            <Label  Grid.Column="1" Text="Seleccionar Foto" HorizontalOptions="Center" TextColor="Black" />
-
-            <!-- campo para nombres -->
-            <Grid Margin="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <!-- Columna para la imagen -->
-                    <ColumnDefinition Width="*"/>
-                    <!-- Columna para el Entry (resto del espacio disponible) -->
-                </Grid.ColumnDefinitions>
-
-                <!-- Frame con imagen -->
-                <Frame CornerRadius="30" BackgroundColor="#D29BFD" Grid.Column="0"  BorderColor="black" HasShadow="True"  Padding="10">
-                    <Image Source="nombres.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"/>
-                </Frame>
-
-                <!-- Entry -->
-                <Entry x:Name="txtnombres" Grid.Column="1" Placeholder="Nombre Completo" Keyboard="Chat" />
-            </Grid>
-
-
-
-            <!-- campo para email-->
-
-            <Grid Margin="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <!-- Columna para la imagen -->
-                    <ColumnDefinition Width="*"/>
-                    <!-- Columna para el Entry (resto del espacio disponible) -->
-                </Grid.ColumnDefinitions>
-
-                <!-- Frame con imagen -->
-                <Frame CornerRadius="30" BackgroundColor="#D29BFD" Grid.Column="0"  BorderColor="black" HasShadow="True"  Padding="10">
-                    <Image Source="email.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"/>
-                </Frame>
-
-                <!-- Entry -->
-                <Entry x:Name="txtemail" Grid.Column="1" Placeholder="Email"   Keyboard="Email"/>
-            </Grid>
-
-
-            <!-- campo para contraseña -->
-
-            <Grid Margin="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <!-- Columna para la imagen -->
-                    <ColumnDefinition Width="*"/>
-                    <!-- Columna para el Entry (resto del espacio disponible) -->
-                </Grid.ColumnDefinitions>
-
-                <!-- Frame con imagen -->
-                <Frame CornerRadius="30" BackgroundColor="#D29BFD" Grid.Column="0"  BorderColor="black" HasShadow="True"  Padding="10">
-                    <Image Source="contra.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"/>
-                </Frame>
-
-                <!-- Entry -->
-                <Entry IsPassword="True" x:Name="txtcontra" Grid.Column="1" Placeholder="Contraseña"  />
-            </Grid>
-
-
-
-
-
-
-            <!-- Boton OK -->
-            <ImageButton Source="controlar.png"
-                   
-                     HeightRequest="50"
-                     WidthRequest="50"
-                     BackgroundColor="Transparent" x:Name="btnok"  Clicked="btnCrearcuenta_Clicked"/>
-            <Label  Grid.Column="1" Text="Crear Cuenta" HorizontalOptions="Center" TextColor="Black" />
-
-
-        </StackLayout>
-    </RelativeLayout>
+    </StackLayout>
 </ContentPage>
