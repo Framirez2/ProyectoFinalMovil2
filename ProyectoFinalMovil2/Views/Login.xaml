@@ -18,7 +18,7 @@
 
 
                         <StackLayout Margin="10">
-                            <Label Text="INICIA SESIÓN" TextColor="Black" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                            <Label FontSize="20" Text="INICIAR SESIÓN" TextColor="Purple" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout Margin="10">
                             <Image Source="Registro.png" WidthRequest="70" HeightRequest="180"/>
@@ -48,7 +48,7 @@
 
                             <StackLayout  Orientation="Vertical" Margin="15">
                                 <Button Text="INICIA SESIÓN" BackgroundColor="HotPink" TextColor="White" CornerRadius="30" Clicked="btnlogin_Clicked"/>
-                                <Button Text="REGISTRASE" Clicked="btnregistrar_Clicked" BackgroundColor="HotPink" TextColor="White" CornerRadius="30"/>
+                                <Button Text="REGISTRARSE" Clicked="btnregistrar_Clicked" BackgroundColor="HotPink" TextColor="White" CornerRadius="30"/>
                                 <Button Text="Olvidé mi contraseña" BackgroundColor="HotPink" TextColor="White" CornerRadius="30" Clicked="btnrecuperar_Clicked"/>
                             </StackLayout>
 

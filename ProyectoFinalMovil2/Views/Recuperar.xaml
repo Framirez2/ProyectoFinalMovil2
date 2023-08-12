@@ -1,106 +1,84 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:ProyectoFinalMovil2.Custom"
              Visual="Material"
              NavigationPage.HasNavigationBar="False"
              x:Class="ProyectoFinalMovil2.Views.Recuperar"
              BackgroundImageSource="drawable/Registro1">
-    <ContentPage.Content>
-        <StackLayout>
-            <StackLayout
-                HorizontalOptions="StartAndExpand"
-                Padding="10"
-                Margin="10, 35, 0, 0"
-                WidthRequest="270">
-                <Grid
-                    HorizontalOptions="Start"
-                    Margin="0, 0, 0, -10"
-                    x:Name="btnGoBack">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width=".1*"/>
-                        <ColumnDefinition Width=".8*"/>
-                    </Grid.ColumnDefinitions>
-                    <!-- Boton OK -->
-                    <ImageButton Source="atras.png"
+       <StackLayout BackgroundColor="#e6e6e6">
+        <Grid>
+            <StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
+                <Frame HeightRequest="150" BackgroundColor="HotPink" Padding="0" Margin="0">
+                    <Image Source="https://images.pexels.com/photos/939836/pexels-photo-939836.jpeg" Aspect="AspectFill" Margin="0"/>
+                </Frame>
+            </StackLayout>
+            <StackLayout Padding="0" Margin="10,100,10,0" HorizontalOptions="FillAndExpand">
+                <Frame  BackgroundColor="White" HeightRequest="600" HasShadow="True" Padding="0" Margin="0">
+
+                    <StackLayout>
+
+
+                        <StackLayout Margin="10">
+                            <Label Text="Recuperar Contraseña" FontSize="25" TextColor="Purple" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Margin="10">
+                            <Image Source="Registro.png"
                    
-                     HeightRequest="50"
-                     WidthRequest="50"
-                     BackgroundColor="Transparent" x:Name="btnatras" Clicked="btnAtras_Clicked" />
+                                 HeightRequest="180"
+                                 WidthRequest="50"
+                                 BackgroundColor="Transparent" x:Name="btnsele"  />
+                        </StackLayout>
+
+                        <StackLayout Padding="0" Margin="15,10">
+
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="email.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <local:MyCustomEntry x:Name="txtCorreo" Placeholder="Correo electrónico" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame
+                                                Padding="8"
+                                                BackgroundColor="violet"
+                                                CornerRadius="5">
+                                                            <Label 
+                                                Text="Se enviará una clave temporal al correo. Al ingresar, se recomienda cambiar su contraseña."
+                                                TextColor="White"
+                                                FontSize="15"
+                                                FontAttributes="Bold"
+                                                LineBreakMode="WordWrap"/>
+                                    </Frame>
+                                </StackLayout>
+                            </Frame>
+
+                            <StackLayout  Orientation="Vertical" Margin="15">
+                                <Button
+                                Text="Recuperar contraseña"
+                                BackgroundColor="Purple"
+                                TextColor="White"
+                                CornerRadius="10"
+                                FontAttributes="Bold"
+                                Margin="0, 0, 0, 5"
+                                HeightRequest="50"
+                                x:Name="btnRecuperar"
+                                FontSize="15" Clicked="btnRecuperar_Clicked"
+                                                />
+                            </StackLayout>
+
+                           
+                        </StackLayout>
 
 
+                    </StackLayout>
 
-                    <Label
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        Text="Atras"
-                        FontSize="19"
-                        FontAttributes="Bold"
-                        TextColor="White"/>
-                </Grid>
-
-
-
-
-
-                <Label
-                    Text="Recuperar Contraseña"
-                    TextColor="White"
-                    FontAttributes="Bold"
-                    FontSize="28"
-                    LineBreakMode="WordWrap" Margin="10,150, -30, 0"/>
+                </Frame>
             </StackLayout>
-            <StackLayout
-                VerticalOptions="EndAndExpand"
-                Padding="35, 35, 35, 200">
-                <StackLayout
-                    Margin="0, 0,0, 8">
-                    <Frame
-                        Padding="0"
-                        CornerRadius="6"
-                        HasShadow="True">
-                        <Entry
-                            x:Name="txtCorreo"
-                            TextColor="White"
-                            BackgroundColor="Violet"
-                            Keyboard="Email"
-                            Placeholder="Correo electrónico"
-                            PlaceholderColor="White"
-                            IsTextPredictionEnabled="True"
-                            ClearButtonVisibility="WhileEditing"
-                           FontSize="15"/>
-                    </Frame>
-                </StackLayout>
-                <StackLayout
-                    Margin="0, 0, 0, 8">
-                    <Frame
-                        Padding="8"
-                        BackgroundColor="violet"
-                        CornerRadius="10">
-                        <Label 
-                            Text="Se le enviara una clave temporal al correo electronico,  al ingresar con la clave temporal se le recomienda cambiar la clave de su cuenta."
-                            TextColor="White"
-                            FontSize="15"
-                            FontAttributes="Bold"
-                            LineBreakMode="WordWrap"/>
-                    </Frame>
-                </StackLayout>
-                <StackLayout
-                    Margin="0, 0, 0, 8">
-                    <Button
-                        Text="Recuperar contraseña"
-                        BackgroundColor="Violet"
-                        TextColor="White"
-                        CornerRadius="10"
-                        Margin="0, 0, 0, 5"
-                        HeightRequest="50"
-                        x:Name="btnRecuperar"
-                        FontSize="15"
-                       />
-                </StackLayout>
-            </StackLayout>
-        </StackLayout>
-    </ContentPage.Content>
+        </Grid>
+    </StackLayout>
 </ContentPage>
