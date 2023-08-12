@@ -1,95 +1,66 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProyectoFinalMovil2.Views.Login">
-    <ContentPage.Content>
-        <RelativeLayout VerticalOptions="Center">
-            <Grid VerticalOptions="FillAndExpand">
-                <Image x:Name="main_background" Margin="-70,0,0,0" Source="registro1.png"   IsVisible="true" HeightRequest="690"  WidthRequest="500" HorizontalOptions="Center">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:ProyectoFinalMovil2.Custom"
+             x:Class="ProyectoFinalMovil2.Views.Login"
+             Title="LOGIN">
 
-                </Image>
-
-            </Grid>
-
-            <StackLayout VerticalOptions="Center">
-                <Image Source="usuario.png" Aspect="AspectFit" HeightRequest="100" WidthRequest="50" Margin="15,200"/>
-
-                <!-- campo para email -->
-                <Grid Margin="0,-180,-200,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <!-- Columna para la imagen -->
-                        <ColumnDefinition Width="*"/>
-                        <!-- Columna para el Entry (resto del espacio disponible) -->
-                    </Grid.ColumnDefinitions>
-
-                    <!-- Frame con imagen -->
-                    <Frame CornerRadius="30" BackgroundColor="#D29BFD" Grid.Column="0"  BorderColor="black" HasShadow="True"  Padding="10">
-                        <Image Source="email.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"/>
-                    </Frame>
-
-                    <!-- Entry -->
-                    <Entry x:Name="Correo" Grid.Column="1" Placeholder="Correo" />
-                </Grid>
-
-                <!-- campo para contraseña -->
-                <Grid Margin="0,10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <!-- Columna para la imagen -->
-                        <ColumnDefinition Width="*"/>
-                        <!-- Columna para el Entry (resto del espacio disponible) -->
-                    </Grid.ColumnDefinitions>
-
-                    <!-- Frame con imagen -->
-                    <Frame CornerRadius="30" BackgroundColor="#D29BFD" Grid.Column="0"  BorderColor="black" HasShadow="True"  Padding="10">
-                        <Image Source="contra.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"/>
-                    </Frame>
-
-                    <!-- Entry -->
-                    <Entry IsPassword="True" x:Name="Contra" Grid.Column="1" Placeholder="Contraseña" />
-                </Grid>
-
-                <StackLayout VerticalOptions="Center"
-             HorizontalOptions="Center"
-             Spacing="20">
-
-                    <Button x:Name="recuperar"
-            Text="Recuperar Contraseña"
-            Clicked="btnrecuperar_Clicked"
-            BackgroundColor="#6A0DAD"
-            TextColor="White"
-            BorderColor="#6A0DAD"
-            BorderWidth="1"
-            BorderRadius="10"
-            HeightRequest="40"
-            WidthRequest="200"/>
-
-                    <Button x:Name="inicio"
-            Text="Iniciar Sesión"
-            Clicked="btnlogin_Clicked"
-            BackgroundColor="#6A0DAD"
-            TextColor="White"
-            BorderColor="#6A0DAD"
-            BorderWidth="1"
-            BorderRadius="10"
-            HeightRequest="40"
-            WidthRequest="200"/>
-
-                    <Button x:Name="crear"
-            Text="Crear Cuenta"
-            Clicked="btnregistrar_Clicked"
-            BackgroundColor="#6A0DAD"
-            TextColor="White"
-            BorderColor="#6A0DAD"
-            BorderWidth="1"
-            BorderRadius="10"
-            HeightRequest="40"
-            WidthRequest="200"/>
-
-                </StackLayout>
-
+    <StackLayout BackgroundColor="#e6e6e6">
+        <Grid>
+            <StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
+                <Frame HeightRequest="150" BackgroundColor="HotPink" Padding="0" Margin="0">
+                    <Image Source="https://images.pexels.com/photos/939836/pexels-photo-939836.jpeg" Aspect="AspectFill" Margin="0"/>
+                </Frame>
             </StackLayout>
-        </RelativeLayout>
-    </ContentPage.Content>
+            <StackLayout Padding="0" Margin="10,100,10,0" HorizontalOptions="FillAndExpand">
+                <Frame  BackgroundColor="White" HeightRequest="600" HasShadow="True" Padding="0" Margin="0">
+
+                    <StackLayout>
+
+
+                        <StackLayout Margin="10">
+                            <Label Text="INICIA SESIÓN" TextColor="Black" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Margin="10">
+                            <Image Source="Registro.png" WidthRequest="70" HeightRequest="180"/>
+                        </StackLayout>
+
+                        <StackLayout Padding="0" Margin="15,10">
+
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <local:MyCustomEntry x:Name="Correo" Placeholder="Correo" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <local:MyCustomEntry x:Name="Contra" Placeholder="Contraseña" IsPassword="True" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                </StackLayout>
+                            </Frame>
+
+                            <StackLayout  Orientation="Vertical" Margin="15">
+                                <Button Text="INICIA SESIÓN" BackgroundColor="HotPink" TextColor="White" CornerRadius="30" Clicked="btnlogin_Clicked"/>
+                                <Button Text="REGISTRASE" Clicked="btnregistrar_Clicked" BackgroundColor="HotPink" TextColor="White" CornerRadius="30"/>
+                                <Button Text="Olvidé mi contraseña" BackgroundColor="HotPink" TextColor="White" CornerRadius="30" Clicked="btnrecuperar_Clicked"/>
+                            </StackLayout>
+
+                           
+                        </StackLayout>
+
+
+                    </StackLayout>
+
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+
 </ContentPage>
