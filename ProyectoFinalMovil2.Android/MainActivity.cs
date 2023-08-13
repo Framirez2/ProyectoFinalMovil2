@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.OS;
 using Plugin.FirebasePushNotification;
 using Android.Gms.Common;
+using Plugin.LocalNotification;
 
 namespace ProyectoFinalMovil2.Droid
 {
@@ -15,6 +16,16 @@ namespace ProyectoFinalMovil2.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            //LocalNotificationCenter.MainActivity = this;
+
+            // Must create a Notification Channel when API >= 26
+            // you can create multiple Notification Channels with different names.
+            LocalNotificationCenter.CreateNotificationChannel();
+
+            //LoadApplication(new App());
+
+            LocalNotificationCenter.NotifyNotificationTapped(Intent);
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Rg.Plugins.Popup.Popup.Init(this);

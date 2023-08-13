@@ -7,6 +7,7 @@ using Xamarin.Forms.Xaml;
 using Rg.Plugins.Popup;
 using Acr.UserDialogs;
 using Xamarin.Essentials;
+using Plugin.LocalNotification;
 
 namespace ProyectoFinalMovil2.Views
 {
@@ -87,6 +88,18 @@ namespace ProyectoFinalMovil2.Views
                         var funcion = new ContM_CrearCuenta();
                         await funcion.ValidarCuenta(Correo.Text, Contra.Text);
                         Application.Current.MainPage = new NavigationPage(new NavCustomer1());
+
+                        var notification = new NotificationRequest
+                        {
+                            BadgeNumber = 1,
+                            Description = "Ha iniciado sesion",
+                            Title = "Bienvenida!",
+                            ReturningData = "Dummy Data",
+                            NotificationId = 1337,
+
+                        };
+
+                        await LocalNotificationCenter.Current.Show(notification);
                     }
                     else if (Tipo_User == "admin")
                     {

@@ -34,25 +34,6 @@ namespace ProyectoFinalMovil2.Views
             ObtenerDatoUsuario();
         }
 
-
-        private async Task ObtenerDatoUsuario()
-        {
-            ContM_Usuarios funcion = new ContM_Usuarios();
-            Usuarios parametros = new Usuarios();
-            parametros.Id_User = Iduserlogin;
-            var dt = await funcion.GetDataProfile(parametros);
-            foreach (var fila in dt)
-            {
-                nombres.Text = fila.Nombres;
-                btnsele.Source = fila.ImagenPerfil;
-                pass = fila.Contrasena;
-                rutafoto = fila.ImagenPerfil;
-                IdUsuariosClientes = fila.Id_User_Cliente;
-                nombre = fila.Nombres;
-            }
-
-        }
-
         private async Task ObtenerIdusuario()
         {
             try
@@ -76,6 +57,27 @@ namespace ProyectoFinalMovil2.Views
 
 
         }
+
+
+        private async Task ObtenerDatoUsuario()
+        {
+            ContM_Usuarios funcion = new ContM_Usuarios();
+            Usuarios parametros = new Usuarios();
+            parametros.Id_User = Iduserlogin;
+            var dt = await funcion.GetDataProfile(parametros);
+            foreach (var fila in dt)
+            {
+                nombres.Text = fila.Nombres;
+                btnsele.Source = fila.ImagenPerfil;
+                pass = fila.Contrasena;
+                rutafoto = fila.ImagenPerfil;
+                IdUsuariosClientes = fila.Id_User_Cliente;
+                nombre = fila.Nombres;
+            }
+
+        }
+
+      
 
         /*private void Button_Clicked(object sender, EventArgs e)
         {

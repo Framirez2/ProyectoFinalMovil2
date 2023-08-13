@@ -29,9 +29,9 @@ namespace ProyectoFinalMovil2.Views
             // Crear una lista de strings llamada "descripcion" que contiene elementos con servicios de pedicure.
             List<string> descripcion = new List<string>
             {
-                "- Corte y dar forma a las unas.",
-                "- Tratamiento a cutriculas.",
-                "- Aplicacion de esmalte (normal)."
+                "  Corte y dar forma a las uñas.",
+                "  Tratamiento a cutriculas.",
+                "  Aplicacion de esmalte."
             };
 
             // Convertir la lista "descripcion" en un array de strings.
@@ -48,9 +48,9 @@ namespace ProyectoFinalMovil2.Views
             // Crear una lista de strings llamada "descripcion" que contiene elementos con servicios de pedicure.
             List<string> descripcion = new List<string>
             {
-                "- Limado de Pies.",
-                "- Corte de Uñas.",
-                "- Exfoliación para Retirar las Células Muertas."
+                "  Limado de Pies.",
+                "  Corte de uñas.",
+                "  Exfoliación para Retirar las Células Muertas."
             };
 
             // Convertir la lista "descripcion" en un array de strings.
@@ -66,9 +66,9 @@ namespace ProyectoFinalMovil2.Views
             // Crear una lista de strings llamada "descripcion" que contiene elementos con servicios de pedicure.
             List<string> descripcion = new List<string>
             {
-                "- Corte de unas.",
-                "- Pintado.",
-                "- Colocacion de unas."
+                "  Corte de uñas.",
+                "  Pintado.",
+                "  Colocación de uñas."
             };
 
             // Convertir la lista "descripcion" en un array de strings.
@@ -84,9 +84,9 @@ namespace ProyectoFinalMovil2.Views
             // Crear una lista de strings llamada "descripcion" que contiene elementos con servicios de pedicure.
             List<string> descripcion = new List<string>
             {
-                "- Diseno sencillo.",
-                "- Elegante en Mate.",
-                "- Limpieza de unas."
+                "  Diseño sencillo.",
+                "  Elegante en Mate.",
+                "  Limpieza de uñas."
             };
 
             // Convertir la lista "descripcion" en un array de strings.

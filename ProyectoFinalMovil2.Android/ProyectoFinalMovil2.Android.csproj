@@ -70,6 +70,9 @@
     <PackageReference Include="Plugin.FirebasePushNotification">
       <Version>3.4.35</Version>
     </PackageReference>
+    <PackageReference Include="Plugin.LocalNotification">
+      <Version>10.1.8</Version>
+    </PackageReference>
     <PackageReference Include="Plugin.StoreReview">
       <Version>6.0.0</Version>
     </PackageReference>
@@ -239,6 +242,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\editprofile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\nail_polish.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -1,12 +1,15 @@
 ﻿using Firebase.Auth;
 using Newtonsoft.Json;
+using Plugin.LocalNotification;
 using ProyectoFinalMovil2.Controllers;
 using ProyectoFinalMovil2.Models;
 using ProyectoFinalMovil2.Services;
 using Rating;
 using Rg.Plugins.Popup.Services;
 using System;
+using System.Collections.Generic;
 using System.Data.Common;
+using System.Globalization;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -18,8 +21,9 @@ namespace ProyectoFinalMovil2.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Historial : ContentPage
     {
-        
-        
+
+        private bool _notificationTimerRunning = false;
+
         public Historial()
         {
             InitializeComponent();
@@ -37,6 +41,86 @@ namespace ProyectoFinalMovil2.Views
         {
             base.OnAppearing();
             await ValidarTipoUser();
+
+            if (!_notificationTimerRunning)
+            {
+                _notificationTimerRunning = true;
+                Device.StartTimer(TimeSpan.FromSeconds(5), () =>
+                {
+                    EnviarNotificacionesAutomaticas();
+                    return _notificationTimerRunning;
+                    
+
+                });
+
+                _notificationTimerRunning = false;
+
+            }
+            
+        }
+
+        private async Task EnviarNotificacionesAutomaticas()
+        {
+            if (lstGeneral.ItemsSource is IList<ReservacionesClientes> reservacionesList && reservacionesList.Count > 0)
+            {
+                foreach (var reserva in reservacionesList)
+                {
+                    string estadoReserva = reserva.Estado;
+
+                    if (estadoReserva == "Finalizada")
+                    {
+                        var notification = new NotificationRequest
+                        {
+                            BadgeNumber = 1,
+                            Description = "Trabajo Finalizado",
+                            Title = "Finalizado!",
+                            ReturningData = "Dummy Data",
+                            NotificationId = 1337,
+                        };
+
+                        await LocalNotificationCenter.Current.Show(notification);
+                    }
+
+                }
+            }
+
+
+            if (lstGeneral.ItemsSource is IList<ReservacionesClientes> reservacionesList2 && reservacionesList2.Count > 0)
+            {
+                // Definir el umbral de tiempo para considerar que una reservación está próxima (por ejemplo, 15 minutos)
+                TimeSpan umbral = TimeSpan.FromMinutes(60);
+
+                // Obtener la hora actual
+                DateTime horaActual = DateTime.Now;
+
+                // Recorrer las reservaciones y verificar si alguna está próxima a la hora de realización
+                foreach (var reserva in reservacionesList2)
+                {
+                    DateTime horaReservacion = DateTime.ParseExact(reserva.Hora_Reservacion, "HH:mm:ss", CultureInfo.InvariantCulture);
+
+                    // Calcular la diferencia de tiempo entre la hora de la reservación y la hora actual
+                    TimeSpan tiempoRestante = horaReservacion - horaActual;
+
+                    if (tiempoRestante <= umbral && tiempoRestante > TimeSpan.Zero)
+                    {
+                        string estadoReserva = reserva.Estado;
+
+                        if (estadoReserva == "Finalizada")
+                        {
+                            var notification = new NotificationRequest
+                            {
+                                BadgeNumber = 1,
+                                Description = "Falta 1 hora para tu cita",
+                                Title = "Aviso!",
+                                ReturningData = "Dummy Data",
+                                NotificationId = 1337,
+                            };
+
+                            await LocalNotificationCenter.Current.Show(notification);
+                        }
+                    }
+                }
+            }
         }
 
         // Este método se encarga de obtener el ID del usuario actualmente autenticado.
