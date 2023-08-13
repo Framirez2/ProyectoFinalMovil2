@@ -18,6 +18,7 @@
     <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Plugin.FirebasePushNotification" Version="3.4.35" />
+    <PackageReference Include="Plugin.LocalNotification" Version="10.1.8" />
     <PackageReference Include="Plugin.StoreReview" Version="6.0.0" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
     <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.6" />

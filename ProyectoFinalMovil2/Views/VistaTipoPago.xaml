@@ -4,19 +4,25 @@
              x:Class="ProyectoFinalMovil2.Views.VistaTipoPago">
     <ContentPage.Content>
         <StackLayout Padding="20" VerticalOptions="CenterAndExpand" Spacing="20">
-            <Label Text="Elija una forma de pago" FontAttributes="Bold" FontSize="24" HorizontalTextAlignment="Center" TextColor="#333333"/>
+            <Button Text="Atras"
+                ImageSource="back.png"
+                BackgroundColor="#00CC99"
+                CornerRadius="25"
+            HorizontalOptions="Start"
+            Clicked="Button_Clicked" />
+            <Label Text="Seleccione su método de pago" FontAttributes="Bold" FontSize="24" HorizontalTextAlignment="Center" TextColor="#333333"/>
 
             <Button 
                 Text="Pagar en Sitio" 
                 TextColor="White" 
-                BackgroundColor="#FBA1B7"
+                BackgroundColor="Purple"
                 CornerRadius="10"
                 Clicked="Btn_PagarSitio"/>
 
             <Button 
                 Text="Pagar Con Tarjeta" 
                 TextColor="White" 
-                BackgroundColor="#FBA1B7"
+                BackgroundColor="Purple"
                 CornerRadius="10"
                 Clicked="Btn_PagarTarjeta"/>
         </StackLayout>

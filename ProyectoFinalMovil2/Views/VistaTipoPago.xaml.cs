@@ -23,5 +23,10 @@ namespace ProyectoFinalMovil2.Views
         {
             Application.Current.MainPage = new NavigationPage(new VistaPagos());
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            OnBackButtonPressed();
+        }
     }
 }
