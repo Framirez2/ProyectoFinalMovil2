@@ -18,6 +18,7 @@
                    BackgroundColor="Transparent" x:Name="btnsele"/>
             </StackLayout>
         </Frame>
+        
         <Frame Margin="2" Padding="2">
             <StackLayout>
                 <Label Text="¡Bienvenida al Salón de Uñas!" FontSize="24" FontAttributes="Bold" TextColor="#333333" HorizontalTextAlignment="Center" Margin="0,20,0,10"/>
@@ -25,6 +26,7 @@
                 <Label x:Name="nombres" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="Purple"/>
             </StackLayout>
         </Frame>
+        
         <Frame Margin="5" Padding="5">
             <StackLayout Margin="0" Padding="0" Orientation="Horizontal" HorizontalOptions="Center">
                 <Button ImageSource="logout" FontSize="13" FontAttributes="Bold" BackgroundColor="HotPink" TextColor="White" CornerRadius="5" Text="Cerrar Sesión" x:Name="btnCerrarSesion" Clicked="btnCerrarSesion_Clicked" HorizontalOptions="Center"/>

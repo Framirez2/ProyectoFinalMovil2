@@ -6,11 +6,24 @@
              BackgroundColor="#F7F7F7">
 
     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="20">
-        <Image Source="salon_unas_logo.jpeg" HeightRequest="200" WidthRequest="200" Aspect="AspectFit" />
+        <Frame BorderColor="#2196F3"
+        CornerRadius="10"
+        Padding="10"
+        HasShadow="True"
+        HorizontalOptions="CenterAndExpand">
+            <StackLayout>
+                <Image Source="profile.jpg"
+            HeightRequest="150"
+            WidthRequest="150"
+            BackgroundColor="Transparent" x:Name="btnsele"/>
+            </StackLayout>
+        </Frame>
 
         <Label Text="¡Bienvenido!" FontSize="24" FontAttributes="Bold" TextColor="#333333" HorizontalTextAlignment="Center" Margin="0,20,0,10" />
-        <Label Text="Este es el panel para administradores" FontSize="16" TextColor="#666666" HorizontalTextAlignment="Center" />
+        <Label x:Name="nombres" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="Purple"/>
 
-        <!--<Button Text="Explorar Servicios" Clicked="Button_Clicked" BackgroundColor="#bc1463" TextColor="White" CornerRadius="10" Margin="0,40,0,0" />-->
+        <Label Text="Este es el panel para administradores" FontSize="16" TextColor="#666666" HorizontalTextAlignment="Center" />
+        <Image Source="salon_unas_logo.jpeg" HeightRequest="200" WidthRequest="200" Aspect="AspectFit" />
+
     </StackLayout>
 </ContentPage>
