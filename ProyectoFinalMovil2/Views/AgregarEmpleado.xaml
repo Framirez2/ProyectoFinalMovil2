@@ -1,58 +1,88 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:ProyectoFinalMovil2.Custom"
              x:Class="ProyectoFinalMovil2.Views.AgregarEmpleado">
     <ContentPage.Content>
-        <StackLayout x:Name="frm">
-            <StackLayout>
-                <Image x:Name="imgFoto"
-                       Source="avatar.png"
-                       WidthRequest="200"
-                       HeightRequest="200">
+        <StackLayout x:Name="frm" Margin="15">
+            <Frame BorderColor="#2196F3"
+                 CornerRadius="5"
+                 Padding="5"
+                 HasShadow="True"
+                  HorizontalOptions="CenterAndExpand" Margin="4">
+                <StackLayout>
+                    <Image x:Name="imgFoto"
+                           Source="avatar.png"
+                           WidthRequest="130"
+                           HeightRequest="130">
 
-                    <!--<Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
-                                          NumberOfTapsRequired="1"/>
-                    </Image.GestureRecognizers>-->
+                    </Image>
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Center">
 
-                </Image>
-                <StackLayout Orientation="Horizontal"
-                             HorizontalOptions="Center">
-                    <!--<Button Text="Capturar Foto"
-                            x:Name="btnTake"
-                            Clicked="btnTake_Clicked"/>
-                    <Button Text="Escoger Foto"
-                            x:Name="btnSelect"
-                            Clicked="btnSelect_Clicked"/>-->
-                    <ImageButton x:Name="btnTake"
-                                 Source="shoot.png"
-                                 Clicked="btnTake_Clicked"
-                                 WidthRequest="100"
-                                 HeightRequest="100"/>
-                    <ImageButton x:Name="btnSelect"
-                                 Source="select.png"
-                                 Clicked="btnSelect_Clicked"
-                                 WidthRequest="100"
-                                 HeightRequest="100"/>
+                        <ImageButton x:Name="btnTake"
+                                     Source="shoot.png"
+                                     Clicked="btnTake_Clicked"
+                                     WidthRequest="80"
+                                     HeightRequest="60"/>
+                        <ImageButton x:Name="btnSelect"
+                                     Source="select.png"
+                                     Clicked="btnSelect_Clicked"
+                                     WidthRequest="80"
+                                     HeightRequest="60"/>
+                    </StackLayout>
                 </StackLayout>
-            </StackLayout>
+            </Frame>
             <StackLayout x:Name="frmTexts">
-                <Entry Placeholder="Nombre"
-                       x:Name="txtNames"/>
-                <Entry Placeholder="Correo Electronico"
-                       x:Name="txtEmail"
-                       Keyboard="Email"/>
-                <Entry Placeholder="Contraseña"
-                       x:Name="txtPassword"
-                       IsPassword="True"/>
-                <Entry Placeholder="Repetir Contraseña"
-                       x:Name="txtRepeatPass"
-                       IsPassword="True"/>
-                <Picker x:Name="cmbBoxType"
+                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                            <Image Source="nombres.png" Aspect="AspectFill" Margin="0"/>
+                        </Frame>
+                        <local:MyCustomEntry Placeholder="Nombre"
+                        x:Name="txtNames" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                            <Image Source="email.png" Aspect="AspectFill" Margin="0"/>
+                        </Frame>
+                        <local:MyCustomEntry Placeholder="Correo Electronico"
+                           x:Name="txtEmail"
+                           Keyboard="Email" TextColor="Purple" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                            <Image Source="contra.png" Aspect="AspectFill" Margin="0"/>
+                        </Frame>
+
+                        <local:MyCustomEntry x:Name="txtPassword" Placeholder="Contraseña" IsPassword="True" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    </StackLayout>
+                </Frame>
+
+
+                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                            <Image Source="contra.png" Aspect="AspectFill" Margin="0"/>
+                        </Frame>
+
+                        <local:MyCustomEntry x:Name="txtRepeatPass" Placeholder="Repetir Contraseña" IsPassword="True" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                    <Picker x:Name="cmbBoxType"
                         Title="Seleccione el rol"/>
+                </Frame>
+
                 <Button Text="Agregar Empleado"
                         x:Name="btnAgr"
-                        Clicked="btnAgr_Clicked"/>
+                        Clicked="btnAgr_Clicked" BackgroundColor="Purple" TextColor="White" CornerRadius="10"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
