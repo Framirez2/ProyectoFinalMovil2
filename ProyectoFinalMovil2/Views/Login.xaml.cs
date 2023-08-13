@@ -18,12 +18,23 @@ namespace ProyectoFinalMovil2.Views
         public Login()
         {
             InitializeComponent();
+            // Cargar el correo electrónico guardado en Preferences, si existe
+            // Cargar el correo electrónico y la contraseña guardados en Preferences, si existen
+            string savedEmail = Preferences.Get("SavedEmail", string.Empty);
+            Correo.Text = savedEmail;
+
+            string savedPassword = Preferences.Get("SavedPassword", string.Empty);
+            Contra.Text = savedPassword;
         }
 
         private async void btnlogin_Clicked(object sender, EventArgs e)
         {
             await ValidarDatos();
-           if (!string.IsNullOrEmpty(Correo.Text))
+            // Guardar el correo electrónico ingresado en Preferences
+            Preferences.Set("SavedEmail", Correo.Text);
+            Preferences.Set("SavedPassword", Contra.Text);
+
+            if (!string.IsNullOrEmpty(Correo.Text))
              {
                  if (!string.IsNullOrEmpty(Contra.Text))
                  {
