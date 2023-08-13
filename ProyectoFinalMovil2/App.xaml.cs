@@ -1,4 +1,5 @@
-﻿using Plugin.FirebasePushNotification;
+﻿using Firebase.Database;
+using Plugin.FirebasePushNotification;
 using ProyectoFinalMovil2.Views;
 using System.Runtime.InteropServices;
 using Xamarin.Forms;
@@ -13,8 +14,9 @@ namespace ProyectoFinalMovil2
         {
             InitializeComponent();
 
+            //MainPage = new NavigationPage(new Login());
 
-            MainPage = new NavigationPage(new Login());
+            MainPage = new NavigationPage(new DataPersistenceTest());
 
             //MainPage = new NavigationPage(new CustomerMenu());
 
