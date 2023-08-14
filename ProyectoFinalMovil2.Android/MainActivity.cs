@@ -7,10 +7,11 @@ using Android.OS;
 using Plugin.FirebasePushNotification;
 using Android.Gms.Common;
 using Plugin.LocalNotification;
+using Acr.UserDialogs;
 
 namespace ProyectoFinalMovil2.Droid
 {
-    [Activity(Label = "ProyectoFinalMovil2", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
+    [Activity(Label = "NailBars", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -18,6 +19,7 @@ namespace ProyectoFinalMovil2.Droid
             base.OnCreate(savedInstanceState);
             //LocalNotificationCenter.MainActivity = this;
 
+            UserDialogs.Init(this);
             // Must create a Notification Channel when API >= 26
             // you can create multiple Notification Channels with different names.
             LocalNotificationCenter.CreateNotificationChannel();

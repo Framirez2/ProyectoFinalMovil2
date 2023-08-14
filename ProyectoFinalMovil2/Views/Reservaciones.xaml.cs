@@ -1,8 +1,10 @@
-﻿using ProyectoFinalMovil2.Controllers;
+﻿using Acr.UserDialogs;
+using ProyectoFinalMovil2.Controllers;
 using ProyectoFinalMovil2.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -29,7 +31,7 @@ namespace ProyectoFinalMovil2.Views
         {
 
             InitializeComponent();
-          
+
 
             // Mostrar la lista de estilistas disponibles.
             MostrarEstilistas();
@@ -170,7 +172,7 @@ namespace ProyectoFinalMovil2.Views
             {
                 ContadorEstilista = ContadorEstilista + 1;
             }
-          
+
 
             string Hour;
             ContM_Reservaciones Funcion = new ContM_Reservaciones();
@@ -185,7 +187,7 @@ namespace ProyectoFinalMovil2.Views
             }
         }
 
-        
+
         // Este método se ejecuta cuando se selecciona una fecha en el calendario de reservaciones (txtFechaReservacion).
         private async void txtFechaReservacion_DateSelected(object sender, DateChangedEventArgs e)
         {
@@ -256,46 +258,63 @@ namespace ProyectoFinalMovil2.Views
             HoraReservacion = txtHorario.SelectedItem.ToString();
         }
 
-        private async void txtReservar_Clicked(object sender, EventArgs e)
+        public async void txtReservar_Clicked(object sender, EventArgs e)
         {
-            // Verificar si el horario de reservación (HoraReservacion) está vacío o nulo.
-            if (string.IsNullOrEmpty(HoraReservacion))
-            {
-                await DisplayAlert("Aviso", "Falta Hora Reservacion", "OK");
-                // Si el horario de reservación está vacío o nulo, redirigir al usuario a la vista de pagos (VistaPagos) y salir del método.
-                //Application.Current.MainPage = new NavigationPage(new VistaPagos());
-                return;
-            }
+            await RealizarReservacion();
+        }
 
-            ReservacionesClientes reservacion = new ReservacionesClientes();
-            ContM_Reservaciones contReser = new ContM_Reservaciones();
+        public async Task RealizarReservacion()
+        {
+            try
+            {
 
-            // Verificar si la cantidad de reservaciones y la cantidad de estilistas disponibles cumplen con los límites permitidos (60 y 12 respectivamente).
-            if (ContadorReservaciones <= 60 && ContadorEstilista <= 12)
-            {
-                await DisplayAlert("Aviso", "Creando la Reservacion", "OK");
-                // Llenar los datos de la reservación en el objeto "reservacion".
-                reservacion.Id_Cliente = IdUsuario;
-                reservacion.Nombre_Estilisita = NombreEstilista;
-                reservacion.Nombre_Usuario = NombreUsuario;
-                reservacion.Tipo_Reservacion = TipoReservacion;
-                reservacion.Fecha_Reservacion = FechaReservacion;
-                reservacion.Hora_Reservacion = HoraReservacion;
-                reservacion.Precio = Precio;
-                reservacion.Estado = "Pendiente";
-                reservacion.Calificacion = 0;
+                // Verificar si el horario de reservación (HoraReservacion) está vacío o nulo.
+                if (string.IsNullOrEmpty(HoraReservacion))
+                {
+                    await DisplayAlert("Aviso", "Falta Hora Reservacion", "OK");
+                    // Si el horario de reservación está vacío o nulo, redirigir al usuario a la vista de pagos (VistaPagos) y salir del método.
+                    //Application.Current.MainPage = new NavigationPage(new VistaPagos());
+                    return;
+                }
+                ReservacionesClientes reservacion = new ReservacionesClientes();
+                ContM_Reservaciones contReser = new ContM_Reservaciones();
 
-                // Insertar la reservación en la base de datos a través del controlador ContM_Reservaciones.
-                await contReser.InsertarReservacion(reservacion);
-                Application.Current.MainPage = new NavigationPage(new VistaTipoPago());
+                // Verificar si la cantidad de reservaciones y la cantidad de estilistas disponibles cumplen con los límites permitidos (60 y 12 respectivamente).
+                if (ContadorReservaciones <= 60 && ContadorEstilista <= 12)
+                {
+
+                    UserDialogs.Instance.ShowLoading("Creando la Reservacion...", MaskType.Gradient);
+                    // Llenar los datos de la reservación en el objeto "reservacion".
+                    reservacion.Id_Cliente = IdUsuario;
+                    reservacion.Nombre_Estilisita = NombreEstilista;
+                    reservacion.Nombre_Usuario = NombreUsuario;
+                    reservacion.Tipo_Reservacion = TipoReservacion;
+                    reservacion.Fecha_Reservacion = FechaReservacion;
+                    reservacion.Hora_Reservacion = HoraReservacion;
+                    reservacion.Precio = Precio;
+                    reservacion.Estado = "Pendiente";
+                    reservacion.Calificacion = 0;
+
+                    // Insertar la reservación en la base de datos a través del controlador ContM_Reservaciones.
+                    await contReser.InsertarReservacion(reservacion);
+                    UserDialogs.Instance.HideLoading();
+                    //Application.Current.MainPage = new NavigationPage.PushAsync(new VistaTipoPago());
+                    //await NavigationPage.PushAsync(new VistaTipoPago());
+                    await Navigation.PushAsync(new VistaTipoPago());
+                }
+                else if (ContadorReservaciones > 60)
+                {
+                    await DisplayAlert("Aviso", "Seleccione una estilista", "OK");
+                }
+                else
+                {
+                    await DisplayAlert("Aviso", "Estilista no disponible", "OK");
+                }
+
             }
-            else if (ContadorReservaciones > 60)
+            catch (Exception ex)
             {
-                await DisplayAlert("Aviso", "Seleccione una estilista", "OK");
-            }
-            else
-            {
-                await DisplayAlert("Aviso", "Estilista no disponible", "OK");
+                await DisplayAlert("Error", ex.Message, "OK");
             }
         }
 

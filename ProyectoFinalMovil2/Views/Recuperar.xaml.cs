@@ -1,4 +1,5 @@
-﻿using ProyectoFinalMovil2.Controllers;
+﻿using Acr.UserDialogs;
+using ProyectoFinalMovil2.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,10 +32,11 @@ namespace ProyectoFinalMovil2.Views
         {
             await RecuperarContra();
         }
-		private async Task RecuperarContra()
-		{
+        private async Task RecuperarContra()
+        {
             string correo = txtCorreo.Text;
 
+            UserDialogs.Instance.ShowLoading("Cargando...", MaskType.Gradient);
             //Validar la conexion a internet
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
@@ -53,26 +55,28 @@ namespace ProyectoFinalMovil2.Views
                         return;
                     }
 
-                bool seEnvio = await _RestablecerCuenta.RecuperarContrasena(correo);
-                if (seEnvio)
-                {
-                    await DisplayAlert(null, "Revise su correo electronico", "Ok");
+                    bool seEnvio = await _RestablecerCuenta.RecuperarContrasena(correo);
+                    if (seEnvio)
+                    {
+                        await DisplayAlert(null, "Revise su correo electronico", "Ok");
+                        //await Xamarin.Essentials.Email.Op;
+                    }
+                    else
+                    {
+                        await DisplayAlert("Error", "Correo no valido o no se pudo enviar el correo", "Aceptar");
+                    }
                 }
-                else
+                catch (Firebase.Auth.FirebaseAuthException ex)
                 {
-                    await DisplayAlert("Error", "Correo no valido o no se pudo enviar el correo", "Aceptar");
+                    await DisplayAlert("Error", "Correo no valido o inexistente", "Aceptar");
                 }
-            }
-            catch (Firebase.Auth.FirebaseAuthException ex)
-            {
-                await DisplayAlert("Error", "Correo no valido o inexistente", "Aceptar");
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Error", ex.Message, "Aceptar");
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Error", ex.Message, "Aceptar");
 
                 }
             }
+            UserDialogs.Instance.HideLoading();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Firebase.Auth;
+﻿using Acr.UserDialogs;
+using Firebase.Auth;
 using Newtonsoft.Json;
 using ProyectoFinalMovil2.Controllers;
 using ProyectoFinalMovil2.Models;
@@ -38,7 +39,10 @@ namespace ProyectoFinalMovil2.Views
                 var refreshContent = await authProvider.RefreshAuthAsync(saveId);
                 Preferences.Set("MyFirebaseRefreshToken", JsonConvert.SerializeObject(refreshContent));
                 userId = saveId.User.LocalId;
-                reLogin();
+
+                UserDialogs.Instance.ShowLoading("Cargando...", MaskType.Gradient);
+                await reLogin();
+                UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex){  }
         }
@@ -54,6 +58,7 @@ namespace ProyectoFinalMovil2.Views
             Usuarios user = new Usuarios();
             user.Id_User = userId;
             var data = await userFunc.GetDataMail(user);
+
             foreach (var fila in data){
                 userType = fila.Tipo_Usuario.ToString();
             }
