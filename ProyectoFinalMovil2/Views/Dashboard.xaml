@@ -34,7 +34,7 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#bc246c" Padding="10">
+        <StackLayout BackgroundColor="MediumPurple" Padding="10">
             <Label Text="Dashboard" HorizontalTextAlignment="Center" Margin="0,40,0,20" TextColor="White" FontSize="28" FontAttributes="Bold" FontFamily="HelveticaNeue-Bold" />
 
             <Label x:Name="encabezado1" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="20" FontAttributes="Bold" FontFamily="HelveticaNeue-Medium" />

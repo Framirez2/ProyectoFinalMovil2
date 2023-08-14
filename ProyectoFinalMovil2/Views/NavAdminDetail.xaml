@@ -12,14 +12,15 @@
         HasShadow="True"
         HorizontalOptions="CenterAndExpand">
             <StackLayout>
-                <Image Source="profile.jpg"
+                <Image Source="admin.png"
             HeightRequest="150"
             WidthRequest="150"
             BackgroundColor="Transparent" x:Name="btnsele"/>
+                <Button ImageSource="logout" FontSize="13" FontAttributes="Bold" BackgroundColor="HotPink" TextColor="White" CornerRadius="5" Text="Cerrar Sesión" x:Name="btnCerrarSesion" Clicked="btnCerrarSesion_Clicked" HorizontalOptions="Center"/>
             </StackLayout>
         </Frame>
-
-        <Label Text="¡Bienvenido!" FontSize="24" FontAttributes="Bold" TextColor="#333333" HorizontalTextAlignment="Center" Margin="0,20,0,10" />
+        
+        <Label Text="¡Bienvenida!" FontSize="24" FontAttributes="Bold" TextColor="#333333" HorizontalTextAlignment="Center" Margin="0,20,0,10" />
         <Label x:Name="nombres" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="Purple"/>
 
         <Label Text="Este es el panel para administradores" FontSize="16" TextColor="#666666" HorizontalTextAlignment="Center" />

@@ -8,12 +8,23 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout BackgroundColor="#bc246c" Padding="20" HeightRequest="80" VerticalOptions="Start">
+            <StackLayout BackgroundColor="HotPink" Padding="20" HeightRequest="80" VerticalOptions="Start">
                 <Label Text="Historial de Reservaciones"
-                       FontSize="30"
+                       FontSize="25"
                        TextColor="White"
                        FontAttributes="Bold" />
+                <Image Source="nail_polish"/>
             </StackLayout>
+
+                <Frame Margin="2,2">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="PULSE PARA MAS OPCIONES" TextColor="Purple" FontSize="15" FontAttributes="Bold"/>
+
+                            <Image Source="down.png"/>
+                    </StackLayout>
+
+                </Frame>
+
 
             <CollectionView x:Name="lstGeneral"
                             SelectionMode="Single"

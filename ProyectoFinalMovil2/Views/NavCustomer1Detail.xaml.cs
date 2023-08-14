@@ -87,5 +87,6 @@ namespace ProyectoFinalMovil2.Views
             Preferences.Remove("MyFirebaseRefreshToken");
             Application.Current.MainPage = new NavigationPage(new Login());
         }
+
     }
 }

@@ -66,16 +66,18 @@ namespace ProyectoFinalMovil2.Views
                 foreach (var reserva in reservacionesList)
                 {
                     string estadoReserva = reserva.Estado;
+                    string tipoRer = reserva.Tipo_Reservacion;
 
                     if (estadoReserva == "Finalizada")
                     {
                         var notification = new NotificationRequest
                         {
                             BadgeNumber = 1,
-                            Description = "Trabajo Finalizado",
-                            Title = "Finalizado!",
+                            Description = tipoRer,
+                            Title = "Trabajo Finalizado!",
                             ReturningData = "Dummy Data",
                             NotificationId = 1337,
+                            
                         };
 
                         await LocalNotificationCenter.Current.Show(notification);
@@ -88,7 +90,7 @@ namespace ProyectoFinalMovil2.Views
             if (lstGeneral.ItemsSource is IList<ReservacionesClientes> reservacionesList2 && reservacionesList2.Count > 0)
             {
                 // Definir el umbral de tiempo para considerar que una reservación está próxima (por ejemplo, 15 minutos)
-                TimeSpan umbral = TimeSpan.FromMinutes(60);
+                TimeSpan umbral = TimeSpan.FromMinutes(22);
 
                 // Obtener la hora actual
                 DateTime horaActual = DateTime.Now;
@@ -105,7 +107,7 @@ namespace ProyectoFinalMovil2.Views
                     {
                         string estadoReserva = reserva.Estado;
 
-                        if (estadoReserva == "Finalizada")
+                        if (estadoReserva == "Pendiente")
                         {
                             var notification = new NotificationRequest
                             {
@@ -192,6 +194,20 @@ namespace ProyectoFinalMovil2.Views
                     {
                         await EliminarReservacion(itemSelect);
                     }
+                }
+            }
+            else if (Tipo_User == "admin")
+            {
+                string selection = await DisplayActionSheet("Seleccione una opción", null, null, "Eliminar", "Dar de alta");
+
+                if (selection == "Dar de alta")
+                {
+                    itemSelect.Estado = "Finalizada";
+                    await consulta.EstablecerEstado(itemSelect);
+                }
+                else if (selection == "Eliminar")
+                {
+                    await EliminarReservacion(itemSelect);
                 }
             }
 

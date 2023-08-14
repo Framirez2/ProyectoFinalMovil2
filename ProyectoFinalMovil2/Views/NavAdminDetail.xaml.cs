@@ -16,6 +16,8 @@ using Xamarin.Forms.Xaml;
 namespace ProyectoFinalMovil2.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+
+
     public partial class NavAdminDetail : ContentPage
     {
         MediaFile file;
@@ -32,8 +34,8 @@ namespace ProyectoFinalMovil2.Views
         {
             InitializeComponent();
             ObtenerDatoUsuario();
+            //ObtenerDatoReser();
         }
-
         private async Task ObtenerIdusuario()
         {
             try
@@ -77,11 +79,36 @@ namespace ProyectoFinalMovil2.Views
 
         }
 
-      
-
-        /*private void Button_Clicked(object sender, EventArgs e)
+      /*  private async Task ObtenerDatoReser()
         {
+            try
+            {
+                ContM_Reservaciones funcion = new ContM_Reservaciones();
 
+                // Obtener la lista de reservaciones usando async/await
+                List<ReservacionesClientes> reservaciones = await funcion.GetAllEstadoReser();
+
+                int totalReservaciones = reservaciones.Count;
+
+                // Actualizar el control de texto en el hilo de la interfaz de usuario
+                txtFin.Dispatcher.BeginInvokeOnMainThread(() =>
+                {
+                    txtFin.Text = totalReservaciones.ToString();
+                });
+            }
+            catch (Exception ex)
+            {
+                // Manejar cualquier excepción que pueda ocurrir
+                Console.WriteLine($"Error: {ex.Message}");
+            }
         }*/
+
+
+
+        private void btnCerrarSesion_Clicked(object sender, EventArgs e)
+        {
+            Preferences.Remove("MyFirebaseRefreshToken");
+            Application.Current.MainPage = new NavigationPage(new Login());
+        }
     }
 }

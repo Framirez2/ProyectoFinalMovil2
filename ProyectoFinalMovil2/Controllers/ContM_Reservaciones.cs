@@ -365,5 +365,16 @@ namespace ProyectoFinalMovil2.Controllers
 
             return Reservaciones;
         }
+
+        public async Task<List<ReservacionesClientes>> GetAllEstadoReser()
+        {
+            return (await FirebaseConnection.conexionFirebase.Child(nameof(ReservacionesClientes)).OnceAsync<ReservacionesClientes>()).Select(item => new ReservacionesClientes
+            {
+
+                Estado = item.Object.Estado,
+                Id_Reservaciones = item.Object.Id_Reservaciones
+
+            }).ToList();
+        }
     }
 }
