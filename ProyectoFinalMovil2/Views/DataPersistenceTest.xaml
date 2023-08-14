@@ -2,10 +2,30 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoFinalMovil2.Views.DataPersistenceTest">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button" x:Key="CustomButtonStyle">
+                <Setter Property="BackgroundColor" Value="HotPink"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="Padding" Value="20,10"/>
+            </Style>
+            <Style TargetType="Label" x:Key="WelcomeLabelStyle">
+                <Setter Property="Text" Value="¡Bienvenido a nuestro Salón de Uñas!"/>
+                <Setter Property="TextColor" Value="#333"/>
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="EndAndExpand"/>
+                <Setter Property="Margin" Value="0,0,0,40"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Button Text="Iniciar Sesion" x:Name="btnLogin" Clicked="btnLogin_Clicked"/>
-            <Button Text="Registrarse" x:Name="btnSignIn" Clicked="btnSignIn_Clicked"/>
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Label Style="{StaticResource WelcomeLabelStyle}"/>
+            <Button Text="INICIAR NailBars" x:Name="btnLogin" Clicked="btnLogin_Clicked" Style="{StaticResource CustomButtonStyle}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+
