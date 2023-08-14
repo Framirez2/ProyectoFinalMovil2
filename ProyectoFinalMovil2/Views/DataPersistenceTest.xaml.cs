@@ -1,4 +1,4 @@
-﻿using Acr.UserDialogs;
+﻿
 using Firebase.Auth;
 using Newtonsoft.Json;
 using ProyectoFinalMovil2.Controllers;
@@ -40,9 +40,7 @@ namespace ProyectoFinalMovil2.Views
                 Preferences.Set("MyFirebaseRefreshToken", JsonConvert.SerializeObject(refreshContent));
                 userId = saveId.User.LocalId;
 
-                UserDialogs.Instance.ShowLoading("Cargando...", MaskType.Gradient);
                 await reLogin();
-                UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex){  }
         }

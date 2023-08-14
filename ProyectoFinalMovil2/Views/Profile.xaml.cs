@@ -1,4 +1,4 @@
-﻿using Acr.UserDialogs;
+﻿
 using Firebase.Auth;
 using Newtonsoft.Json;
 using Plugin.Media.Abstractions;
@@ -46,7 +46,6 @@ namespace ProyectoFinalMovil2.Views
 
         private async void btnActualizar_Clicked(object sender, EventArgs e)
         {
-            UserDialogs.Instance.ShowLoading("Espere por favor...",MaskType.Gradient);
             // Verificar si los campos están vacíos
             if (string.IsNullOrWhiteSpace(nombres.Text) || string.IsNullOrWhiteSpace(email.Text))
             {
@@ -72,15 +71,12 @@ namespace ProyectoFinalMovil2.Views
                 await DisplayAlert("Aviso", "No se encontraron cambios", "Ok");
             }
 
-            UserDialogs.Instance.HideLoading();
         }
 
 
         private async void btnActualizarpass_Clicked(object sender, EventArgs e)
         {
-            UserDialogs.Instance.ShowLoading("Espere por favor...",MaskType.Gradient);
             await EditPass();
-            UserDialogs.Instance.HideLoading();
         }
 
         private async Task EditarFoto()
@@ -332,10 +328,8 @@ namespace ProyectoFinalMovil2.Views
 
         private void btncerrar_Clicked(object sender, EventArgs e)
         {
-            UserDialogs.Instance.ShowLoading("Cerrando sesion", MaskType.Gradient);
             Preferences.Remove("MyFirebaseRefreshToken");
             Application.Current.MainPage = new NavigationPage(new Login());
-            UserDialogs.Instance.HideLoading();
         }
 
         private async void btnFoto_Clicked(object sender, EventArgs e)

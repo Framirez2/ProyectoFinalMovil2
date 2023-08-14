@@ -1,4 +1,4 @@
-﻿using Acr.UserDialogs;
+﻿
 using ProyectoFinalMovil2.Controllers;
 using System;
 using System.Collections.Generic;
@@ -36,7 +36,6 @@ namespace ProyectoFinalMovil2.Views
         {
             string correo = txtCorreo.Text;
 
-            UserDialogs.Instance.ShowLoading("Cargando...", MaskType.Gradient);
             //Validar la conexion a internet
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
@@ -76,7 +75,6 @@ namespace ProyectoFinalMovil2.Views
 
                 }
             }
-            UserDialogs.Instance.HideLoading();
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Acr.UserDialogs;
-using ProyectoFinalMovil2.Controllers;
+﻿using ProyectoFinalMovil2.Controllers;
 using ProyectoFinalMovil2.Models;
 using System;
 using System.Collections.Generic;
@@ -283,7 +282,6 @@ namespace ProyectoFinalMovil2.Views
                 if (ContadorReservaciones <= 60 && ContadorEstilista <= 12)
                 {
 
-                    UserDialogs.Instance.ShowLoading("Creando la Reservacion...", MaskType.Gradient);
                     // Llenar los datos de la reservación en el objeto "reservacion".
                     reservacion.Id_Cliente = IdUsuario;
                     reservacion.Nombre_Estilisita = NombreEstilista;
@@ -297,7 +295,6 @@ namespace ProyectoFinalMovil2.Views
 
                     // Insertar la reservación en la base de datos a través del controlador ContM_Reservaciones.
                     await contReser.InsertarReservacion(reservacion);
-                    UserDialogs.Instance.HideLoading();
                     //Application.Current.MainPage = new NavigationPage.PushAsync(new VistaTipoPago());
                     //await NavigationPage.PushAsync(new VistaTipoPago());
                     await Navigation.PushAsync(new VistaTipoPago());

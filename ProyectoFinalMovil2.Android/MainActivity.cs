@@ -7,7 +7,6 @@ using Android.OS;
 using Plugin.FirebasePushNotification;
 using Android.Gms.Common;
 using Plugin.LocalNotification;
-using Acr.UserDialogs;
 
 namespace ProyectoFinalMovil2.Droid
 {
@@ -19,7 +18,6 @@ namespace ProyectoFinalMovil2.Droid
             base.OnCreate(savedInstanceState);
             //LocalNotificationCenter.MainActivity = this;
 
-            UserDialogs.Init(this);
             // Must create a Notification Channel when API >= 26
             // you can create multiple Notification Channels with different names.
             LocalNotificationCenter.CreateNotificationChannel();

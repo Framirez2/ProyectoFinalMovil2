@@ -1,5 +1,4 @@
-﻿using Acr.UserDialogs;
-using Firebase.Auth;
+﻿using Firebase.Auth;
 using Newtonsoft.Json;
 using Plugin.Media.Abstractions;
 using Plugin.Media;

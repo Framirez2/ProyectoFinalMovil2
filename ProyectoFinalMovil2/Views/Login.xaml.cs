@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Rg.Plugins.Popup;
-using Acr.UserDialogs;
+
 using Xamarin.Essentials;
 using Plugin.LocalNotification;
 using Firebase.Auth;
@@ -58,9 +58,7 @@ namespace ProyectoFinalMovil2.Views
         }
         private async void btnregistrar_Clicked(object sender, EventArgs e)
         {
-            UserDialogs.Instance.ShowLoading("Cargando...", MaskType.Gradient);
             await Navigation.PushAsync(new Registro());
-            UserDialogs.Instance.HideLoading();
         }
 
         private async Task ValidarDatos()
@@ -78,7 +76,6 @@ namespace ProyectoFinalMovil2.Views
                     Usuarios parametros = new Usuarios();
                     parametros.Correo = Correo.Text;
                     var dt = await funcion2.GetDataMail1(parametros);
-                    UserDialogs.Instance.ShowLoading("Cargando...",MaskType.Gradient);
 
                     foreach (var fila in dt)
                     {
@@ -117,7 +114,6 @@ namespace ProyectoFinalMovil2.Views
 
                         Application.Current.MainPage = new NavigationPage(new FlyoutEmple1());
                     }
-                    UserDialogs.Instance.HideLoading();
                 }
                 catch (FirebaseAuthException)
                 {
@@ -130,9 +126,9 @@ namespace ProyectoFinalMovil2.Views
 
         private async void btnrecuperar_Clicked(object sender, EventArgs e)
         {
-            UserDialogs.Instance.ShowLoading("Cargando...", MaskType.Gradient);
+
             await Navigation.PushAsync(new Recuperar());
-            UserDialogs.Instance.HideLoading();
+
         }
     }
 }
