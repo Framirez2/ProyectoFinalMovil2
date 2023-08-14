@@ -2,80 +2,90 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:ProyectoFinalMovil2.Custom"
              x:Class="ProyectoFinalMovil2.Views.Profile">
-    <StackLayout Margin="10">
-        <Frame BorderColor="#2196F3"
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+                <Button Text="Atras"
+                      ImageSource="back.png"
+                      BackgroundColor="Purple"
+                          TextColor="White"
+                      CornerRadius="25"
+                  HorizontalOptions="Start"
+                    Clicked="Button_Clicked" />
+
+            <Frame BorderColor="#2196F3"
          CornerRadius="5"
          Padding="5"
          HasShadow="True"
          HorizontalOptions="CenterAndExpand" Margin="4">
-            <StackLayout>
-                <Image Source="profile.jpg"
+                <StackLayout>
+                    <Image Source="profile.jpg"
              HeightRequest="110"
              WidthRequest="50"
              BackgroundColor="Transparent" x:Name="btnsele"/>
-                
-                <Button FontSize="13" BackgroundColor="HotPink" TextColor="White" CornerRadius="10" ImageSource="gallery" Text="Cambiar Foto" x:Name="btnFoto" Clicked="btnFoto_Clicked"/>
-            </StackLayout>
-        </Frame>
-        
-        <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
-            <StackLayout Orientation="Horizontal">
-                <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
-                    <Image Source="nombres.png" Aspect="AspectFill" Margin="0"/>
-                </Frame>
 
-                <local:MyCustomEntry x:Name="nombres" Placeholder="Nombre completo"  TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
-                
-            </StackLayout>
-        </Frame>
-        
-        <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
-            <StackLayout Orientation="Horizontal">
-                <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
-                    <Image Source="email.png" Aspect="AspectFill" Margin="0"/>
-                </Frame>
+                    <Button FontSize="13" BackgroundColor="HotPink" TextColor="White" CornerRadius="10" ImageSource="gallery" Text="Cambiar Foto" x:Name="btnFoto" Clicked="btnFoto_Clicked"/>
+                </StackLayout>
+            </Frame>
 
-                <local:MyCustomEntry x:Name="email" Placeholder="Correo electronico" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
-            </StackLayout>
-            
-        </Frame>
-        
-        <Button BackgroundColor="HotPink" TextColor="White" CornerRadius="10" Text="Actulizar datos" Clicked="btnActualizar_Clicked"/>
-        
-        <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
-            <StackLayout Orientation="Horizontal">
-                <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
-                    <Image Source="contra.png" Aspect="AspectFill" Margin="0"/>
-                </Frame>
+            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                        <Image Source="nombres.png" Aspect="AspectFill" Margin="0"/>
+                    </Frame>
 
-                <local:MyCustomEntry x:Name="contra" Placeholder="Contraseña" IsPassword="True" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
-            </StackLayout>
-        </Frame>
+                    <local:MyCustomEntry x:Name="nombres" Placeholder="Nombre completo"  TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
 
-        <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
-            <StackLayout Orientation="Horizontal">
-                <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
-                    <Image Source="contra.png" Aspect="AspectFill" Margin="0"/>
-                </Frame>
+                </StackLayout>
+            </Frame>
 
-                <local:MyCustomEntry x:Name="contranue" Placeholder="Repetir nueva contraseña" IsPassword="True" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
-            </StackLayout>
-        </Frame>
-        <Button BackgroundColor="HotPink" TextColor="White" CornerRadius="10" Text="Actualizar Contraseña" Clicked="btnActualizarpass_Clicked"/>
-        <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                        <Image Source="email.png" Aspect="AspectFill" Margin="0"/>
+                    </Frame>
 
-            <Label Grid.Row="0" Text="Opciones de Cuenta" HorizontalOptions="Center" TextColor="Purple" FontSize="18" Margin="0,0,0,0" />
+                    <local:MyCustomEntry x:Name="email" Placeholder="Correo electronico" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                </StackLayout>
 
-            <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="10">
-                <Button Text="Cerrar Sesión" BackgroundColor="Purple" TextColor="White" CornerRadius="10" Clicked="btncerrar_Clicked" />
-                <Button Text="Eliminar Cuenta" x:Name="btnDeleteAcount" Clicked="btnDeleteAcount_Clicked" BackgroundColor="Purple" TextColor="White" CornerRadius="10" />
-                <!-- Agrega más botones aquí según tus necesidades -->
-            </StackLayout>
-        </Grid>
+            </Frame>
 
-    </StackLayout>
+            <Button BackgroundColor="HotPink" TextColor="White" CornerRadius="10" Text="Actulizar datos" Clicked="btnActualizar_Clicked"/>
+
+            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                        <Image Source="contra.png" Aspect="AspectFill" Margin="0"/>
+                    </Frame>
+
+                    <local:MyCustomEntry x:Name="contra" Placeholder="Contraseña" IsPassword="True" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                </StackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                        <Image Source="contra.png" Aspect="AspectFill" Margin="0"/>
+                    </Frame>
+
+                    <local:MyCustomEntry x:Name="contranue" Placeholder="Repetir nueva contraseña" IsPassword="True" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                </StackLayout>
+            </Frame>
+            <Button BackgroundColor="HotPink" TextColor="White" CornerRadius="10" Text="Actualizar Contraseña" Clicked="btnActualizarpass_Clicked"/>
+            <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Text="Opciones de Cuenta" HorizontalOptions="Center" TextColor="Purple" FontSize="18" Margin="0,0,0,0" />
+
+                <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="10">
+                    <Button Text="Cerrar Sesión" BackgroundColor="Purple" TextColor="White" CornerRadius="10" Clicked="btncerrar_Clicked" />
+                    <Button Text="Eliminar Cuenta" x:Name="btnDeleteAcount" Clicked="btnDeleteAcount_Clicked" BackgroundColor="Purple" TextColor="White" CornerRadius="10" />
+                    <!-- Agrega más botones aquí según tus necesidades -->
+                </StackLayout>
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

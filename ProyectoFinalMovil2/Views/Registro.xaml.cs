@@ -19,6 +19,7 @@ using ProyectoFinalMovil2.Components;
 using Xamarin.Essentials;
 using ProyectoFinalMovil2.Services;
 using ProyectoFinalMovil2.Controllers;
+using Plugin.LocalNotification;
 
 namespace ProyectoFinalMovil2.Views
 {
@@ -54,17 +55,29 @@ namespace ProyectoFinalMovil2.Views
                                     await getUserId();
                                     await uploadImageToStorage();
                                     await saveUser();
-                                    await App.Current.MainPage.Navigation.PushPopupAsync(new PopUp("Advertencia", "Registro Exitoso", PopUp.Warning), true);
-                                    clean();                               
+                                    await DisplayAlert("Advertencia", "Registro Exitoso", "OK");
+                                    clean();
+
+                                    var notification = new NotificationRequest
+                                    {
+                                        BadgeNumber = 1,
+                                        Description = "Registro Exitoso",
+                                        Title = "Creacion de Cuenta!",
+                                        ReturningData = "Dummy Data",
+                                        NotificationId = 1337,
+
+                                    };
+
+                                    await LocalNotificationCenter.Current.Show(notification);
                                 }
                                 else
                                 {
-                                    await App.Current.MainPage.Navigation.PushPopupAsync(new PopUp("Advertencia", "El correo electronico ya existe.", PopUp.Warning), true);
+                                    await DisplayAlert("Advertencia", "El correo electronico ya existe.", "OK");
                                 }
                             }
                             else
                             {
-                                await App.Current.MainPage.Navigation.PushPopupAsync(new PopUp("Advertencia", "Dede de tener al menos 7 caracteres.", PopUp.Warning), true);
+                                await DisplayAlert("Advertencia", "Dede de tener al menos 7 caracteres.", "OK");
                             }
                         }
                         else

@@ -320,6 +320,11 @@ namespace ProyectoFinalMovil2.Views
 
         }
 
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            OnBackButtonPressed();
+        }
+
         private void btncerrar_Clicked(object sender, EventArgs e)
         {
             Preferences.Remove("MyFirebaseRefreshToken");

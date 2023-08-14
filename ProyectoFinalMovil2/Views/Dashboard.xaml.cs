@@ -60,7 +60,7 @@ namespace ProyectoFinalMovil2.Views
             Nombre_Estilista = datos.FirstOrDefault()?.Nombres;
 
             Fecha = DateTime.Now.ToString("d/M/yyyy");
-            encabezado1.Text = "Reservaciones de Hoy!!";
+            encabezado1.Text = "RESERVACIONES DE HOY!!";
 
             ContM_Reservaciones consulta2 = new ContM_Reservaciones();
             ReservacionesClientes parametro1 = new ReservacionesClientes();
@@ -68,7 +68,7 @@ namespace ProyectoFinalMovil2.Views
 
             if (Tipo_User == "Cliente")
             {
-                encabezado1.Text = "Reservaciones de Hoy";
+                encabezado1.Text = "RESERVACIONES DE HOY";
                 parametro1.Id_Cliente = Id_User;
                 lstReserUser.ItemsSource = await consulta2.GetDataToday(parametro1);
             }
