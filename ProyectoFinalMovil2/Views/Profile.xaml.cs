@@ -332,8 +332,10 @@ namespace ProyectoFinalMovil2.Views
 
         private void btncerrar_Clicked(object sender, EventArgs e)
         {
+            UserDialogs.Instance.ShowLoading("Cerrando sesion", MaskType.Gradient);
             Preferences.Remove("MyFirebaseRefreshToken");
             Application.Current.MainPage = new NavigationPage(new Login());
+            UserDialogs.Instance.HideLoading();
         }
 
         private async void btnFoto_Clicked(object sender, EventArgs e)
